@@ -1,0 +1,21 @@
+﻿<Page x:Class="BloodDonationManamentSystem.Home"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:BloodDonationManamentSystem"
+      mc:Ignorable="d" 
+      d:DesignHeight="700" d:DesignWidth="1280"
+      Title="Home">
+
+    <Grid Background="White">
+        <Image/>
+        <Button x:Name="btnHospital" Content="Hospital" HorizontalAlignment="Left" Margin="250,325,0,0" VerticalAlignment="Top" Height="100" Width="350" FontSize="48" Click="btnHospital_Click"/>
+        <Button x:Name="btnCamp" Content="Donation Camp" Margin="702,325,250,0" VerticalAlignment="Top" Height="100" FontSize="48" Click="btnCamp_Click"/>
+        <Button x:Name="btnBank" Content="Blood Bank" HorizontalAlignment="Center" Margin="0,475,0,0" VerticalAlignment="Top" Height="100" Width="350" FontSize="48" Click="btnBank_Click"/>
+        <Label Content="WELCOME" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" FontSize="100"/>
+        <Label Content="Blood Donation Management System" HorizontalAlignment="Center" Margin="0,130,0,0" VerticalAlignment="Top" FontSize="48"/>
+        <Label Content="You are" HorizontalAlignment="Center" Margin="0,250,0,0" VerticalAlignment="Top" FontSize="36"/>
+
+    </Grid>
+</Page>

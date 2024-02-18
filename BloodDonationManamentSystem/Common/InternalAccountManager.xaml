@@ -1,0 +1,17 @@
+﻿<Page x:Class="BloodDonationManamentSystem.InternalAccountManager"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:BloodDonationManamentSystem"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="1000"
+      Title="InternalAccountManager">
+
+    <Grid Background="White">
+        <DataGrid d:ItemsSource="{d:SampleData ItemCount=5}" Margin="10,129,10,10"/>
+        <Label Content="User Accounts" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" FontSize="36"/>
+        <Button Content="Create new account" HorizontalAlignment="Left" Margin="878,104,0,0" VerticalAlignment="Top"/>
+
+    </Grid>
+</Page>
