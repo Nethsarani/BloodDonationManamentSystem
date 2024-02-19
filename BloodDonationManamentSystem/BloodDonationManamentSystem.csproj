@@ -58,6 +58,9 @@
     <Compile Include="Common\AccountRegister.xaml.cs">
       <DependentUpon>AccountRegister.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Hospital and Blood bank\BloodStock.xaml.cs">
+      <DependentUpon>BloodStock.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Hospital and Event\Appointment.xaml.cs">
       <DependentUpon>Appointment.xaml</DependentUpon>
     </Compile>
@@ -65,6 +68,9 @@
       <DependentUpon>bankDashboard.xaml</DependentUpon>
     </Compile>
     <Compile Include="DB.cs" />
+    <Compile Include="Hospital and Event\Donation.xaml.cs">
+      <DependentUpon>Donation.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Hospital and Event\DonorApproval.xaml.cs">
       <DependentUpon>DonorApproval.xaml</DependentUpon>
     </Compile>
@@ -84,11 +90,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Hospital and Blood bank\BloodStock.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Hospital and Event\Appointment.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Blood bank\bankDashboard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Hospital and Event\Donation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
