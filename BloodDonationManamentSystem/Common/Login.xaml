@@ -15,7 +15,7 @@
         <Label Content="Password" HorizontalAlignment="Left" Margin="415,354,0,0" VerticalAlignment="Top" FontSize="36"/>
         <Button x:Name="btnLogin" Content="Login" HorizontalAlignment="Left" Margin="715,502,0,0" VerticalAlignment="Top" FontSize="36" Width="150" Click="btnLogin_Click"/>
         <Button x:Name="btnReg" Content="Register" HorizontalAlignment="Left" Margin="715,599,0,0" VerticalAlignment="Top" FontSize="36" Width="150" Click="btnReg_Click"/>
-        <Label Content="Register as new donation camp" HorizontalAlignment="Left" Margin="415,607,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <Label Content="Register as new ............" HorizontalAlignment="Left" Margin="415,607,0,0" VerticalAlignment="Top" FontSize="20"/>
         <Label Content="WELCOME" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" FontSize="100"/>
         <Label Content="Blood Donation Management System" HorizontalAlignment="Center" Margin="0,130,0,0" VerticalAlignment="Top" FontSize="48"/>
         <Button x:Name="btnBack" Content="←" HorizontalAlignment="Left" Margin="44,41,0,0" VerticalAlignment="Top" FontSize="72" Width="150" Padding="1,-35,1,-20" UseLayoutRounding="True" ScrollViewer.CanContentScroll="True" Click="btnBack_Click"/>

@@ -11,7 +11,19 @@
     <Grid Width="1000" Height="600" Background="White">
         <ComboBox x:Name="cmbType" HorizontalAlignment="Left" Margin="782,73,0,0" VerticalAlignment="Top" Width="120"/>
         <Button x:Name="btnFind" Content="Search" HorizontalAlignment="Left" Margin="943,73,0,0" VerticalAlignment="Top"/>
-        <DataGrid d:ItemsSource="{d:SampleData ItemCount=5}" Margin="10,398,10,10"/>
+        <DataGrid d:ItemsSource="{d:SampleData ItemCount=5}" Margin="10,398,10,10" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID"/>
+                <DataGridTextColumn Header="Name"/>
+                <DataGridTextColumn Header="Gender"/>
+                <DataGridTextColumn Header="NIC"/>
+                <DataGridTextColumn Header="Date of Birth"/>
+                <DataGridHyperlinkColumn Header="Address"/>
+                <DataGridTextColumn Header="Contact No"/>
+                <DataGridTextColumn Header="Email"/>
+                <DataGridTextColumn Header="Blood Type"/>
+            </DataGrid.Columns>
+        </DataGrid>
         <Label Content="Donors" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" FontSize="36"/>
         <Grid Margin="10,104,10,224" Background="#FFE9CDCD"/>
 

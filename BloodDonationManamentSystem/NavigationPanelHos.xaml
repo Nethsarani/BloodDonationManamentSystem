@@ -1,0 +1,26 @@
+﻿<Page x:Class="BloodDonationManamentSystem.NavigationPanelHos"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:BloodDonationManamentSystem"
+      mc:Ignorable="d" 
+      d:DesignHeight="700" d:DesignWidth="280"
+      Title="NavigationPanelHos">
+
+    <Grid Background="White">
+        <ListView x:Name="lst">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn/>
+                </GridView>
+            </ListView.View>
+            <Button Content="Home" Width="250"/>
+            <Button Content="Donors" Width="250"/>
+            <Button Content="Donations" Width="250"/>
+            <Button Content="Appointments" Width="250"/>
+            <Button Content="Blood stock" Width="250"/>
+        </ListView>
+
+    </Grid>
+</Page>

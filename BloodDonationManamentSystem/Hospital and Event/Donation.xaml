@@ -9,12 +9,21 @@
       Title="Donation">
 
     <Grid Background="White">
-        <DataGrid d:ItemsSource="{d:SampleData ItemCount=5}" Margin="48,87,48,10"/>
+        <DataGrid d:ItemsSource="{d:SampleData ItemCount=5}" Margin="48,87,48,10" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID"/>
+                <DataGridTextColumn Header="Donor ID"/>
+                <DataGridTextColumn Header="Donor Name"/>
+                <DataGridTextColumn Header="Date"/>
+                <DataGridTextColumn Header="Blood Type"/>
+                <DataGridTextColumn Header="Amount"/>
+            </DataGrid.Columns>
+        </DataGrid>
         <Label Content="Donations" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="36" Margin="0,-5,0,0"/>
         <DatePicker HorizontalAlignment="Left" Margin="711,54,0,0" VerticalAlignment="Top"/>
         <ComboBox HorizontalAlignment="Left" Margin="570,56,0,0" VerticalAlignment="Top" Width="120"/>
-        <Button Content="Filter" HorizontalAlignment="Left" Margin="844,58,0,0" VerticalAlignment="Top"/>
-        <Button Content="Reset" HorizontalAlignment="Left" Margin="912,58,0,0" VerticalAlignment="Top"/>
+        <Button Content="Filter" HorizontalAlignment="Left" Margin="844,58,0,0" VerticalAlignment="Top" Width="50"/>
+        <Button Content="Reset" HorizontalAlignment="Left" Margin="902,58,0,0" VerticalAlignment="Top" Width="50"/>
 
     </Grid>
 </Page>

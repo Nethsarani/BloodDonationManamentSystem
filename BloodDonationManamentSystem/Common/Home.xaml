@@ -11,7 +11,7 @@
     <Grid Background="White">
         <Image/>
         <Button x:Name="btnHospital" Content="Hospital" HorizontalAlignment="Left" Margin="250,325,0,0" VerticalAlignment="Top" Height="100" Width="350" FontSize="48" Click="btnHospital_Click"/>
-        <Button x:Name="btnCamp" Content="Donation Camp" Margin="702,325,250,0" VerticalAlignment="Top" Height="100" FontSize="48" Click="btnCamp_Click"/>
+        <Button x:Name="btnCamp" Content="Donation Camp" Margin="691,325,239,0" VerticalAlignment="Top" Height="100" FontSize="48" Click="btnCamp_Click" Width="350"/>
         <Button x:Name="btnBank" Content="Blood Bank" HorizontalAlignment="Center" Margin="0,475,0,0" VerticalAlignment="Top" Height="100" Width="350" FontSize="48" Click="btnBank_Click"/>
         <Label Content="WELCOME" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" FontSize="100"/>
         <Label Content="Blood Donation Management System" HorizontalAlignment="Center" Margin="0,130,0,0" VerticalAlignment="Top" FontSize="48"/>

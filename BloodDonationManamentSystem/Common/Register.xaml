@@ -9,28 +9,49 @@
       Title="Register">
 
     <Grid Background="White">
+        <Grid x:Name="EventGrid" Margin="48,225,748,15" Width="484" Height="460">
+            <Label Content="Date" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="24" Margin="0,4,0,0"/>
+            <Label Content="Start time" HorizontalAlignment="Left" Margin="0,70,0,0" VerticalAlignment="Top" FontSize="24"/>
+            <Label Content="End time" HorizontalAlignment="Left" Margin="0,140,0,0" VerticalAlignment="Top" FontSize="24"/>
+            <DatePicker HorizontalAlignment="Right" Margin="0,13,72,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Width="126">
+                <DatePicker.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleX="2" ScaleY="2"/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </DatePicker.RenderTransform>
+            </DatePicker>
+            <TextBox HorizontalAlignment="Right" Margin="0,70,10,0" VerticalAlignment="Top" Width="250" FontSize="24"/>
+            <TextBox HorizontalAlignment="Right" Margin="0,140,10,0" VerticalAlignment="Top" Width="250" FontSize="24"/>
+        </Grid>
+
+
+
+
         <Button x:Name="btnBack" Content="←" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="72" Width="150" Padding="1,-35,1,-20" UseLayoutRounding="True" ScrollViewer.CanContentScroll="True" Click="btnBack_Click" Margin="25,25,0,0"/>
         <Label Content="Blood Donation Management System" HorizontalAlignment="Center" Margin="0,30,0,0" VerticalAlignment="Top" FontSize="48"/>
-        <TextBox HorizontalAlignment="Left" Margin="300,184,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="250" FontSize="24" TextChanged="TextBox_TextChanged"/>
-        <Label Content="Name" HorizontalAlignment="Left" Margin="66,180,0,0" VerticalAlignment="Top" FontSize="24" Padding="0,5,5,5"/>
-        <Label Content="Contact No" HorizontalAlignment="Left" Margin="675,178,0,0" VerticalAlignment="Top" FontSize="24"/>
-        <Label Content="Email" HorizontalAlignment="Left" Margin="675,229,0,0" VerticalAlignment="Top" FontSize="24"/>
-        <Label Content="Username" HorizontalAlignment="Left" Margin="675,468,0,0" VerticalAlignment="Top" FontSize="24"/>
-        <Label Content="Password" HorizontalAlignment="Left" Margin="675,510,0,0" VerticalAlignment="Top" FontSize="24"/>
-        <Label Content="Address" HorizontalAlignment="Left" Margin="675,268,0,0" VerticalAlignment="Top" FontSize="24"/>
-        <Label Content="District" HorizontalAlignment="Left" Margin="675,0,0,0" VerticalAlignment="Center" FontSize="24"/>
-        <Label Content="City" HorizontalAlignment="Left" Margin="675,379,0,0" VerticalAlignment="Top" FontSize="24"/>
-        <Label Content="Select location" HorizontalAlignment="Left" Margin="675,420,0,0" VerticalAlignment="Top" FontSize="24"/>
-        <TextBox HorizontalAlignment="Left" Margin="905,182,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="250" FontSize="24"/>
-        <TextBox HorizontalAlignment="Left" Margin="905,233,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="250" FontSize="24"/>
-        <TextBox HorizontalAlignment="Left" Margin="905,272,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="250" FontSize="24"/>
-        <TextBox HorizontalAlignment="Left" Margin="905,0,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Center" Width="250" FontSize="24"/>
-        <TextBox HorizontalAlignment="Left" Margin="905,383,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="250" FontSize="24"/>
-        <TextBox HorizontalAlignment="Left" Margin="905,472,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="250" FontSize="24"/>
-        <PasswordBox HorizontalAlignment="Left" Margin="905,514,0,0" VerticalAlignment="Top" Width="250" FontSize="24"/>
-        <PasswordBox HorizontalAlignment="Left" Margin="905,557,0,0" VerticalAlignment="Top" Width="250" FontSize="24"/>
-        <Label Content="Retype password" HorizontalAlignment="Left" Margin="675,553,0,0" VerticalAlignment="Top" FontSize="24"/>
-        <Grid HorizontalAlignment="Left" Height="460" Margin="66,229,0,0" VerticalAlignment="Top" Width="484">
+        <TextBox HorizontalAlignment="Left" Margin="282,123,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="250" FontSize="24" TextChanged="TextBox_TextChanged"/>
+        <Label Content="Name" HorizontalAlignment="Left" Margin="48,119,0,0" VerticalAlignment="Top" FontSize="24" Padding="0,5,5,5"/>
+        <Label Content="Contact No" HorizontalAlignment="Left" Margin="657,117,0,0" VerticalAlignment="Top" FontSize="24"/>
+        <Label Content="Email" HorizontalAlignment="Left" Margin="657,168,0,0" VerticalAlignment="Top" FontSize="24"/>
+        <Label Content="Username" HorizontalAlignment="Left" Margin="657,407,0,0" VerticalAlignment="Top" FontSize="24"/>
+        <Label Content="Password" HorizontalAlignment="Left" Margin="657,449,0,0" VerticalAlignment="Top" FontSize="24"/>
+        <Label Content="Address" HorizontalAlignment="Left" Margin="657,207,0,0" VerticalAlignment="Top" FontSize="24"/>
+        <Label Content="District" HorizontalAlignment="Left" Margin="657,268,0,0" VerticalAlignment="Top" FontSize="24"/>
+        <Label Content="City" HorizontalAlignment="Left" Margin="657,317,0,0" VerticalAlignment="Top" FontSize="24"/>
+        <Label Content="Location" HorizontalAlignment="Left" Margin="657,359,0,0" VerticalAlignment="Top" FontSize="24"/>
+        <TextBox HorizontalAlignment="Left" Margin="887,121,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="250" FontSize="24"/>
+        <TextBox HorizontalAlignment="Left" Margin="887,172,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="250" FontSize="24"/>
+        <TextBox HorizontalAlignment="Left" Margin="887,211,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="250" FontSize="24"/>
+        <TextBox HorizontalAlignment="Left" Margin="887,272,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="250" FontSize="24"/>
+        <TextBox HorizontalAlignment="Left" Margin="887,321,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="250" FontSize="24"/>
+        <TextBox HorizontalAlignment="Left" Margin="887,411,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="250" FontSize="24"/>
+        <PasswordBox HorizontalAlignment="Left" Margin="887,453,0,0" VerticalAlignment="Top" Width="250" FontSize="24"/>
+        <PasswordBox HorizontalAlignment="Left" Margin="887,496,0,0" VerticalAlignment="Top" Width="250" FontSize="24"/>
+        <Label Content="Retype password" HorizontalAlignment="Left" Margin="657,492,0,0" VerticalAlignment="Top" FontSize="24"/>
+        <Grid x:Name="HospitalGrid" HorizontalAlignment="Left" Height="460" Margin="48,168,0,0" VerticalAlignment="Top" Width="484">
             <TextBox HorizontalAlignment="Left" Margin="234,4,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="250" FontSize="24"/>
             <Label Content="Registration No." HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="24" Padding="0,5,5,5"/>
             <CheckBox Content="Collecting blood" HorizontalAlignment="Left" Margin="0,34,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FlowDirection="RightToLeft" Padding="40,0,0,0" Height="33" Grid.IsSharedSizeScope="True" UseLayoutRounding="False" BorderThickness="1,1,1,1" RenderTransformOrigin="0.5,0.5" Checked="CheckBox_Checked">
@@ -76,7 +97,7 @@
             <Label Content="Thursday" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="24" Margin="0,297,0,0"/>
             <Label Content="Friday" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="24" Margin="0,342,0,0"/>
             <Label Content="Saturday" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="24" Margin="0,384,0,0"/>
-            <Label Content="Sunday" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="24" Margin="0,418,0,0"/>
+            <Label x:Name="HosGrid" Content="Sunday" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="24" Margin="0,418,0,0"/>
             <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="100" FontSize="24" Margin="234,188,0,0"/>
             <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="100" FontSize="24" Margin="384,188,0,0"/>
             <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="100" FontSize="24" Margin="234,236,0,0"/>
@@ -96,24 +117,10 @@
 
 
         </Grid>
-        <Label Content="Date" HorizontalAlignment="Left" Margin="675,603,0,0" VerticalAlignment="Top" FontSize="24"/>
-        <Label Content="Start time" HorizontalAlignment="Left" Margin="675,642,0,0" VerticalAlignment="Top" FontSize="24"/>
-        <Label Content="End time" HorizontalAlignment="Left" Margin="675,663,0,0" VerticalAlignment="Top" FontSize="24"/>
-        <DatePicker HorizontalAlignment="Left" Margin="956,612,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
-            <DatePicker.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform ScaleX="2" ScaleY="2"/>
-                    <SkewTransform/>
-                    <RotateTransform/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </DatePicker.RenderTransform>
-        </DatePicker>
-        <PasswordBox HorizontalAlignment="Left" Margin="905,638,0,0" VerticalAlignment="Top" Width="250" FontSize="24"/>
-        <PasswordBox HorizontalAlignment="Left" Margin="905,682,0,0" VerticalAlignment="Top" Width="250" FontSize="24"/>
-        <Button x:Name="btnReg" HorizontalAlignment="Left" Margin="1108,641,0,7" FontSize="36" Width="150" Click="btnReg_Click">
-           
-        </Button>
+
+        <Button x:Name="btnReg" HorizontalAlignment="Left" Margin="1142,655,0,10" FontSize="24" Width="100" Click="btnReg_Click" Content="Register" Height="35"/>
+        <Button x:Name="btnReg_Copy" HorizontalAlignment="Left" Margin="1038,363,0,302" FontSize="24" Width="100" Click="btnReg_Click" Content="Select" Height="35"/>
+        <Label Content="Location" HorizontalAlignment="Left" Margin="888,368,0,0" VerticalAlignment="Top" Height="33" Width="124"/>
 
 
 

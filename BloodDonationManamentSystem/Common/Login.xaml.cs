@@ -47,6 +47,7 @@ namespace BloodDonationManamentSystem
                 //Canvas.SetZIndex(win.mainFrame, 0);
                 win.mainFrame.Visibility = Visibility.Collapsed;
                 win.contentFrame.Navigate(new HospitalDashboard());
+                win.navigationFrame.Navigate(new NavigationPanelHos());
             }
             else if(this.path == "Camp")
             {
