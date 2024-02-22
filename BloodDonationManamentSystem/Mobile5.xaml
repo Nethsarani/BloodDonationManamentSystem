@@ -1,0 +1,27 @@
+﻿<Page x:Class="BloodDonationManamentSystem.Mobile5"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:BloodDonationManamentSystem"
+      mc:Ignorable="d" 
+      d:DesignHeight="1280" d:DesignWidth="720"
+      Title="Mobile5">
+
+    <Grid Background="White">
+        <Rectangle HorizontalAlignment="Center" Height="100" Stroke="Black" VerticalAlignment="Top" Width="720" Fill="#FFB4EA80"/>
+        <Label Content="Register" HorizontalAlignment="Center" Margin="0,135,0,0" VerticalAlignment="Top" FontSize="48"/>
+        <Button Content="Submit" HorizontalAlignment="Left" Margin="473,1163,0,0" VerticalAlignment="Top" FontSize="48" Width="200"/>
+        <Label Content="Mobile No" HorizontalAlignment="Left" Margin="113,244,0,0" VerticalAlignment="Top" FontSize="36"/>
+        <TextBox HorizontalAlignment="Left" Margin="113,296,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="500" Height="65" FontSize="48"/>
+        <Label Content="Email" HorizontalAlignment="Left" Margin="113,384,0,0" VerticalAlignment="Top" FontSize="36"/>
+        <TextBox HorizontalAlignment="Left" Margin="113,436,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="500" Height="65" FontSize="48"/>
+        <Label Content="Username" HorizontalAlignment="Left" Margin="113,524,0,0" VerticalAlignment="Top" FontSize="36"/>
+        <TextBox HorizontalAlignment="Left" Margin="113,576,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="500" Height="65" FontSize="48"/>
+        <Label Content="Password" HorizontalAlignment="Left" Margin="113,664,0,0" VerticalAlignment="Top" FontSize="36"/>
+        <TextBox HorizontalAlignment="Left" Margin="113,716,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="500" Height="65" FontSize="48"/>
+        <Label Content="Retype Password" HorizontalAlignment="Left" Margin="113,806,0,0" VerticalAlignment="Top" FontSize="36"/>
+        <TextBox HorizontalAlignment="Left" Margin="113,858,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="500" Height="65" FontSize="48"/>
+
+    </Grid>
+</Page>

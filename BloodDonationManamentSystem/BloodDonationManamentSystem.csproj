@@ -89,6 +89,21 @@
     <Compile Include="Common\Register.xaml.cs">
       <DependentUpon>Register.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Mobile1.xaml.cs">
+      <DependentUpon>Mobile1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Mobile2.xaml.cs">
+      <DependentUpon>Mobile2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Mobile3.xaml.cs">
+      <DependentUpon>Mobile3.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Mobile4.xaml.cs">
+      <DependentUpon>Mobile4.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Mobile5.xaml.cs">
+      <DependentUpon>Mobile5.xaml</DependentUpon>
+    </Compile>
     <Compile Include="TopBar.xaml.cs">
       <DependentUpon>TopBar.xaml</DependentUpon>
     </Compile>
@@ -159,6 +174,26 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Common\Register.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Mobile1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Mobile2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Mobile3.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Mobile4.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Mobile5.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
