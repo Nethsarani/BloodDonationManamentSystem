@@ -7,9 +7,10 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="720" Width="1280">
     <Canvas x:Name="mainGrid" Width="1280" Height="700">
-        <Frame x:Name="mainFrame" Content="Frame" Height="700" Panel.ZIndex="1" Navigated="mainFrame_Navigated" Width="1280"/>
-        <Frame x:Name="navigationFrame" Content="Frame" Width="280" Height="700"/>
-        <Frame x:Name="contentFrame" Content="Frame" Width="1000" Margin="280,100,0,0" Height="600"/>
+        <Frame x:Name="mainFrame" Content="Frame" Height="700" Panel.ZIndex="1" Navigated="mainFrame_Navigated" Width="1280" NavigationUIVisibility="Hidden"/>
+        <Frame x:Name="navigationFrame" Content="Frame" Width="280" Height="700" NavigationUIVisibility="Hidden"/>
+        <Frame x:Name="contentFrame" Content="Frame" Width="1000" Margin="280,100,0,0" Height="600" NavigationUIVisibility="Hidden"/>
+        <Frame x:Name="topFrame" Content="Frame" Width="1000" Height="100" Canvas.Left="280" HorizontalAlignment="Center" VerticalAlignment="Top" NavigationUIVisibility="Hidden"/>
 
     </Canvas>
 </Window>

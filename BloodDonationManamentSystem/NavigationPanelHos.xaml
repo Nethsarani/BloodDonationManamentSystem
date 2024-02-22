@@ -15,11 +15,13 @@
                     <GridViewColumn/>
                 </GridView>
             </ListView.View>
-            <Button Content="Home" Width="250"/>
-            <Button Content="Donors" Width="250"/>
-            <Button Content="Donations" Width="250"/>
-            <Button Content="Appointments" Width="250"/>
-            <Button Content="Blood stock" Width="250"/>
+            <Button x:Name="btnHome" Content="Home" Width="250" Height="30" Click="btnHome_Click"/>
+            <Button x:Name="btnDonors" Content="Donors" Width="250" Height="30" Click="btnDonors_Click"/>
+            <Button x:Name="btnAccounts" Content="All Accounts" Width="250" Height="30" Click="btnAccounts_Click"/>
+            <Button x:Name="btnDonations" Content="Donations" Width="250" Height="30" Click="btnDonations_Click"/>
+            <Button x:Name="btnAppointments" Content="Appointments" Width="250" Height="30" Click="btnAppointments_Click"/>
+            <Button x:Name="btnStock" Content="Blood stock" Width="250" Height="30" Click="btnStock_Click"/>
+            <Button x:Name="btnACManager" Content="Internal account management" Width="250" Height="30" Click="btnACManager_Click"/>
         </ListView>
 
     </Grid>

@@ -16,22 +16,20 @@ using System.Windows.Shapes;
 namespace BloodDonationManamentSystem
 {
     /// <summary>
-    /// Interaction logic for HospitalDashboard.xaml
+    /// Interaction logic for TopBar.xaml
     /// </summary>
-    public partial class HospitalDashboard : Page
+    public partial class TopBar : Page
     {
-        public HospitalDashboard(String path)
+        MainWindow win;
+        public TopBar()
         {
             InitializeComponent();
-            if(path=="Camp")
-            {
-                subGridHos.Visibility = Visibility.Collapsed;
-            }
         }
 
-        private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-
+            win = (MainWindow)Window.GetWindow(this);
+            win.contentFrame.Navigate(new DonorApproval());
         }
     }
 }

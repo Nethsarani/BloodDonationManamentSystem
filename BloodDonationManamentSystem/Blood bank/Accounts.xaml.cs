@@ -16,22 +16,13 @@ using System.Windows.Shapes;
 namespace BloodDonationManamentSystem
 {
     /// <summary>
-    /// Interaction logic for HospitalDashboard.xaml
+    /// Interaction logic for Accounts.xaml
     /// </summary>
-    public partial class HospitalDashboard : Page
+    public partial class Accounts : Page
     {
-        public HospitalDashboard(String path)
+        public Accounts()
         {
             InitializeComponent();
-            if(path=="Camp")
-            {
-                subGridHos.Visibility = Visibility.Collapsed;
-            }
-        }
-
-        private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
         }
     }
 }

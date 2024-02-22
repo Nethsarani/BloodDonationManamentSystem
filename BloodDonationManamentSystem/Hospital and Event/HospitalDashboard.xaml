@@ -28,7 +28,7 @@
         <Rectangle HorizontalAlignment="Left" Height="197" Margin="232,162,0,0" Stroke="Black" VerticalAlignment="Top" Width="731"/>
 
 
-        <DataGrid d:ItemsSource="{d:SampleData ItemCount=5}" Margin="232,201,37,241" AutoGenerateColumns="False">
+        <DataGrid d:ItemsSource="{d:SampleData ItemCount=5}" Margin="232,201,37,241" AutoGenerateColumns="False" SelectionChanged="DataGrid_SelectionChanged">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID"/>
                 <DataGridTextColumn Header="Donor ID"/>

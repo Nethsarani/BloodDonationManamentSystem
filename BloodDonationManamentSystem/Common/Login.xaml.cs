@@ -46,18 +46,23 @@ namespace BloodDonationManamentSystem
             {
                 //Canvas.SetZIndex(win.mainFrame, 0);
                 win.mainFrame.Visibility = Visibility.Collapsed;
-                win.contentFrame.Navigate(new HospitalDashboard());
-                win.navigationFrame.Navigate(new NavigationPanelHos());
+                win.contentFrame.Navigate(new HospitalDashboard(path));
+                win.navigationFrame.Navigate(new NavigationPanelHos(path));
+                win.topFrame.Navigate(new TopBar());
             }
             else if(this.path == "Camp")
             {
                 win.mainFrame.Visibility = Visibility.Collapsed;
-                //win.contentFrame.Navigate (new ());
+                win.contentFrame.Navigate(new HospitalDashboard(path));
+                win.navigationFrame.Navigate(new NavigationPanelHos(path));
+                win.topFrame.Navigate(new TopBar());
             }
             else if(this.path == "Bank")
             {
                 win.mainFrame.Visibility = Visibility.Collapsed;
                 win.contentFrame.Navigate(new bankDashboard());
+                win.navigationFrame.Navigate(new NavigationPanelHos(path));
+                win.topFrame.Navigate(new TopBar());
             }
         }
 
