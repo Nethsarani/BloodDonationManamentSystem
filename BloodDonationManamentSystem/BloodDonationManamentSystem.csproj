@@ -61,6 +61,7 @@
     <Compile Include="Common\AccountRegister.xaml.cs">
       <DependentUpon>AccountRegister.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Donor.cs" />
     <Compile Include="Hospital and Blood bank\BloodStock.xaml.cs">
       <DependentUpon>BloodStock.xaml</DependentUpon>
     </Compile>
