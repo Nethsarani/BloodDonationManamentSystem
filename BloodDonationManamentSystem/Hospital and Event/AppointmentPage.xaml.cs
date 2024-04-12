@@ -18,9 +18,9 @@ namespace BloodDonationManamentSystem
     /// <summary>
     /// Interaction logic for Appointment.xaml
     /// </summary>
-    public partial class Appointment : Page
+    public partial class AppointmentPage : Page
     {
-        public Appointment()
+        public AppointmentPage()
         {
             InitializeComponent();
         }

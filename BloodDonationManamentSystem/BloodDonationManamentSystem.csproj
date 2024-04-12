@@ -58,22 +58,32 @@
     <Compile Include="Blood bank\Accounts.xaml.cs">
       <DependentUpon>Accounts.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Appointment.cs" />
+    <Compile Include="Models\BloodStock.cs" />
+    <Compile Include="Models\CollectionPoint.cs" />
     <Compile Include="Common\AccountRegister.xaml.cs">
       <DependentUpon>AccountRegister.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Donor.cs" />
+    <Compile Include="Models\Donation.cs" />
+    <Compile Include="Models\DonationCamp.cs" />
+    <Compile Include="Models\Donor.cs" />
     <Compile Include="Hospital and Blood bank\BloodStock.xaml.cs">
       <DependentUpon>BloodStock.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Hospital and Event\Appointment.xaml.cs">
-      <DependentUpon>Appointment.xaml</DependentUpon>
+    <Compile Include="Hospital and Event\AppointmentPage.xaml.cs">
+      <DependentUpon>AppointmentPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Blood bank\bankDashboard.xaml.cs">
       <DependentUpon>bankDashboard.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DB.cs" />
-    <Compile Include="Hospital and Event\Donation.xaml.cs">
-      <DependentUpon>Donation.xaml</DependentUpon>
+    <Compile Include="Models\DB.cs" />
+    <Compile Include="Hospital and Event\DonationPage.xaml.cs">
+      <DependentUpon>DonationPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Hospital and Event\DonorApproval.xaml.cs">
       <DependentUpon>DonorApproval.xaml</DependentUpon>
@@ -90,6 +100,9 @@
     <Compile Include="Common\Register.xaml.cs">
       <DependentUpon>Register.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Models\HealthCondition.cs" />
+    <Compile Include="Models\Hospital.cs" />
+    <Compile Include="Models\Location.cs" />
     <Compile Include="Mobile1.xaml.cs">
       <DependentUpon>Mobile1.xaml</DependentUpon>
     </Compile>
@@ -105,6 +118,8 @@
     <Compile Include="Mobile5.xaml.cs">
       <DependentUpon>Mobile5.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Models\Request.cs" />
+    <Compile Include="Models\TimeRange.cs" />
     <Compile Include="TopBar.xaml.cs">
       <DependentUpon>TopBar.xaml</DependentUpon>
     </Compile>
@@ -120,7 +135,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Hospital and Event\Appointment.xaml">
+    <Page Include="Hospital and Event\AppointmentPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -128,7 +143,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Hospital and Event\Donation.xaml">
+    <Page Include="Hospital and Event\DonationPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -228,6 +243,17 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="DataSet.xsc">
+      <DependentUpon>DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSet.xss">
+      <DependentUpon>DataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -240,6 +266,9 @@
     <Folder Include="Event and Blood bank\" />
     <Folder Include="Event\" />
     <Folder Include="Hospital\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

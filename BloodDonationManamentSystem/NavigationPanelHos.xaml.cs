@@ -67,7 +67,7 @@ namespace BloodDonationManamentSystem
         private void btnAppointments_Click(object sender, RoutedEventArgs e)
         {
             win = (MainWindow)Window.GetWindow(this);
-            win.contentFrame.Navigate(new Appointment());
+            win.contentFrame.Navigate(new AppointmentPage());
         }
 
         private void btnStock_Click(object sender, RoutedEventArgs e)

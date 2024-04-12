@@ -1,4 +1,4 @@
-﻿<Page x:Class="BloodDonationManamentSystem.Appointment"
+﻿<Page x:Class="BloodDonationManamentSystem.AppointmentPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:BloodDonationManamentSystem"
       mc:Ignorable="d" 
       d:DesignHeight="600" d:DesignWidth="1000"
-      Title="Appointment" Width="1000" Height="596">
+      Title="AppointmentPage" Width="1000" Height="596">
 
     <Grid Width="1000" Height="600" Background="White">
         <DataGrid d:ItemsSource="{d:SampleData ItemCount=5}" Margin="48,87,48,10" AutoGenerateColumns="False">

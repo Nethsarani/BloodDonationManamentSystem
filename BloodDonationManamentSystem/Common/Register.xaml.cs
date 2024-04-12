@@ -16,6 +16,7 @@ using System.Windows.Shapes;
 
 namespace BloodDonationManamentSystem
 {
+    
     /// <summary>
     /// Interaction logic for Register.xaml
     /// </summary>
@@ -23,6 +24,9 @@ namespace BloodDonationManamentSystem
     {
         String path;
         MainWindow win;
+        bool testing=false;
+        bool collecting=false;
+        DB dB = new DB();
         public Register(String path)
         {
             InitializeComponent();
@@ -33,20 +37,25 @@ namespace BloodDonationManamentSystem
             win = (MainWindow)Window.GetWindow(this);
         }
 
-        private void CheckBox_Checked(object sender, RoutedEventArgs e)
-        {
+        
 
-        }
-
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
+        
 
         
 
         private void btnReg_Click(object sender, RoutedEventArgs e)
         {
+            Location location = new Location();
+            List<TimeSpan> opening = new List<TimeSpan>();
+            if (this.path == "Hospital")
+            {
+                Hospital hospital = new Hospital(txtName.Text,location,txtContact.Text,txtEmail.Text,txtUsername.Text,txtPassword.Password,txtRegNo.Text ,testing,collecting,opening);
+                dB.insertToDatabase(hospital, "Hospital");
+            }
+            else if (this.path == "Camp")
+            {
+                DonationCamp donationCamp = new DonationCamp(txtName.Text, location, txtContact.Text, txtEmail.Text, txtUsername.Text, txtPassword.Password, dtpDate.SelectedDate,txtSTime.Text,txtETime.Text);
+            }
             winLoad();
             win.mainFrame.Navigate(new Login(path));
         }
@@ -55,6 +64,32 @@ namespace BloodDonationManamentSystem
         {
             winLoad();
             win.mainFrame.Navigate(new Login(path));
+        }
+
+        private void chkCollecting_Checked(object sender, RoutedEventArgs e)
+        {
+            if(chkCollecting.IsChecked==true)
+            {
+                collecting = true;
+            }
+            else
+            {
+                collecting = false;
+            }
+            
+        }
+
+        private void chkTesting_Checked(object sender, RoutedEventArgs e)
+        {
+            if (chkTesting.IsChecked == true)
+            {
+                testing = true;
+            }
+            else
+            {
+                testing = false;
+            }
+
         }
     }
 }
