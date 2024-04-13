@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BloodDonationManamentSystem.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,10 +23,18 @@ namespace BloodDonationManamentSystem
     {
         String path;
         MainWindow win;
+        DB dB=new DB();
         public Login(String path)
         {
             this.path = path;
             InitializeComponent();
+            lblError.Visibility = Visibility.Hidden;
+            if (path=="Bank")
+            {
+                lblRegister.Visibility = Visibility.Hidden;
+                btnReg.Visibility = Visibility.Hidden;
+            }
+            lblRegister.Content = "Register as a new " + path;
         }
 
         private void winLoad()
@@ -42,27 +51,48 @@ namespace BloodDonationManamentSystem
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
             winLoad();
+            //Models.User user;
             if (this.path == "Hospital")
             {
+                HospitalUser user =(HospitalUser)dB.Login(txtUsername.Text, txtPassword.Password, "HospitalUsers");
                 //Canvas.SetZIndex(win.mainFrame, 0);
-                win.mainFrame.Visibility = Visibility.Collapsed;
-                win.contentFrame.Navigate(new HospitalDashboard(path));
-                win.navigationFrame.Navigate(new NavigationPanelHos(path));
-                win.topFrame.Navigate(new TopBar());
+                if(user!=null)
+                {
+                    win.mainFrame.Visibility = Visibility.Collapsed;
+                    win.contentFrame.Navigate(new HospitalDashboard(path, user));
+                    win.navigationFrame.Navigate(new NavigationPanelHos(path, user));
+                    win.topFrame.Navigate(new TopBar());
+                }
+                else
+                {
+                    lblError.Visibility = Visibility.Visible;
+                }
             }
             else if(this.path == "Camp")
             {
-                win.mainFrame.Visibility = Visibility.Collapsed;
-                win.contentFrame.Navigate(new HospitalDashboard(path));
-                win.navigationFrame.Navigate(new NavigationPanelHos(path));
-                win.topFrame.Navigate(new TopBar());
+                DonationCampUser user = (DonationCampUser) dB.Login(txtUsername.Text, txtPassword.Password, "DonationCampUsers");
+                if (user != null)
+                {
+                    win.mainFrame.Visibility = Visibility.Collapsed;
+                    win.contentFrame.Navigate(new HospitalDashboard(path, user));
+                    win.navigationFrame.Navigate(new NavigationPanelHos(path, user));
+                    win.topFrame.Navigate(new TopBar());
+                }
+                else { lblError.Visibility = Visibility.Visible; }
+                    
             }
             else if(this.path == "Bank")
             {
-                win.mainFrame.Visibility = Visibility.Collapsed;
-                win.contentFrame.Navigate(new bankDashboard());
-                win.navigationFrame.Navigate(new NavigationPanelHos(path));
-                win.topFrame.Navigate(new TopBar());
+                User user = dB.Login(txtUsername.Text, txtPassword.Password, "BloodBankUsers");
+                if (user != null)
+                {
+                    win.mainFrame.Visibility = Visibility.Collapsed;
+                    win.contentFrame.Navigate(new bankDashboard(user));
+                    win.navigationFrame.Navigate(new NavigationPanelHos(path, user));
+                    win.topFrame.Navigate(new TopBar());
+                }
+                else { lblError.Visibility = Visibility.Visible; }
+                    
             }
         }
 
@@ -70,6 +100,21 @@ namespace BloodDonationManamentSystem
         {
             winLoad();
             win.mainFrame.Navigate(new Home());
+        }
+
+        private void txtUsername_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            //lblError.Visibility = Visibility.Collapsed;
+        }
+
+        private void txtPassword_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            lblError.Visibility = Visibility.Hidden;
+        }
+
+        private void lblError_DataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+
         }
     }
 }

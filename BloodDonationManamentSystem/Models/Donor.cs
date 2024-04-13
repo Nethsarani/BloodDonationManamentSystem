@@ -8,7 +8,7 @@ using System.Xaml.Schema;
 
 namespace BloodDonationManamentSystem
 {
-    internal class Donor
+    public class Donor
     {
         public int ID { get; set; }
         public string Name { get; set; }

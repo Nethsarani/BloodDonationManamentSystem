@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BloodDonationManamentSystem.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,14 @@ namespace BloodDonationManamentSystem
     /// </summary>
     public partial class bankDashboard : Page
     {
-        public bankDashboard()
+        public bankDashboard(User user)
         {
             InitializeComponent();
+        }
+
+        private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

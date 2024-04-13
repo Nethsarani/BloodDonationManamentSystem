@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace BloodDonationManamentSystem
 {
-    internal class DonationCamp : CollectionPoint
+    public class DonationCamp : CollectionPoint
     {
         public DateTime Date { get; set; }
-        public TimeSpan StartTime { get; set; }
-        public TimeSpan EndTime { get; set; }
+        public string StartTime { get; set; }
+        public string EndTime { get; set; }
 
-        public DonationCamp(string name, Location location, string contact, string email, string username, string password, DateTime date, TimeSpan sTime, TimeSpan eTime)
+        public DonationCamp(string name, Location location, string contact, string email, string username, string password, DateTime date, string sTime, string eTime)
         {
             Name = name;
             Location = location;

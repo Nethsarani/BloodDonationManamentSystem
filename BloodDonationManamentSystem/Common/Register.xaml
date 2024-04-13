@@ -13,7 +13,7 @@
             <Label Content="Date" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="24" Margin="0,4,0,0"/>
             <Label Content="Start time" HorizontalAlignment="Left" Margin="0,70,0,0" VerticalAlignment="Top" FontSize="24"/>
             <Label Content="End time" HorizontalAlignment="Left" Margin="0,140,0,0" VerticalAlignment="Top" FontSize="24"/>
-            <DatePicker x:Name="dtpDate" HorizontalAlignment="Right" Margin="0,13,72,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Width="126">
+            <DatePicker x:Name="dtpDate" HorizontalAlignment="Right" Margin="0,13,72,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Width="126" SelectedDateChanged="dtpDate_SelectedDateChanged">
                 <DatePicker.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform ScaleX="2" ScaleY="2"/>
@@ -32,27 +32,27 @@
 
         <Button x:Name="btnBack" Content="←" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="72" Width="150" Padding="1,-35,1,-20" UseLayoutRounding="True" ScrollViewer.CanContentScroll="True" Click="btnBack_Click" Margin="25,25,0,0"/>
         <Label Content="Blood Donation Management System" HorizontalAlignment="Center" Margin="0,30,0,0" VerticalAlignment="Top" FontSize="48"/>
-        <TextBox x:Name="txtName" HorizontalAlignment="Left" Margin="282,123,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="250" FontSize="24" TextChanged="TextBox_TextChanged"/>
+        <TextBox x:Name="txtName" HorizontalAlignment="Left" Margin="282,123,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" FontSize="24"/>
         <Label Content="Name" HorizontalAlignment="Left" Margin="48,119,0,0" VerticalAlignment="Top" FontSize="24" Padding="0,5,5,5"/>
         <Label Content="Contact No" HorizontalAlignment="Left" Margin="657,117,0,0" VerticalAlignment="Top" FontSize="24"/>
-        <Label Content="Email" HorizontalAlignment="Left" Margin="657,168,0,0" VerticalAlignment="Top" FontSize="24"/>
+        <Label Content="Email" HorizontalAlignment="Left" Margin="657,165,0,0" VerticalAlignment="Top" FontSize="24"/>
         <Label Content="Username" HorizontalAlignment="Left" Margin="657,407,0,0" VerticalAlignment="Top" FontSize="24"/>
         <Label Content="Password" HorizontalAlignment="Left" Margin="657,449,0,0" VerticalAlignment="Top" FontSize="24"/>
         <Label Content="Address" HorizontalAlignment="Left" Margin="657,207,0,0" VerticalAlignment="Top" FontSize="24"/>
-        <Label Content="District" HorizontalAlignment="Left" Margin="657,268,0,0" VerticalAlignment="Top" FontSize="24"/>
+        <Label Content="District" HorizontalAlignment="Left" Margin="657,272,0,0" VerticalAlignment="Top" FontSize="24"/>
         <Label Content="City" HorizontalAlignment="Left" Margin="657,317,0,0" VerticalAlignment="Top" FontSize="24"/>
         <Label Content="Location" HorizontalAlignment="Left" Margin="657,359,0,0" VerticalAlignment="Top" FontSize="24"/>
-        <TextBox x:Name="txtContact" HorizontalAlignment="Left" Margin="887,121,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="250" FontSize="24"/>
-        <TextBox x:Name="txtEmail" HorizontalAlignment="Left" Margin="887,172,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="250" FontSize="24"/>
-        <TextBox x:Name="txtAddress" HorizontalAlignment="Left" Margin="887,211,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="250" FontSize="24"/>
-        <TextBox x:Name="txtDistrict" HorizontalAlignment="Left" Margin="887,272,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="250" FontSize="24"/>
-        <TextBox x:Name="txtCity" HorizontalAlignment="Left" Margin="887,321,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="250" FontSize="24"/>
-        <TextBox x:Name="txtUsername" HorizontalAlignment="Left" Margin="887,411,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="250" FontSize="24"/>
+        <TextBox x:Name="txtContact" HorizontalAlignment="Left" Margin="887,121,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" FontSize="24"/>
+        <TextBox x:Name="txtEmail" HorizontalAlignment="Left" Margin="887,168,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" FontSize="24"/>
+        <TextBox x:Name="txtAddress" HorizontalAlignment="Left" Margin="887,211,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" FontSize="24"/>
+        <TextBox x:Name="txtDistrict" HorizontalAlignment="Left" Margin="887,276,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" FontSize="24"/>
+        <TextBox x:Name="txtCity" HorizontalAlignment="Left" Margin="887,321,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" FontSize="24"/>
+        <TextBox x:Name="txtUsername" HorizontalAlignment="Left" Margin="887,411,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" FontSize="24"/>
         <PasswordBox x:Name="txtPassword" HorizontalAlignment="Left" Margin="887,453,0,0" VerticalAlignment="Top" Width="250" FontSize="24"/>
         <PasswordBox x:Name="txtRePassword" HorizontalAlignment="Left" Margin="887,496,0,0" VerticalAlignment="Top" Width="250" FontSize="24"/>
         <Label Content="Retype password" HorizontalAlignment="Left" Margin="657,492,0,0" VerticalAlignment="Top" FontSize="24"/>
         <Grid x:Name="HospitalGrid" HorizontalAlignment="Left" Height="460" Margin="48,168,0,0" VerticalAlignment="Top" Width="484">
-            <TextBox x:Name="txtRegNo" HorizontalAlignment="Left" Margin="234,4,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="250" FontSize="24"/>
+            <TextBox x:Name="txtRegNo" HorizontalAlignment="Left" Margin="234,4,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" FontSize="24"/>
             <Label Content="Registration No." HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="24" Padding="0,5,5,5"/>
             <CheckBox x:Name="chkCollecting" Content="Collecting blood" HorizontalAlignment="Left" Margin="0,34,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FlowDirection="RightToLeft" Padding="40,0,0,0" Height="33" Grid.IsSharedSizeScope="True" UseLayoutRounding="False" BorderThickness="1,1,1,1" RenderTransformOrigin="0.5,0.5" Checked="chkCollecting_Checked">
                 <CheckBox.LayoutTransform>
@@ -98,20 +98,20 @@
             <Label Content="Friday" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="24" Margin="0,342,0,0"/>
             <Label Content="Saturday" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="24" Margin="0,384,0,0"/>
             <Label x:Name="HosGrid" Content="Sunday" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="24" Margin="0,418,0,0"/>
-            <TextBox x:Name="txtO11" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="100" FontSize="24" Margin="234,188,0,0"/>
-            <TextBox x:Name="txtO12" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="100" FontSize="24" Margin="384,188,0,0"/>
-            <TextBox x:Name="txtO21" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="100" FontSize="24" Margin="234,236,0,0"/>
-            <TextBox x:Name="txtO22" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="100" FontSize="24" Margin="384,236,0,0"/>
-            <TextBox x:Name="txtO31" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="100" FontSize="24" Margin="234,269,0,0"/>
-            <TextBox x:Name="txtO32" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="100" FontSize="24" Margin="384,269,0,0"/>
-            <TextBox x:Name="txtO41" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="100" FontSize="24" Margin="234,301,0,0"/>
-            <TextBox x:Name="txtO42" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="100" FontSize="24" Margin="384,301,0,0"/>
-            <TextBox x:Name="txtO51" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="100" FontSize="24" Margin="234,346,0,0"/>
-            <TextBox x:Name="txtO52" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="100" FontSize="24" Margin="384,346,0,0"/>
-            <TextBox x:Name="txtO61" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="100" FontSize="24" Margin="234,388,0,0"/>
-            <TextBox x:Name="txtO62" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="100" FontSize="24" Margin="384,388,0,0"/>
-            <TextBox x:Name="txtO71" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="100" FontSize="24" Margin="234,422,0,0"/>
-            <TextBox x:Name="txtO72" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="100" FontSize="24" Margin="384,422,0,0"/>
+            <TextBox x:Name="txtO11" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" FontSize="24" Margin="234,188,0,0"/>
+            <TextBox x:Name="txtO12" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" FontSize="24" Margin="384,188,0,0"/>
+            <TextBox x:Name="txtO21" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" FontSize="24" Margin="234,236,0,0"/>
+            <TextBox x:Name="txtO22" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" FontSize="24" Margin="384,236,0,0"/>
+            <TextBox x:Name="txtO31" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" FontSize="24" Margin="234,269,0,0"/>
+            <TextBox x:Name="txtO32" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" FontSize="24" Margin="384,269,0,0"/>
+            <TextBox x:Name="txtO41" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" FontSize="24" Margin="234,301,0,0"/>
+            <TextBox x:Name="txtO42" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" FontSize="24" Margin="384,301,0,0"/>
+            <TextBox x:Name="txtO51" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" FontSize="24" Margin="234,346,0,0"/>
+            <TextBox x:Name="txtO52" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" FontSize="24" Margin="384,346,0,0"/>
+            <TextBox x:Name="txtO61" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" FontSize="24" Margin="234,388,0,0"/>
+            <TextBox x:Name="txtO62" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" FontSize="24" Margin="384,388,0,0"/>
+            <TextBox x:Name="txtO71" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" FontSize="24" Margin="234,422,0,0"/>
+            <TextBox x:Name="txtO72" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" FontSize="24" Margin="384,422,0,0"/>
 
 
 
@@ -119,7 +119,7 @@
         </Grid>
 
         <Button x:Name="btnReg" HorizontalAlignment="Left" Margin="1142,655,0,10" FontSize="24" Width="100" Click="btnReg_Click" Content="Register" Height="35"/>
-        <Button x:Name="btnReg_Copy" HorizontalAlignment="Left" Margin="1038,363,0,302" FontSize="24" Width="100" Click="btnReg_Click" Content="Select" Height="35"/>
+        <Button x:Name="btnLocation" HorizontalAlignment="Left" Margin="1038,363,0,302" FontSize="24" Width="100" Content="Select" Height="35"/>
         <Label x:Name="lblLocation" Content="Location" HorizontalAlignment="Left" Margin="888,368,0,0" VerticalAlignment="Top" Height="33" Width="124"/>
 
 

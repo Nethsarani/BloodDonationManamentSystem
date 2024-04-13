@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BloodDonationManamentSystem
 {
-    internal class Donation
+    public class Donation
     {
         public int ID { get; set; }
         public Donor Donor { get; set; }

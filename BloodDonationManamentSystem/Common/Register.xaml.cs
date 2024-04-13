@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BloodDonationManamentSystem.Models;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -31,6 +32,16 @@ namespace BloodDonationManamentSystem
         {
             InitializeComponent();
             this.path = path;
+            if(path=="Hospital")
+            {
+                EventGrid.Visibility = Visibility.Hidden;
+                HospitalGrid.Visibility = Visibility.Visible;
+            }
+            else if (path == "Camp")
+            {
+                EventGrid.Visibility = Visibility.Visible;
+                HospitalGrid.Visibility = Visibility.Hidden;
+            }
         }
         private void winLoad()
         {
@@ -46,15 +57,36 @@ namespace BloodDonationManamentSystem
         private void btnReg_Click(object sender, RoutedEventArgs e)
         {
             Location location = new Location();
+            location.District = txtDistrict.Text;
+            location.City = txtCity.Text;
+            location.Address = txtAddress.Text;
+            location.Coordinates = lblLocation.Content.ToString() ;
             List<TimeSpan> opening = new List<TimeSpan>();
             if (this.path == "Hospital")
             {
                 Hospital hospital = new Hospital(txtName.Text,location,txtContact.Text,txtEmail.Text,txtUsername.Text,txtPassword.Password,txtRegNo.Text ,testing,collecting,opening);
                 dB.insertToDatabase(hospital, "Hospital");
+                User user = new User();
+                user.Name = txtName.Text;
+                user.Email = txtEmail.Text;
+                user.Position = "Admin";
+                user.ContactNo = txtContact.Text;
+                user.UserName = txtUsername.Text;
+                user.Password = txtPassword.Password;
+                dB.insertToDatabase(user, "HospitalUsers");
             }
             else if (this.path == "Camp")
             {
-                DonationCamp donationCamp = new DonationCamp(txtName.Text, location, txtContact.Text, txtEmail.Text, txtUsername.Text, txtPassword.Password, dtpDate.SelectedDate,txtSTime.Text,txtETime.Text);
+                DonationCamp donationCamp = new DonationCamp(txtName.Text, location, txtContact.Text, txtEmail.Text, txtUsername.Text, txtPassword.Password, (DateTime)dtpDate.SelectedDate,txtSTime.Text,txtETime.Text);
+                dB.insertToDatabase(donationCamp, "DonationCamp");
+                User user = new User();
+                user.Name = txtName.Text;
+                user.Email = txtEmail.Text;
+                user.Position = "Admin";
+                user.ContactNo = txtContact.Text;
+                user.UserName = txtUsername.Text;
+                user.Password = txtPassword.Password;
+                dB.insertToDatabase(user, "DonationCampUsers");
             }
             winLoad();
             win.mainFrame.Navigate(new Login(path));
@@ -90,6 +122,11 @@ namespace BloodDonationManamentSystem
                 testing = false;
             }
 
+        }
+
+        private void dtpDate_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            
         }
     }
 }

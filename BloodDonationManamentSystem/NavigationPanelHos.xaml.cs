@@ -1,5 +1,6 @@
 ﻿using BloodDonationManamentSystem.Hospital_and_Blood_bank;
 using BloodDonationManamentSystem.Hospital_and_Event;
+using BloodDonationManamentSystem.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,7 +25,7 @@ namespace BloodDonationManamentSystem
     {
         MainWindow win;
         String path;
-        public NavigationPanelHos(String path)
+        public NavigationPanelHos(String path, User user)
         {
             InitializeComponent();
             this.path = path;
@@ -49,7 +50,7 @@ namespace BloodDonationManamentSystem
         private void btnHome_Click(object sender, RoutedEventArgs e)
         {
             win = (MainWindow)Window.GetWindow(this);
-            win.contentFrame.Navigate(new HospitalDashboard(path));
+            //win.contentFrame.Navigate(new HospitalDashboard(path));
         }
 
         private void btnDonors_Click(object sender, RoutedEventArgs e)

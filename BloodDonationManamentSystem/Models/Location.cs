@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BloodDonationManamentSystem
 {
-    internal class Location
+    public class Location
     {
         public string Address { get; set; }
         public string City { get; set; }

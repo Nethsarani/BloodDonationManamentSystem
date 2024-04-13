@@ -20,7 +20,7 @@ namespace BloodDonationManamentSystem
     /// </summary>
     public partial class HospitalDashboard : Page
     {
-        public HospitalDashboard(String path)
+        public HospitalDashboard(String path, Models.User user)
         {
             InitializeComponent();
             if(path=="Camp")

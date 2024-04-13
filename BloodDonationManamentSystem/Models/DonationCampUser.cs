@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace BloodDonationManamentSystem.Models
 {
-    public class TimeRange
+    public class DonationCampUser : User
     {
-        string Date;
-        String Open;
-        String Close;
+        public DonationCamp donationCamp { get; set; }
     }
 }

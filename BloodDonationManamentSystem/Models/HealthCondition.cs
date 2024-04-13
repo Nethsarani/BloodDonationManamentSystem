@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BloodDonationManamentSystem.Models
 {
-    internal class HealthCondition
+    public class HealthCondition
     {
         public float Weight { get; set; }
         public float Hemoglobin { get; set; }

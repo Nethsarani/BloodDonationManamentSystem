@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace BloodDonationManamentSystem.Models
 {
-    public class TimeRange
+    public class Privilages
     {
-        string Date;
-        String Open;
-        String Close;
+        public bool AddUserDetails { get; set; }
+        public bool DeleteUserDetails { get; set; }
+
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BloodDonationManamentSystem
 {
-    internal class Hospital : CollectionPoint
+    public class Hospital : CollectionPoint
     {
         public string RegNo { get; set; }
         public bool isTesting { get; set; }

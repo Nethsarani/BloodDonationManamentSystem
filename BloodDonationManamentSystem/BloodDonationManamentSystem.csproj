@@ -58,6 +58,9 @@
     <Compile Include="Blood bank\Accounts.xaml.cs">
       <DependentUpon>Accounts.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DataSet.cs">
+      <DependentUpon>DataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -71,6 +74,7 @@
     </Compile>
     <Compile Include="Models\Donation.cs" />
     <Compile Include="Models\DonationCamp.cs" />
+    <Compile Include="Models\DonationCampUser.cs" />
     <Compile Include="Models\Donor.cs" />
     <Compile Include="Hospital and Blood bank\BloodStock.xaml.cs">
       <DependentUpon>BloodStock.xaml</DependentUpon>
@@ -102,6 +106,7 @@
     </Compile>
     <Compile Include="Models\HealthCondition.cs" />
     <Compile Include="Models\Hospital.cs" />
+    <Compile Include="Models\HospitalUser.cs" />
     <Compile Include="Models\Location.cs" />
     <Compile Include="Mobile1.xaml.cs">
       <DependentUpon>Mobile1.xaml</DependentUpon>
@@ -118,8 +123,10 @@
     <Compile Include="Mobile5.xaml.cs">
       <DependentUpon>Mobile5.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Models\Privilages.cs" />
     <Compile Include="Models\Request.cs" />
     <Compile Include="Models\TimeRange.cs" />
+    <Compile Include="Models\User.cs" />
     <Compile Include="TopBar.xaml.cs">
       <DependentUpon>TopBar.xaml</DependentUpon>
     </Compile>
