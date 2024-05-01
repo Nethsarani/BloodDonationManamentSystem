@@ -290,6 +290,18 @@ namespace BloodDonationManamentSystem
             User temp = null;
             while (reader.Read())
             {
+                if(type== "HospitalUsers")
+                {
+                    temp = new HospitalUser();
+                }
+                else if (type== "DonationCampUsers")
+                {
+                    temp= new DonationCampUser();
+                }
+                else
+                {
+                    temp= new User();
+                }
                 temp.Id = reader.GetInt32(0);
                 temp.Name = reader.GetString(2);
                 temp.NIC = reader.GetString(3);
@@ -299,7 +311,7 @@ namespace BloodDonationManamentSystem
                 temp.Password = reader.GetString(8);
                 temp.UserName = reader.GetString(7);
                 string xml = reader.GetString(9);
-                temp.Privilages = (Privilages)xmlToObject<Privilages>(xml);
+                //temp.Privilages = (Privilages)xmlToObject<Privilages>(xml);
             }
             con.Close();
             return temp;
