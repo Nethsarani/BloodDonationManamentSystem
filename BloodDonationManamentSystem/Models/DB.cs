@@ -75,7 +75,7 @@ namespace BloodDonationManamentSystem
             else if (type == "Donor")
             {
                 Donor obj = (Donor)classobj;
-                command = new SqlCommand("insert into DonorTable values (@name, @gender, @nic, @location, @dob, @contact, @email, @type, @health, @username, @password, @status);", con);
+                command = new SqlCommand("insert into DonorTable (Name, Gender, NIC, Location, DOB, ContactNo, Email, BloodType, HealthCondition, Username, Password, Status) values (@name, @gender, @nic, @location, @dob, @contact, @email, @type, @health, @username, @password, @status);", con);
                 SqlParameter sqlParam1 = command.Parameters.AddWithValue("@name", obj.Name);
                 sqlParam1.DbType = DbType.String;
                 SqlParameter sqlParam2 = command.Parameters.AddWithValue("@gender", obj.Gender);
@@ -104,7 +104,7 @@ namespace BloodDonationManamentSystem
             else if (type == "Donation")
             {
                 Donation obj = (Donation)classobj;
-                command = new SqlCommand("insert into DonationTable values (@donor, @place, @date, @status);", con);
+                command = new SqlCommand("insert into DonationTable (DonorID, Place, Date, Status) values (@donor, @place, @date, @status);", con);
                 SqlParameter sqlParam1 = command.Parameters.AddWithValue("@donor", obj.Donor.ID);
                 sqlParam1.DbType = DbType.Int32;
                 SqlParameter sqlParam2 = command.Parameters.AddWithValue("@place", obj.collectionPoint.ID);
@@ -117,7 +117,7 @@ namespace BloodDonationManamentSystem
             else if (type == "Appointment")
             {
                 Appointment obj = (Appointment)classobj;
-                command = new SqlCommand("insert into AppointmentTable values (@donor, @place, @date, @time, @desc, @status);", con);
+                command = new SqlCommand("insert into AppointmentTable (DonorID, CollectionPointID, Date, Time, Description, Status) values (@donor, @place, @date, @time, @desc, @status);", con);
                 SqlParameter sqlParam1 = command.Parameters.AddWithValue("@donor", obj.Donor.ID);
                 sqlParam1.DbType = DbType.Int32;
                 SqlParameter sqlParam2 = command.Parameters.AddWithValue("@place", obj.Place.ID);
@@ -134,7 +134,7 @@ namespace BloodDonationManamentSystem
             else if (type == "BloodStock")
             {
                 BloodStock obj = (BloodStock)classobj;
-                command = new SqlCommand("insert into BloodStockTable values (@name, @location, @type, @amount, @expire);", con);
+                command = new SqlCommand("insert into BloodStockTable (Name, Location, Type, Amount, ExpiryDate) values (@name, @location, @type, @amount, @expire);", con);
                 SqlParameter sqlParam1 = command.Parameters.AddWithValue("@name", obj.Name);
                 sqlParam1.DbType = DbType.String;
                 SqlParameter sqlParam2 = command.Parameters.AddWithValue("@location", objToXml(obj.Location));
@@ -149,7 +149,7 @@ namespace BloodDonationManamentSystem
             else if (type == "Request")
             {
                 Request obj = (Request)classobj;
-                command = new SqlCommand("insert into RequestTable values (@hospital, @date, @type, @amount, @status);", con);
+                command = new SqlCommand("insert into RequestTable (HospitalID, Date, BloodType, Amount, Status) values (@hospital, @date, @type, @amount, @status);", con);
                 SqlParameter sqlParam1 = command.Parameters.AddWithValue("@hospital", obj.Hospital.ID);
                 sqlParam1.DbType = DbType.Int32;
                 SqlParameter sqlParam2 = command.Parameters.AddWithValue("@date", obj.Date);
@@ -164,6 +164,7 @@ namespace BloodDonationManamentSystem
             else if (type == "HospitalUsers")
             {
                 HospitalUser obj = (HospitalUser)classobj;
+                command = new SqlCommand("insert into HospitalUsersTable (HospitalID, Name, NIC, Position, ContactNo, Email, Username, Password, Privialges) values (@hospital, @name, @nic, @position, @contact, @email, @username, @password, @privilages );", con);
                 command = new SqlCommand("insert into HospitalUsersTable (HospitalID, Name, NIC, Position, ContactNo, Email, Username, Password, Privialges) values (@hospital, @name, @nic, @position, @contact, @email, @username, @password, @privilages );", con);
                 SqlParameter sqlParam1 = command.Parameters.AddWithValue("@hospital", obj.hospital.ID);
                 sqlParam1.DbType = DbType.Int32;
@@ -187,7 +188,7 @@ namespace BloodDonationManamentSystem
             else if (type == "DonationCampUsers")
             {
                 DonationCampUser obj = (DonationCampUser)classobj;
-                command = new SqlCommand("insert into DonationCampUsersTable values (@hospital, @name, @nic, @position, @contact, @email, @username, @password, @privilages );", con);
+                command = new SqlCommand("insert into DonationCampUsersTable (DonationCampID, Name, NIC, Position, ContactNo, Email, Username, Password, Privialges) values (@hospital, @name, @nic, @position, @contact, @email, @username, @password, @privilages );", con);
                 SqlParameter sqlParam1 = command.Parameters.AddWithValue("@hospital", obj.donationCamp.ID);
                 sqlParam1.DbType = DbType.Int32;
                 SqlParameter sqlParam2 = command.Parameters.AddWithValue("@name", obj.Name);
@@ -210,7 +211,7 @@ namespace BloodDonationManamentSystem
             else if (type == "BloodBankUsers")
             {
                 User obj = (User)classobj;
-                command = new SqlCommand("insert into BloodBankUsersTable values (@name, @nic, @position, @contact, @email, @username, @password, @privilages );", con);
+                command = new SqlCommand("insert into BloodBankUsersTable (Name, NIC, Position, ContactNo, Email, Username, Password, Privialges) values (@name, @nic, @position, @contact, @email, @username, @password, @privilages );", con);
                 SqlParameter sqlParam2 = command.Parameters.AddWithValue("@name", obj.Name);
                 sqlParam2.DbType = DbType.String;
                 SqlParameter sqlParam3 = command.Parameters.AddWithValue("@nic", obj.NIC);
