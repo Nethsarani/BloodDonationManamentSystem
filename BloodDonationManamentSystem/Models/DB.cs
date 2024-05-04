@@ -317,5 +317,36 @@ namespace BloodDonationManamentSystem
             con.Close();
             return temp;
         }
+
+        public Donor DonorLogin(string username, string password)
+        {
+            con.Open();
+            command = new SqlCommand(@"Select * From [DonorsTable] Where Username=@username and Password=@password", con);
+            SqlParameter sqlParam2 = command.Parameters.AddWithValue("@username", username);
+            sqlParam2.DbType = DbType.String;
+            SqlParameter sqlParam3 = command.Parameters.AddWithValue("@password", password);
+            sqlParam3.DbType = DbType.String;
+            SqlDataReader reader = command.ExecuteReader();
+            Donor temp = null;
+            while (reader.Read())
+            {
+                temp = new Donor();
+                temp.ID = reader.GetInt32(0);
+                temp.Name = reader.GetString(1);
+                temp.Gender = reader.GetString(2);
+                temp.NIC = reader.GetString(3);
+                string xml1 = reader.GetString(4);
+                temp.Location= (Location)xmlToObject<Location>(xml1);
+                temp.DOB=DateTime.Parse(reader.GetString(5));
+                temp.ContactNo = reader.GetString(6);
+                temp.Email = reader.GetString(7);
+                temp.BloodType = reader.GetString(8);
+                temp.health=(HealthCondition)xmlToObject<HealthCondition>(reader.GetString(9));
+                temp.Username = reader.GetString(10);
+                temp.Password = reader.GetString(11);
+            }
+            con.Close();
+            return temp;
+        }
     }
 }

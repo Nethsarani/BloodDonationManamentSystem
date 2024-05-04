@@ -66,7 +66,7 @@ namespace BloodDonationManamentSystem
             {
                 Hospital hospital = new Hospital(txtName.Text,location,txtContact.Text,txtEmail.Text,txtUsername.Text,txtPassword.Password,txtRegNo.Text ,testing,collecting,opening);
                 dB.insertToDatabase(hospital, "Hospital");
-                User user = new User();
+                User user = new HospitalUser();
                 user.Name = txtName.Text;
                 user.Email = txtEmail.Text;
                 user.Position = "Admin";
@@ -79,7 +79,7 @@ namespace BloodDonationManamentSystem
             {
                 DonationCamp donationCamp = new DonationCamp(txtName.Text, location, txtContact.Text, txtEmail.Text, txtUsername.Text, txtPassword.Password, (DateTime)dtpDate.SelectedDate,txtSTime.Text,txtETime.Text);
                 dB.insertToDatabase(donationCamp, "DonationCamp");
-                User user = new User();
+                User user = new DonationCampUser();
                 user.Name = txtName.Text;
                 user.Email = txtEmail.Text;
                 user.Position = "Admin";
