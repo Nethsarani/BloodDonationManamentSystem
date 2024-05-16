@@ -72,7 +72,7 @@ namespace BloodDonationManamentSystem
                 dB.insertToDatabase(hospital, "Hospital");
 
                 HospitalUser user = new HospitalUser();
-user.Hospital= dB.getHospital(dB.IDCheck("Hospital", "Username", hospital.Username));
+user.hospital= dB.getHospital(dB.IDCheck("Hospital", "Username", hospital.Username));
                 user.Name = txtName.Text;
                 user.Email = txtEmail.Text;
                 user.Position = "Admin";

@@ -665,7 +665,7 @@ namespace BloodDonationManamentSystem
                 temp.Email = reader.GetString(6);
                 temp.Password = reader.GetString(8);
                 temp.UserName = reader.GetString(7);
-                string xml = reader.GetString(9);
+                //string xml = reader.GetString(9);
                 //temp.Privilages = (Privilages)xmlToObject<Privilages>(xml);
             }
             con.Close();

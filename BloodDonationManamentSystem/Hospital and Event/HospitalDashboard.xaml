@@ -34,7 +34,7 @@
                 <DataGridHyperlinkColumn Header="Address" Binding="{Binding XPath=Donor.Address}"/>
                 <DataGridTextColumn Header="Contact No" Binding="{Binding XPath=Donor.ContactNo}"/>
                 <DataGridTextColumn Header="Email" Binding="{Binding XPath=Donor.Email}"/>
-                <DataGridTemplateColumn Header="Approve" Binding.>
+                <DataGridTemplateColumn Header="Approve" >
                     
                 </DataGridTemplateColumn>
                 
