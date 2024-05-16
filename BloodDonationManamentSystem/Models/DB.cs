@@ -237,6 +237,7 @@ namespace BloodDonationManamentSystem
             con.Close();
         }
 
+        
         public void TestData()
         {
             Donor a = new Donor();
@@ -263,7 +264,7 @@ namespace BloodDonationManamentSystem
             insertToDatabase(appointment,"Appointment");
 
         }
-
+        
         public bool userCheck(string type, string username)
         {
             bool available = true;

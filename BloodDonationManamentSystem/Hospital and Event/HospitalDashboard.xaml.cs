@@ -42,7 +42,6 @@ namespace BloodDonationManamentSystem
                     }
                 }
                 
-
             }
             else
             {
@@ -55,7 +54,6 @@ namespace BloodDonationManamentSystem
                         list1.Add(x);
                     }
                 }
-
             }
             foreach (Appointment x in list1)
             {
@@ -66,8 +64,6 @@ namespace BloodDonationManamentSystem
             }
             grdPenDonor.ItemsSource = list2;
             grdPenAppoint.ItemsSource = list1;
-            lblDonTitle.Content = lblDonTitle.Content + list2[1].Id.ToString();
-            lblRegTitle.Content = lblRegTitle.Content + list1[0].Id.ToString();
             grdStock.ItemsSource=dB.getTotalStock();
         }
 
