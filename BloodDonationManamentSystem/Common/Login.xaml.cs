@@ -56,6 +56,7 @@ namespace BloodDonationManamentSystem
             {
                 HospitalUser user =(HospitalUser)dB.Login(txtUsername.Text, txtPassword.Password, "HospitalUsers");
                 user.hospital = dB.getHospital(user.placeID);
+                MessageBox.Show(user.hospital.ID.ToString());
                 //Canvas.SetZIndex(win.mainFrame, 0);
                 if(user!=null)
                 {

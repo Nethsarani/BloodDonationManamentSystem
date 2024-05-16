@@ -35,7 +35,7 @@ namespace BloodDonationManamentSystem
 
         private void btnHospital_Click(object sender, RoutedEventArgs e)
         {
-            //dB.TestData();   
+            dB.TestData();   
             winLoad();
             win.mainFrame.Navigate(new Login("Hospital"));
         }
