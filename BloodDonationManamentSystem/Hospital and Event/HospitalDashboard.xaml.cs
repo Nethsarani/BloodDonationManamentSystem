@@ -46,10 +46,10 @@ namespace BloodDonationManamentSystem
             else
             {
                 HospitalUser loggedUser = (HospitalUser)user;
-                loggedUser.hospital=dB.getHospital(loggedUser.placeID);
+                //loggedUser.hospital=dB.getHospital(loggedUser.placeID);
                 foreach (Appointment x in dB.getAllAppointments())
                 {
-                    if (x.Place.ID == loggedUser.hospital.ID && x.Status == "Pending")
+                    if (x.Place.ID == loggedUser.placeID && x.Status == "Pending")
                     {
                         list1.Add(x);
                     }
