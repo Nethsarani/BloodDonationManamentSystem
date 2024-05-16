@@ -618,13 +618,16 @@ namespace BloodDonationManamentSystem
 
         static string objToXml(object classObject)
         {
-            string xmlString = null;
+            string xmlString = "";
+            if(classObject!=null)
+            {
             XmlSerializer xmlSerializer = new XmlSerializer(classObject.GetType());
             using (MemoryStream memoryStream = new MemoryStream())
             {
                 xmlSerializer.Serialize(memoryStream, classObject);
                 memoryStream.Position = 0;
                 xmlString = new StreamReader(memoryStream).ReadToEnd();
+            }
             }
             return xmlString;
         }
