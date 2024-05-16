@@ -9,6 +9,7 @@ namespace BloodDonationManamentSystem.Models
     public class Request
     {
         public int Id { get; set; }
+        public int HosId { get; set; }
         public Hospital Hospital { get; set; }
         public DateTime Date { get; set; }
         public string BloodType { get; set; }

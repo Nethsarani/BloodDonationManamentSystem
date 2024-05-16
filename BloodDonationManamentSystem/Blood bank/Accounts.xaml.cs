@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BloodDonationManamentSystem.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,7 +21,7 @@ namespace BloodDonationManamentSystem
     /// </summary>
     public partial class Accounts : Page
     {
-        public Accounts()
+        public Accounts(string path, User user)
         {
             InitializeComponent();
         }

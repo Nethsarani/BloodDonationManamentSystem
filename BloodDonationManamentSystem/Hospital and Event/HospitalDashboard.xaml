@@ -12,64 +12,50 @@
         <Grid x:Name="subGridHos" Margin="0,165,789,19">
             <Rectangle HorizontalAlignment="Left" Height="110" Margin="31,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="165"/>
             <ComboBox x:Name="cmbType" HorizontalAlignment="Left" Margin="55,38,0,0" VerticalAlignment="Top" Width="120"/>
-            <Button x:Name="btnFind" Content="Search" HorizontalAlignment="Left" Margin="135,74,0,0" VerticalAlignment="Top"/>
+            <Button x:Name="btnFind" Content="Search" HorizontalAlignment="Left" Margin="135,74,0,0" VerticalAlignment="Top" Click="btnFind_Click"/>
             <Label Content="Find a Donor" HorizontalAlignment="Left" Margin="61,2,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
             <Rectangle HorizontalAlignment="Left" Height="284" Margin="34,130,0,0" Stroke="Black" VerticalAlignment="Top" Width="159"/>
-            <DataGrid d:ItemsSource="{d:SampleData ItemCount=5}" Margin="34,186,18,27" AutoGenerateColumns="False">
+            <DataGrid x:Name="grdStock" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="34,186,18,27" AutoGenerateColumns="False">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Blood Type"/>
-                    <DataGridTextColumn Header="Amount"/>
+                    <DataGridTextColumn Header="Blood Type" Binding="{Binding BloodType}"/>
+                    <DataGridTextColumn Header="Amount" Binding="{Binding BloodAmount}"/>
                 </DataGrid.Columns>
             </DataGrid>
             <Label Content="Blood Stock" HorizontalAlignment="Left" Margin="65,135,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16" Height="46"/>
-
         </Grid>
-
-        <Rectangle HorizontalAlignment="Left" Height="197" Margin="232,162,0,0" Stroke="Black" VerticalAlignment="Top" Width="731"/>
-
-
-        <DataGrid d:ItemsSource="{d:SampleData ItemCount=5}" Margin="232,201,37,241" AutoGenerateColumns="False" SelectionChanged="DataGrid_SelectionChanged">
+        <Rectangle HorizontalAlignment="Left" Height="281" Margin="232,300,0,0" Stroke="Black" VerticalAlignment="Top" Width="731"/>
+        <DataGrid x:Name="grdPenDonor" Margin="232,337,37,19" AutoGenerateColumns="False">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="ID"/>
-                <DataGridTextColumn Header="Donor ID"/>
-                <DataGridTextColumn Header="Donor Name"/>
-                <DataGridTextColumn Header="Date"/>
-                <DataGridTextColumn Header="Time"/>
-                <DataGridTextColumn Header="Type"/>
-                <DataGridTemplateColumn Header="Approve"/>
+                <DataGridTextColumn Header="ID" Binding="{Binding Id}"/>
+                <DataGridTextColumn x:Name="col2" Header="Name" Binding="{Binding Donor.Name}" />
+                <DataGridTextColumn Header="Gender"  Binding="{Binding Donor.Gender}"/>
+                <DataGridTextColumn Header="NIC" Binding="{Binding Donor.NIC}"/>
+                <DataGridTextColumn Header="Date of Birth" Binding="{Binding Donor.NIC}"/>
+                <DataGridHyperlinkColumn Header="Address" Binding="{Binding XPath=Donor.Address}"/>
+                <DataGridTextColumn Header="Contact No" Binding="{Binding XPath=Donor.ContactNo}"/>
+                <DataGridTextColumn Header="Email" Binding="{Binding XPath=Donor.Email}"/>
+                <DataGridTemplateColumn Header="Approve" Binding.>
+                    
+                </DataGridTemplateColumn>
+                
             </DataGrid.Columns>
         </DataGrid>
-        <Label Content="Pending Appointment Requests" HorizontalAlignment="Left" Margin="473,165,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
-        <Rectangle HorizontalAlignment="Left" Height="197" Margin="232,384,0,0" Stroke="Black" VerticalAlignment="Top" Width="731"/>
-        <DataGrid d:ItemsSource="{d:SampleData ItemCount=5}" Margin="232,423,37,19" AutoGenerateColumns="False">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="ID"/>
-                <DataGridTextColumn Header="Name"/>
-                <DataGridTextColumn Header="Gender"/>
-                <DataGridTextColumn Header="NIC"/>
-                <DataGridTextColumn Header="Date of Birth"/>
-                <DataGridHyperlinkColumn Header="Address"/>
-                <DataGridTextColumn Header="Contact No"/>
-                <DataGridTextColumn Header="Email"/>
-                <DataGridTemplateColumn Header="Approve"/>
-            </DataGrid.Columns>
-        </DataGrid>
-        <Label Content="Pending Donor Registrations" HorizontalAlignment="Left" Margin="484,387,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
+        <Label x:Name="lblRegTitle" Content="Pending Donor Registrations" HorizontalAlignment="Left" Margin="484,306,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
 
-        <Rectangle HorizontalAlignment="Left" Height="125" Margin="34,16,0,0" Stroke="Black" VerticalAlignment="Top" Width="929"/>
-        <DataGrid d:ItemsSource="{d:SampleData ItemCount=5}" Margin="34,54,37,459" FrozenColumnCount="0" CanUserAddRows="False" CanUserDeleteRows="False" AutoGenerateColumns="False">
+        <Rectangle HorizontalAlignment="Left" Height="261" Margin="232,16,0,0" Stroke="Black" VerticalAlignment="Top" Width="731"/>
+        <DataGrid x:Name="grdPenAppoint" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="232,54,37,323" FrozenColumnCount="0" CanUserAddRows="False" CanUserDeleteRows="False" AutoGenerateColumns="False">
             <DataGrid.Columns>
-                <DataGridTextColumn HeaderStringFormat="" Header="ID"/>
-                <DataGridTextColumn Header="Donor ID"/>
-                <DataGridTextColumn Header="Donor Name"/>
-                <DataGridTextColumn Header="Date"/>
-                <DataGridTextColumn Header="Time"/>
-                <DataGridTextColumn Header="Type"/>
-                <DataGridTextColumn Header="Status"/>
+                <DataGridTextColumn HeaderStringFormat="" Header="ID" Binding="{Binding Id}"/>
+                <DataGridTextColumn Header="Donor ID" Binding="{Binding Donor.ID}"/>
+                <DataGridTextColumn Header="Donor Name" Binding="{Binding Path=Donor.Name}"/>
+                <DataGridTextColumn Header="Date" Binding="{Binding Date}"/>
+                <DataGridTextColumn Header="Time" Binding="{Binding Time}"/>
+                <DataGridTextColumn Header="Type" Binding="{Binding Type}"/>
+                <DataGridTextColumn Header="Status" Binding="{Binding Status}"/>
                 <DataGridTemplateColumn Header="Attend"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Label Content="Pending Appointments" HorizontalAlignment="Left" Margin="407,18,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
+        <Label x:Name="lblDonTitle" Content="Pending Appointments" HorizontalAlignment="Left" Margin="506,21,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
 
     </Grid>
 </Page>

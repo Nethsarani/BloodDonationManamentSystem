@@ -25,8 +25,10 @@ namespace BloodDonationManamentSystem
     {
         MainWindow win;
         String path;
+        User loggedUser;
         public NavigationPanelHos(String path, User user)
         {
+            loggedUser = user;
             InitializeComponent();
             this.path = path;
             if (path =="Camp" )
@@ -56,37 +58,37 @@ namespace BloodDonationManamentSystem
         private void btnDonors_Click(object sender, RoutedEventArgs e)
         {
             win = (MainWindow)Window.GetWindow(this);
-            win.contentFrame.Navigate(new DonorMap());
+            win.contentFrame.Navigate(new DonorMap(path, loggedUser));
         }
 
         private void btnDonations_Click(object sender, RoutedEventArgs e)
         {
             win = (MainWindow)Window.GetWindow(this);
-            win.contentFrame.Navigate(new Donation());
+            win.contentFrame.Navigate(new DonationPage(path,loggedUser));
         }
 
         private void btnAppointments_Click(object sender, RoutedEventArgs e)
         {
             win = (MainWindow)Window.GetWindow(this);
-            win.contentFrame.Navigate(new AppointmentPage());
+            win.contentFrame.Navigate(new AppointmentPage(path,loggedUser));
         }
 
         private void btnStock_Click(object sender, RoutedEventArgs e)
         {
             win = (MainWindow)Window.GetWindow(this);
-            win.contentFrame.Navigate(new Blood_Stock());
+            win.contentFrame.Navigate(new Blood_Stock(path, loggedUser));
         }
 
         private void btnACManager_Click(object sender, RoutedEventArgs e)
         {
             win = (MainWindow)Window.GetWindow(this);
-            win.contentFrame.Navigate(new InternalAccountManager());
+            win.contentFrame.Navigate(new InternalAccountManager(path, loggedUser));
         }
 
         private void btnAccounts_Click(object sender, RoutedEventArgs e)
         {
             win = (MainWindow)Window.GetWindow(this);
-            win.contentFrame.Navigate(new Accounts());
+            win.contentFrame.Navigate(new Accounts(path, loggedUser));
         }
     }
 }

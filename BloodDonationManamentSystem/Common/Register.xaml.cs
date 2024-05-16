@@ -48,12 +48,6 @@ namespace BloodDonationManamentSystem
             win = (MainWindow)Window.GetWindow(this);
         }
 
-        
-
-        
-
-        
-
         private void btnReg_Click(object sender, RoutedEventArgs e)
         {
             Location location = new Location();
@@ -64,7 +58,17 @@ namespace BloodDonationManamentSystem
             List<TimeSpan> opening = new List<TimeSpan>();
             if (this.path == "Hospital")
             {
-                Hospital hospital = new Hospital(txtName.Text,location,txtContact.Text,txtEmail.Text,txtUsername.Text,txtPassword.Password,txtRegNo.Text ,testing,collecting,opening);
+                Hospital hospital = new Hospital();
+                hospital.Name = txtName.Text;
+                hospital.Location = location;
+                hospital.ContactNo = txtContact.Text;
+                hospital.Email = txtEmail.Text;
+                hospital.Username = txtUsername.Text;
+                hospital.Password = txtPassword.Password;
+                hospital.RegNo = txtRegNo.Text;
+                hospital.isTesting = testing;
+                hospital.isCollecting = collecting;
+                hospital.OpenTimes = opening;
                 dB.insertToDatabase(hospital, "Hospital");
                 User user = new HospitalUser();
                 user.Name = txtName.Text;
@@ -77,7 +81,16 @@ namespace BloodDonationManamentSystem
             }
             else if (this.path == "Camp")
             {
-                DonationCamp donationCamp = new DonationCamp(txtName.Text, location, txtContact.Text, txtEmail.Text, txtUsername.Text, txtPassword.Password, (DateTime)dtpDate.SelectedDate,txtSTime.Text,txtETime.Text);
+                DonationCamp donationCamp = new DonationCamp();
+                donationCamp.Name = txtName.Text;
+                donationCamp.Location = location;
+                donationCamp.ContactNo = txtContact.Text;
+                donationCamp.Email = txtEmail.Text;
+                donationCamp.Username = txtUsername.Text;
+                donationCamp.Password = txtPassword.Password;
+                donationCamp.Date = (DateTime)dtpDate.SelectedDate;
+                donationCamp.StartTime = txtSTime.Text;
+                donationCamp.EndTime = txtETime.Text;
                 dB.insertToDatabase(donationCamp, "DonationCamp");
                 User user = new DonationCampUser();
                 user.Name = txtName.Text;

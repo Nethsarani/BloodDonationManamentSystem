@@ -8,6 +8,7 @@ namespace BloodDonationManamentSystem.Models
 {
     public class DonationCampUser : User
     {
+        
         public DonationCamp donationCamp { get; set; }
     }
 }

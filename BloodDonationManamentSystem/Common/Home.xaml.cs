@@ -21,6 +21,7 @@ namespace BloodDonationManamentSystem
     /// </summary>
     public partial class Home : Page
     {
+        DB dB = new DB();
         MainWindow win ;
         public Home()
         {       
@@ -34,6 +35,7 @@ namespace BloodDonationManamentSystem
 
         private void btnHospital_Click(object sender, RoutedEventArgs e)
         {
+            dB.TestData();   
             winLoad();
             win.mainFrame.Navigate(new Login("Hospital"));
         }

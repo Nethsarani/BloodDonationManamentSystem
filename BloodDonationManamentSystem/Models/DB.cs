@@ -10,19 +10,20 @@ using System.Xml.Serialization;
 using BloodDonationManamentSystem.Models;
 using System.Security.RightsManagement;
 
+
 namespace BloodDonationManamentSystem
 {
     public class DB
     {
-        public SqlConnection con = new SqlConnection( @"Data Source=sql.bsite.net\MSSQL2016;Initial Catalog=nethsarani_BloodSystem;Persist Security Info=True;User ID=nethsarani_BloodSystem;Password=neth1234;");
+        public SqlConnection con = new SqlConnection(@"Data Source=sql.bsite.net\MSSQL2016;Initial Catalog=nethsarani_BloodSystem;User ID=nethsarani_BloodSystem;Password=neth1234;TrustServerCertificate=true;Encrypt=false;multisubnetfailover=true;");
         SqlCommand command;
         public void insertToDatabase(object classobj, string type)
         {
-            con.Open();
-            
-            if (type== "Hospital")
+            if(con.State == ConnectionState.Closed){con.Open();}
+
+            if (type == "Hospital")
             {
-                Hospital obj= ( Hospital )classobj;
+                Hospital obj = (Hospital)classobj;
                 command = new SqlCommand("insert into HospitalTable (Name,RegNo,Location,ContactNo,Email,IsTesting,IsCollecting,OpenTimes,Username,Password,Status) values (@name, @regNo, @location, @contact, @email, @testing, @collecting, @open, @username, @password, @status);", con);
                 SqlParameter sqlParam1 = command.Parameters.AddWithValue("@name", obj.Name);
                 sqlParam1.DbType = DbType.String;
@@ -81,19 +82,19 @@ namespace BloodDonationManamentSystem
                 SqlParameter sqlParam2 = command.Parameters.AddWithValue("@gender", obj.Gender);
                 sqlParam2.DbType = DbType.String;
                 SqlParameter sqlParam3 = command.Parameters.AddWithValue("@nic", obj.NIC);
-                sqlParam3.DbType = DbType.Xml;
+                sqlParam3.DbType = DbType.String;
                 SqlParameter sqlParam4 = command.Parameters.AddWithValue("@location", objToXml(obj.Location));
-                sqlParam4.DbType = DbType.String;
+                sqlParam4.DbType = DbType.Xml;
                 SqlParameter sqlParam5 = command.Parameters.AddWithValue("@dob", obj.DOB);
-                sqlParam5.DbType = DbType.String;
+                sqlParam5.DbType = DbType.DateTime;
                 SqlParameter sqlParam6 = command.Parameters.AddWithValue("@contact", obj.ContactNo);
-                sqlParam6.DbType = DbType.Date;
+                sqlParam6.DbType = DbType.String;
                 SqlParameter sqlParam7 = command.Parameters.AddWithValue("@email", obj.Email);
-                sqlParam7.DbType = DbType.Date;
+                sqlParam7.DbType = DbType.String;
                 SqlParameter sqlParam8 = command.Parameters.AddWithValue("@type", obj.BloodType);
                 sqlParam8.DbType = DbType.String;
                 SqlParameter sqlParam9 = command.Parameters.AddWithValue("@health", objToXml(obj.health));
-                sqlParam9.DbType = DbType.String;
+                sqlParam9.DbType = DbType.Xml;
                 SqlParameter sqlParam10 = command.Parameters.AddWithValue("@username", obj.Username);
                 sqlParam10.DbType = DbType.String;
                 SqlParameter sqlParam11 = command.Parameters.AddWithValue("@password", obj.Password);
@@ -165,7 +166,6 @@ namespace BloodDonationManamentSystem
             {
                 HospitalUser obj = (HospitalUser)classobj;
                 command = new SqlCommand("insert into HospitalUsersTable (HospitalID, Name, NIC, Position, ContactNo, Email, Username, Password, Privialges) values (@hospital, @name, @nic, @position, @contact, @email, @username, @password, @privilages );", con);
-                command = new SqlCommand("insert into HospitalUsersTable (HospitalID, Name, NIC, Position, ContactNo, Email, Username, Password, Privialges) values (@hospital, @name, @nic, @position, @contact, @email, @username, @password, @privilages );", con);
                 SqlParameter sqlParam1 = command.Parameters.AddWithValue("@hospital", obj.hospital.ID);
                 sqlParam1.DbType = DbType.Int32;
                 SqlParameter sqlParam2 = command.Parameters.AddWithValue("@name", obj.Name);
@@ -231,26 +231,377 @@ namespace BloodDonationManamentSystem
             }
             else
             {
-                command = new SqlCommand ();
+                command = new SqlCommand();
             }
             command.ExecuteNonQuery();
             con.Close();
         }
 
-        public object takeFromDatabase(string filmname)
+        public void TestData()
         {
-            con.Open();
-            string sql = string.Format(@"Select * From [FilmTable] Where Film.exist('/Film[name={0}]')=1", filmname);
-            SqlCommand abc = new SqlCommand(sql, con);
-            SqlDataReader xxx = abc.ExecuteReader();
-            object temp = null;
-            while (xxx.Read())
+            Donor a = new Donor();
+            a.Name= "Test5";
+            a.Gender = "Male";
+            a.NIC = "12345";
+            a.Location=new Location();
+            a.DOB = DateTime.Today;
+            a.ContactNo = "098765432";
+            a.Email = "sdfgh@dfgh.com";
+            a.Username = "Test5";
+            a.BloodType = "O";
+            a.Password = "12345";
+            a.Status = "Pending";
+            a.health = new HealthCondition();
+            insertToDatabase(a, "Donor");
+            Appointment appointment = new Appointment();
+            appointment.Donor = a;
+            appointment.Place = getDonationCamp(2);
+            appointment.Date = DateTime.Today;
+            appointment.Time = DateTime.Now;
+            appointment.Description="Donation";
+            appointment.Status = "Complete";
+            insertToDatabase(appointment,"Appointment");
+
+        }
+
+        public bool userCheck(string type, string username)
+        {
+            bool available = true;
+            if(con.State == ConnectionState.Closed){con.Open();}
+            command = new SqlCommand("Select Count(ID) from " + type + "Table WHERE Username=@user;", con);
+            SqlParameter sqlParam1 = command.Parameters.AddWithValue("@user", username);
+            sqlParam1.DbType = DbType.String;
+            SqlDataReader reader = command.ExecuteReader();
+            int x = 0;
+            while (reader.Read())
             {
-                string xml = xxx.GetString(0);
-                temp = (object)xmlToObject<object>(xml);
+                x = reader.GetInt32(0);
             }
             con.Close();
-            return temp;
+            if (x > 0)
+            {
+                available = false;
+            }
+            return available;
+        }
+
+        public int IDCheck(string type, string value, string property)
+        {
+            if(con.State == ConnectionState.Closed){con.Open();}
+            command = new SqlCommand("Select ID from " + type + "Table WHERE @property=@value;", con);
+            SqlParameter sqlParam1 = command.Parameters.AddWithValue("@value", value);
+            sqlParam1.DbType = DbType.String;
+            SqlParameter sqlParam2 = command.Parameters.AddWithValue("@property", property);
+            sqlParam2.DbType = DbType.String;
+            SqlDataReader reader = command.ExecuteReader();
+            int x = 0;
+            while (reader.Read())
+            {
+                x = reader.GetInt32(0);
+            }
+            con.Close();
+
+            return x;
+        }
+
+        public List<String> getDistrict()
+        {
+            if(con.State == ConnectionState.Closed){con.Open();}
+            command = new SqlCommand("Select name_en from districtsTable;", con);
+            SqlDataReader reader = command.ExecuteReader();
+            List<String> x = new List<string>();
+            while (reader.Read())
+            {
+                x.Add(reader.GetString(0));
+            }
+            con.Close();
+            return x;
+        }
+
+        public List<String> getCity(String district)
+        {
+            int disID = IDCheck("districts", district, "name_en");
+            if(con.State == ConnectionState.Closed){con.Open();}
+            command = new SqlCommand("Select name_en from citiesTable WHERE district_id=@id;", con);
+            SqlParameter sqlParam1 = command.Parameters.AddWithValue("@id", disID);
+            sqlParam1.DbType = DbType.String;
+            SqlDataReader reader = command.ExecuteReader();
+            List<String> x = new List<string>();
+            while (reader.Read())
+            {
+                x.Add(reader.GetString(0));
+            }
+            con.Close();
+            return x;
+        }
+
+        public Dictionary<int, String> getCentre(String city)
+        {
+
+            if(con.State == ConnectionState.Closed){con.Open();}
+            string sql = string.Format(@"Select ID,Name From [HospitalTable] Where Location.exist('/Location[City={0}]')=1", city);
+            command = new SqlCommand(sql, con);
+            SqlDataReader reader = command.ExecuteReader();
+            Dictionary<int, String> list = new Dictionary<int, String>();
+            while (reader.Read())
+            {
+                list.Add(reader.GetInt32(0), reader.GetString(1));
+
+            }
+            con.Close();
+            if(con.State == ConnectionState.Closed){con.Open();}
+            sql = string.Format(@"Select ID,Name From [DonationCampTable] Where Location.exist('/Location[City={0}]')=1", city);
+            command = new SqlCommand(sql, con);
+            reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                list.Add(reader.GetInt32(0), reader.GetString(1));
+            }
+            con.Close();
+            return list;
+        }
+
+        public List<TimeRange> checkTime(int id)
+        {
+            DateTime date;
+            TimeSpan start;
+            TimeSpan end;
+            List<TimeRange> x = new List<TimeRange>();
+            if (id % 2 == 0)
+            {
+                if(con.State == ConnectionState.Closed){con.Open();}
+                command = new SqlCommand("Select Date,StartTime,EndTime from DonationCampTable WHERE IDd=@id;", con);
+                SqlParameter sqlParam1 = command.Parameters.AddWithValue("@id", id);
+                sqlParam1.DbType = DbType.String;
+                SqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    TimeRange x1 = new TimeRange();
+                    x1.Date = reader.GetDateTime(0).ToString();
+                    x1.Open = reader.GetTimeSpan(1).ToString();
+                    x1.Close = reader.GetTimeSpan(2).ToString();
+                }
+                con.Close();
+            }
+            else
+            {
+                if(con.State == ConnectionState.Closed){con.Open();}
+                command = new SqlCommand("Select OpenTimes from HospitalTable WHERE ID=@id;", con);
+                SqlParameter sqlParam1 = command.Parameters.AddWithValue("@id", id);
+                sqlParam1.DbType = DbType.String;
+                SqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    string xml = reader.GetString(0);
+                    x.Add(xmlToObject<TimeRange>(xml));
+                }
+                con.Close();
+            }
+            return x;
+        }
+
+        //Reader inside reader
+        public List<Request> getRequests(String blood)
+        {
+
+            if(con.State == ConnectionState.Closed){con.Open();}
+            command = new SqlCommand("Select HospitalID, Amount from RequestTable WHERE BloodType=@type AND Status='Pending';", con);
+            SqlParameter sqlParam1 = command.Parameters.AddWithValue("@type", blood);
+            sqlParam1.DbType = DbType.String;
+            SqlDataReader reader = command.ExecuteReader();
+            List<Request> x = new List<Request>();
+            while (reader.Read())
+            {
+                Request request = new Request();
+                request.HosId = reader.GetInt32(0);
+                request.BloodAmount = reader.GetDecimal(1);
+                x.Add(request);
+            }
+            con.Close();
+            foreach (Request request in x)
+            {
+                request.Hospital = getHospital(request.HosId);
+            }
+            return x;
+        }
+
+        //Reader inside reader
+        public List<Appointment> getAllAppointments()
+        {
+
+            if(con.State == ConnectionState.Closed){con.Open();}
+            command = new SqlCommand("Select * from AppointmentTable;", con);
+            SqlDataReader reader = command.ExecuteReader();
+            List<Appointment> x = new List<Appointment>();
+            while (reader.Read())
+            {
+                Appointment appoint = new Appointment();
+                appoint.Id = reader.GetInt32(0);
+                appoint.donorId =reader.GetInt32(1);
+                appoint.placeId = reader.GetInt32(2);
+                
+                appoint.Date = reader.GetDateTime(3);
+                DateTime a = new DateTime();
+                appoint.Time = new DateTime()+ (TimeSpan)reader.GetTimeSpan(4);
+                appoint.Description = reader.GetString(5);
+                appoint.Status = reader.GetString(6);
+                x.Add(appoint);
+            }
+            con.Close();
+            foreach(Appointment appoint in x)
+            {
+                appoint.Donor = getDonor(appoint.donorId);
+                if (appoint.placeId % 2 == 0)
+                {
+                    appoint.Place = getDonationCamp(appoint.placeId);
+                }
+                else
+                {
+                    appoint.Place = getHospital(appoint.placeId);
+                }
+            }
+            return x;
+        }
+
+
+        public List<BloodStock> getTotalStock()
+        {
+
+            if(con.State == ConnectionState.Closed){con.Open();}
+            command = new SqlCommand("Select Type,SUM(Amount) from BloodStockTable WHERE ExpiryDate>=@today GROUP BY Type;", con);
+            SqlParameter sqlParam1 = command.Parameters.AddWithValue("@today", DateTime.Today);
+            sqlParam1.DbType = DbType.DateTime;
+            SqlDataReader reader = command.ExecuteReader();
+            List<BloodStock> x = new List<BloodStock>();
+            while (reader.Read())
+            {
+                BloodStock stk = new BloodStock();
+                stk.BloodType=reader.GetString(0);
+                stk.BloodAmount=reader.GetDecimal(1);
+                x.Add(stk);
+            }
+            con.Close();
+            return x;
+        }
+
+        //Reader inside reader
+        public List<Donation> getDonation(int id)
+        {
+
+            if(con.State == ConnectionState.Closed){con.Open();}
+            command = new SqlCommand("Select CollectionPointID,Date from DonationTable WHERE DonorID=@id;", con);
+            SqlParameter sqlParam1 = command.Parameters.AddWithValue("@id", id);
+            sqlParam1.DbType = DbType.Int32;
+            SqlDataReader reader2 = command.ExecuteReader();
+            List<Donation> x = new List<Donation>();
+            while (reader2.Read())
+            {
+                Donation don = new Donation();
+                don.placeId= reader2.GetInt32(0);
+                don.Date = reader2.GetDateTime(1);
+                x.Add(don);
+            }
+            con.Close();
+            foreach (Donation don in x)
+            {
+                if (reader2.GetInt32(0) % 2 == 0)
+                {
+                    don.collectionPoint = getDonationCamp(reader2.GetInt32(0));
+                }
+                else
+                {
+                    don.collectionPoint = getHospital(reader2.GetInt32(0));
+                }
+            }
+            return x;
+        }
+
+        public Hospital getHospital(int id)
+        {
+
+            if(con.State == ConnectionState.Closed){con.Open();}
+            command = new SqlCommand("Select * from HospitalTable WHERE ID=@id;", con);
+            SqlParameter sqlParam1 = command.Parameters.AddWithValue("@id", id);
+            sqlParam1.DbType = DbType.Int32;
+            SqlDataReader reader = command.ExecuteReader();
+            Hospital x = new Hospital();
+            while (reader.Read())
+            {
+                x.ID = reader.GetInt32(0);
+                x.Name = reader.GetString(1);
+                x.RegNo = reader.GetString(2);
+                x.Location = xmlToObject<Location>(reader.GetString(3));
+                x.ContactNo = reader.GetString(4);
+                x.Email = reader.GetString(5);
+                x.isTesting = reader.GetBoolean(6);
+                x.isCollecting = reader.GetBoolean(7);
+                x.OpenTimes = xmlToObject<List<TimeSpan>>(reader.GetString(8));
+                x.Username = reader.GetString(9);
+                x.Password = reader.GetString(10);
+                x.Status = reader.GetString(11);
+
+            }
+            con.Close();
+            return x;
+        }
+
+        public Donor getDonor(int id)
+        {
+            if(con.State == ConnectionState.Closed)
+            {
+                {con.Open();}
+            }
+            SqlCommand command2 = new SqlCommand("Select * from DonorTable WHERE ID=@id;", con);
+            SqlParameter sqlParam1 = command2.Parameters.AddWithValue("@id", id);
+            sqlParam1.DbType = DbType.Int32;
+            SqlDataReader reader = command2.ExecuteReader();
+            Donor x = new Donor();
+            while (reader.Read())
+            {
+                x.ID = reader.GetInt32(0);
+                x.Name = reader.GetString(1);
+                x.Gender = reader.GetString(2);
+                x.NIC=reader.GetString(3);
+                x.Location = xmlToObject<Location>(reader.GetString(4));
+                x.DOB = reader.GetDateTime(5);
+                x.ContactNo = reader.GetString(6);
+                x.Email = reader.GetString(7);
+                x.BloodType = reader.GetString(8);
+                x.health = xmlToObject<HealthCondition>(reader.GetString(9));
+                x.Username = reader.GetString(10);
+                x.Password = reader.GetString(11);
+                x.Status = reader.GetString(12);
+            }
+            con.Close();
+            return x;
+        }
+        public DonationCamp getDonationCamp(int id)
+        {
+
+            if(con.State == ConnectionState.Closed){if(con.State == ConnectionState.Closed){con.Open();}}
+
+            command = new SqlCommand("Select * from DonationCampTable WHERE ID=@id;", con);
+
+            SqlParameter sqlParam1 = command.Parameters.AddWithValue("@id", id);
+            sqlParam1.DbType = DbType.Int32;
+            SqlDataReader reader = command.ExecuteReader();
+            DonationCamp x = new DonationCamp(); ;
+            while (reader.Read())
+            {
+                x.ID = reader.GetInt32(0);
+                x.Name = reader.GetString(1);
+                x.Date = reader.GetDateTime(2);
+                x.StartTime = reader.GetTimeSpan(3).ToString();
+                x.EndTime = reader.GetTimeSpan(4).ToString();
+                x.ContactNo = reader.GetString(5);
+                x.Email = reader.GetString(6);
+                x.Location = xmlToObject<Location>(reader.GetString(7));
+                x.Username = reader.GetString(8);
+                x.Password = reader.GetString(9);
+                x.Status = reader.GetString(10);
+            }
+            con.Close();
+            return x;
         }
 
         static T xmlToObject<T>(string xmlString)
@@ -281,8 +632,8 @@ namespace BloodDonationManamentSystem
 
         public User Login(string username, string password, string type)
         {
-            con.Open();
-            command = new SqlCommand(@"Select * From ["+type+"Table] Where Username=@username and Password=@password",con);
+            if(con.State == ConnectionState.Closed){if(con.State == ConnectionState.Closed){con.Open();}}
+            command = new SqlCommand(@"Select * From [" + type + "Table] Where Username=@username and Password=@password", con);
             SqlParameter sqlParam2 = command.Parameters.AddWithValue("@username", username);
             sqlParam2.DbType = DbType.String;
             SqlParameter sqlParam3 = command.Parameters.AddWithValue("@password", password);
@@ -291,22 +642,25 @@ namespace BloodDonationManamentSystem
             User temp = null;
             while (reader.Read())
             {
-                if(type== "HospitalUsers")
+                if (type == "HospitalUsers")
                 {
                     temp = new HospitalUser();
+                    temp.placeID = reader.GetInt32(1);
                 }
-                else if (type== "DonationCampUsers")
+                else if (type == "DonationCampUsers")
                 {
-                    temp= new DonationCampUser();
+                    temp = new DonationCampUser();
+                    temp.placeID = reader.GetInt32(1);
                 }
                 else
                 {
-                    temp= new User();
+                    temp = new User();
+                    temp.placeID = 0;
                 }
                 temp.Id = reader.GetInt32(0);
                 temp.Name = reader.GetString(2);
                 temp.NIC = reader.GetString(3);
-                temp.Position= reader.GetString(4);
+                temp.Position = reader.GetString(4);
                 temp.ContactNo = reader.GetString(5);
                 temp.Email = reader.GetString(6);
                 temp.Password = reader.GetString(8);
@@ -320,7 +674,7 @@ namespace BloodDonationManamentSystem
 
         public Donor DonorLogin(string username, string password)
         {
-            con.Open();
+            if(con.State == ConnectionState.Closed){con.Open();}
             command = new SqlCommand(@"Select * From [DonorsTable] Where Username=@username and Password=@password", con);
             SqlParameter sqlParam2 = command.Parameters.AddWithValue("@username", username);
             sqlParam2.DbType = DbType.String;
@@ -336,17 +690,35 @@ namespace BloodDonationManamentSystem
                 temp.Gender = reader.GetString(2);
                 temp.NIC = reader.GetString(3);
                 string xml1 = reader.GetString(4);
-                temp.Location= (Location)xmlToObject<Location>(xml1);
-                temp.DOB=DateTime.Parse(reader.GetString(5));
+                temp.Location = (Location)xmlToObject<Location>(xml1);
+                temp.DOB = DateTime.Parse(reader.GetString(5));
                 temp.ContactNo = reader.GetString(6);
                 temp.Email = reader.GetString(7);
                 temp.BloodType = reader.GetString(8);
-                temp.health=(HealthCondition)xmlToObject<HealthCondition>(reader.GetString(9));
+                temp.health = (HealthCondition)xmlToObject<HealthCondition>(reader.GetString(9));
                 temp.Username = reader.GetString(10);
                 temp.Password = reader.GetString(11);
+                temp.Status = reader.GetString(12);
+            }
+            con.Close();
+            return temp;
+        }
+
+        public object takeFromDatabase(string filmname)
+        {
+            if(con.State == ConnectionState.Closed){con.Open();}
+            string sql = string.Format(@"Select * From [FilmTable] Where Film.exist('/Film[name={0}]')=1", filmname);
+            SqlCommand abc = new SqlCommand(sql, con);
+            SqlDataReader xxx = abc.ExecuteReader();
+            object temp = null;
+            while (xxx.Read())
+            {
+                string xml = xxx.GetString(0);
+                temp = (object)xmlToObject<object>(xml);
             }
             con.Close();
             return temp;
         }
     }
 }
+

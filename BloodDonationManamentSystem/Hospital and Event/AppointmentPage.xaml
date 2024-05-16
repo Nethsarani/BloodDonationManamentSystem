@@ -9,7 +9,7 @@
       Title="AppointmentPage" Width="1000" Height="596">
 
     <Grid Width="1000" Height="600" Background="White">
-        <DataGrid d:ItemsSource="{d:SampleData ItemCount=5}" Margin="48,87,48,10" AutoGenerateColumns="False">
+        <DataGrid x:Name="grdTable" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="48,87,48,10" AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID"/>
                 <DataGridTextColumn Header="Donor ID"/>

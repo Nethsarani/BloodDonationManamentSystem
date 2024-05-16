@@ -1,5 +1,7 @@
-﻿using System;
+﻿using BloodDonationManamentSystem.Models;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,9 +22,37 @@ namespace BloodDonationManamentSystem
     /// </summary>
     public partial class AppointmentPage : Page
     {
-        public AppointmentPage()
+        DB dB = new DB();
+        public AppointmentPage(string path,User user)
         {
             InitializeComponent();
+            List<Appointment> list1 = new List<Appointment>();
+            if (path == "Camp")
+            {
+                DonationCampUser loggedUser = (DonationCampUser)user;
+                loggedUser.donationCamp = dB.getDonationCamp(user.placeID);
+                foreach (Appointment x in dB.getAllAppointments())
+                {
+                    if (x.Place.ID == loggedUser.donationCamp.ID)
+                    {
+                        list1.Add(x);
+                    }
+                }
+            }
+            else
+            {
+                HospitalUser loggedUser = (HospitalUser)user;
+                loggedUser.hospital = dB.getHospital(loggedUser.placeID);
+                foreach (Appointment x in dB.getAllAppointments())
+                {
+                    if (x.Place.ID == loggedUser.hospital.ID)
+                    {
+                        list1.Add(x);
+                    }
+                }
+
+            }
+            grdTable.ItemsSource = list1;
         }
     }
 }

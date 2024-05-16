@@ -177,21 +177,6 @@
     <Compile Include="Models\Hospital.cs" />
     <Compile Include="Models\HospitalUser.cs" />
     <Compile Include="Models\Location.cs" />
-    <Compile Include="Mobile1.xaml.cs">
-      <DependentUpon>Mobile1.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Mobile2.xaml.cs">
-      <DependentUpon>Mobile2.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Mobile3.xaml.cs">
-      <DependentUpon>Mobile3.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Mobile4.xaml.cs">
-      <DependentUpon>Mobile4.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Mobile5.xaml.cs">
-      <DependentUpon>Mobile5.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Models\Privilages.cs" />
     <Compile Include="Models\Request.cs" />
     <Compile Include="Models\TimeRange.cs" />
@@ -269,26 +254,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Mobile1.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Mobile2.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Mobile3.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Mobile4.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Mobile5.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="NavigationPanelHos.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -339,11 +304,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Event and Blood bank\" />
-    <Folder Include="Event\" />
-    <Folder Include="Hospital\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>

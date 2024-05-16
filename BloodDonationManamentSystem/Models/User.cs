@@ -17,7 +17,7 @@ namespace BloodDonationManamentSystem.Models
         public string Password { get; set; }
         public string UserName { get; set; }
         public Privilages Privilages { get; set; }
-
+        public int placeID { get; set; }
 
     }
 }
