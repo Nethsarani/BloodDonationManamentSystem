@@ -23,6 +23,7 @@ namespace BloodDonationManamentSystem
     
     public partial class HospitalDashboard : Page
     {
+       
         DB dB = new DB();
         public HospitalDashboard(String path, Models.User user)
         {
@@ -54,7 +55,7 @@ namespace BloodDonationManamentSystem
                     {
                         list1.Add(x);
                     }
-                }
+                } 
 
             }
             foreach (Appointment x in list1)
@@ -70,7 +71,6 @@ namespace BloodDonationManamentSystem
             lblRegTitle.Content = lblRegTitle.Content + list1[0].Id.ToString();
             grdStock.ItemsSource=dB.getTotalStock();
         }
-
         private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
