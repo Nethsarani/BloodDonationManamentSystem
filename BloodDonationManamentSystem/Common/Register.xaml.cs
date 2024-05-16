@@ -75,6 +75,7 @@ namespace BloodDonationManamentSystem
 user.hospital= dB.getHospital(dB.IDCheck("Hospital", "Username", hospital.Username));
                 user.Name = txtName.Text;
                 user.Email = txtEmail.Text;
+                user.NIC="00000000";
                 user.Position = "Admin";
                 user.ContactNo = txtContact.Text;
                 user.UserName = txtUsername.Text;
@@ -98,6 +99,7 @@ user.hospital= dB.getHospital(dB.IDCheck("Hospital", "Username", hospital.Userna
 user.donationCamp= dB.getDonationCamp(dB.IDCheck("DonationCamp", "Username", donationCamp.Username));
                 user.Name = txtName.Text;
                 user.Email = txtEmail.Text;
+                user.NIC="00000000"
                 user.Position = "Admin";
                 user.ContactNo = txtContact.Text;
                 user.UserName = txtUsername.Text;
