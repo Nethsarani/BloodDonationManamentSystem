@@ -72,7 +72,9 @@ namespace BloodDonationManamentSystem
                 dB.insertToDatabase(hospital, "Hospital");
 
                 HospitalUser user = new HospitalUser();
-user.hospital= dB.getHospital(dB.IDCheck("Hospital", "Username", hospital.Username));
+                MessageBox.Show(dB.IDCheck("Hospital", hospital.Username, "Username").ToString());
+                MessageBox.Show(dB.getHospital(dB.IDCheck("Hospital", hospital.Username, "Username")).ID.ToString());
+                user.hospital= dB.getHospital(dB.IDCheck("Hospital",  hospital.Username, "Username"));
                 user.Name = txtName.Text;
                 user.Email = txtEmail.Text;
                 user.NIC="00000000";
@@ -96,7 +98,7 @@ user.hospital= dB.getHospital(dB.IDCheck("Hospital", "Username", hospital.Userna
                 donationCamp.EndTime = txtETime.Text;
                 dB.insertToDatabase(donationCamp, "DonationCamp");
                 DonationCampUser user = new DonationCampUser();
-user.donationCamp= dB.getDonationCamp(dB.IDCheck("DonationCamp", "Username", donationCamp.Username));
+user.donationCamp= dB.getDonationCamp(dB.IDCheck("DonationCamp", donationCamp.Username, "Username"));
                 user.Name = txtName.Text;
                 user.Email = txtEmail.Text;
                 user.NIC = "00000000";
