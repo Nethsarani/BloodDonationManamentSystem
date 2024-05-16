@@ -94,7 +94,8 @@ user.Hospital= dB.getHospital(dB.IDCheck("Hospital", "Username", hospital.Userna
                 donationCamp.StartTime = txtSTime.Text;
                 donationCamp.EndTime = txtETime.Text;
                 dB.insertToDatabase(donationCamp, "DonationCamp");
-                User user = new DonationCampUser();
+                DonationCampUser user = new DonationCampUser();
+user.DonationCamp= dB.getDonationCamp(dB.IDCheck("DonationCamp", "Username", donationCamp.Username));
                 user.Name = txtName.Text;
                 user.Email = txtEmail.Text;
                 user.Position = "Admin";
