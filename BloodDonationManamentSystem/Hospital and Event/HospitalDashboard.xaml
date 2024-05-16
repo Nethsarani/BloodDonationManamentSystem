@@ -43,7 +43,7 @@
         <Label x:Name="lblRegTitle" Content="Pending Donor Registrations" HorizontalAlignment="Left" Margin="484,306,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
 
         <Rectangle HorizontalAlignment="Left" Height="261" Margin="232,16,0,0" Stroke="Black" VerticalAlignment="Top" Width="731"/>
-        <DataGrid x:Name="grdPenAppoint" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="232,54,37,323" FrozenColumnCount="0" CanUserAddRows="False" CanUserDeleteRows="False" AutoGenerateColumns="False">
+        <DataGrid x:Name="grdPenAppoint" Margin="232,54,37,323" FrozenColumnCount="0" CanUserAddRows="False" CanUserDeleteRows="False" AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn HeaderStringFormat="" Header="ID" Binding="{Binding Id}"/>
                 <DataGridTextColumn Header="Donor ID" Binding="{Binding Donor.ID}"/>
