@@ -34,7 +34,7 @@ namespace BloodDonationManamentSystem
             {
                 subGridHos.Visibility = Visibility.Collapsed;
                 DonationCampUser loggedUser= (DonationCampUser)user;
-                loggedUser.donationCamp = dB.getDonationCamp(user.placeID);
+                //loggedUser.donationCamp = dB.getDonationCamp(user.placeID);
                 foreach (Appointment x in dB.getAllAppointments())
                 {
                     if (x.Place.ID == loggedUser.donationCamp.ID && x.Status == "Pending")
@@ -67,8 +67,7 @@ namespace BloodDonationManamentSystem
             }
             grdPenDonor.ItemsSource = list2;
             grdPenAppoint.ItemsSource = list1;
-            lblDonTitle.Content = lblDonTitle.Content + list2[1].Id.ToString();
-            lblRegTitle.Content = lblRegTitle.Content + list1[0].Id.ToString();
+
             grdStock.ItemsSource=dB.getTotalStock();
         }
         private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
