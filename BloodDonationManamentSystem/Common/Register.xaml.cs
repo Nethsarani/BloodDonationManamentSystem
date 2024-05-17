@@ -101,10 +101,10 @@ namespace BloodDonationManamentSystem
 user.donationCamp= dB.getDonationCamp(dB.IDCheck("DonationCamp", donationCamp.Username, "Username"));
                 user.Name = txtName.Text;
                 user.Email = txtEmail.Text;
-                user.NIC = "00000000";
+                user.NIC = "00000000"; 
                 user.Position = "Admin";
                 user.ContactNo = txtContact.Text;
-                user.UserName = txtUsername.Text;
+                user.UserName = txtUsername.Text; 
                 user.Password = txtPassword.Password;
                 dB.insertToDatabase(user, "DonationCampUsers");
             }
