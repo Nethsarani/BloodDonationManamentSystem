@@ -55,7 +55,7 @@ namespace BloodDonationManamentSystem
                 SqlParameter sqlParam1 = command.Parameters.AddWithValue("@name", obj.Name);
                 sqlParam1.DbType = DbType.String;
                 SqlParameter sqlParam2 = command.Parameters.AddWithValue("@date", obj.Date);
-                sqlParam2.DbType = DbType.String;
+                sqlParam2.DbType = DbType.DateTime;
                 SqlParameter sqlParam3 = command.Parameters.AddWithValue("@location", objToXml(obj.Location));
                 sqlParam3.DbType = DbType.Xml;
                 SqlParameter sqlParam4 = command.Parameters.AddWithValue("@contact", obj.ContactNo);
