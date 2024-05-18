@@ -55,10 +55,11 @@ namespace BloodDonationManamentSystem
             if (this.path == "Hospital")
             {
                 HospitalUser user =(HospitalUser)dB.Login(txtUsername.Text, txtPassword.Password, "HospitalUsers");
-                user.hospital = dB.getHospital(user.placeID);
+                
                 //Canvas.SetZIndex(win.mainFrame, 0);
                 if(user!=null)
                 {
+                    user.hospital = dB.getHospital(user.placeID);
                     win.mainFrame.Visibility = Visibility.Collapsed;
                     win.contentFrame.Navigate(new HospitalDashboard(path, user));
                     win.navigationFrame.Navigate(new NavigationPanelHos(path, user));
