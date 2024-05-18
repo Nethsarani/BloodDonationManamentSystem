@@ -39,7 +39,7 @@ namespace BloodDonationManamentSystem
                     }
                 }
             }
-            else
+            else if(path=="Hospital")
             {
                 HospitalUser loggedUser = (HospitalUser)user;
                 loggedUser.hospital = dB.getHospital(loggedUser.placeID);
@@ -51,6 +51,9 @@ namespace BloodDonationManamentSystem
                     }
                 }
 
+            }
+            else{
+              list1=getAllAppointments();
             }
             grdTable.ItemsSource = list1;
         }
