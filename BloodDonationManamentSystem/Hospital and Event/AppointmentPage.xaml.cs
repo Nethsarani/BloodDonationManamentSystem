@@ -53,7 +53,7 @@ namespace BloodDonationManamentSystem
 
             }
             else{
-              list1=getAllAppointments();
+              list1=dB.getAllAppointments();
             }
             grdTable.ItemsSource = list1;
         }
