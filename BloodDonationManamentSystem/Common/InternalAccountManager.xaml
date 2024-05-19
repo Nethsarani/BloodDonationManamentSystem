@@ -9,16 +9,16 @@
       Title="InternalAccountManager">
 
     <Grid Background="White">
-        <DataGrid d:ItemsSource="{d:SampleData ItemCount=5}" Margin="10,129,10,10" AutoGenerateColumns="False">
+        <DataGrid x:Name="grdAccounts" Margin="10,129,10,10" AutoGenerateColumns="False">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="ID"/>
-                <DataGridTextColumn Header="Name"/>
-                <DataGridTextColumn Header="Occupation"/>
-                <DataGridTextColumn Header="Mobile No"/>
-                <DataGridTextColumn Header="Email"/>
-                <DataGridCheckBoxColumn Header="Privilage"/>
-                <DataGridHyperlinkColumn Header="Edit"/>
-                <DataGridHyperlinkColumn Header="Delete"/>
+                <DataGridTextColumn Header="ID" Binding="{Binding ID}"/>
+                <DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
+                <DataGridTextColumn Header="Occupation" Binding="{Binding Occupation}"/>
+                <DataGridTextColumn Header="Mobile No" Binding="{Binding MobileNo}"/>
+                <DataGridTextColumn Header="Email" Binding="{Binding Email}"/>
+                <DataGridCheckBoxColumn Header="Privilage" Binding="{Binding Privilages}"/>
+                <DataGridHyperlinkColumn Header="Edit"> <Button Content="Edit"/> </DataGridHyperlinkColumn>
+                <DataGridHyperlinkColumn Header="Delete">  <Button Content="Delete"/> </DataGridHyperlinkColumn>
             </DataGrid.Columns>
         </DataGrid>
         <Label Content="User Accounts" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" FontSize="36"/>
