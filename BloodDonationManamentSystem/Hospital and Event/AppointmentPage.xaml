@@ -11,12 +11,12 @@
     <Grid Width="1000" Height="600" Background="White">
         <DataGrid x:Name="grdTable"  Margin="48,87,48,10" AutoGenerateColumns="False">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="ID" Binding="{Binding ID}"/>
+                <DataGridTextColumn Header="ID" Binding="{Binding Id}"/>
                 <DataGridTextColumn Header="Donor ID" Binding="{Binding Donor.ID}"/>
                 <DataGridTextColumn Header="Donor Name" Binding="{Binding Donor.Name}"/>
-                <DataGridTextColumn Header="Date" Binding="{Binding Date}"/>
-                <DataGridTextColumn Header="Time" Binding="{Binding Time}"/>
-                <DataGridTextColumn Header="Type" Binding="{Binding Type}"/>
+                <DataGridTextColumn Header="Date" Binding="{Binding Date.Date}"/>
+                <DataGridTextColumn Header="Time" Binding="{Binding Time.TimeOfDay}"/>
+                <DataGridTextColumn Header="Type" Binding="{Binding Donor.BloodType}"/>
                 <DataGridTextColumn Header="Status" Binding="{Binding Status}"/>
                 <DataGridTemplateColumn Header="Attend"/>
             </DataGrid.Columns>

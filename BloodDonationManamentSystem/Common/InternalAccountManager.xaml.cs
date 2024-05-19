@@ -32,7 +32,7 @@ namespace BloodDonationManamentSystem
                 //loggedUser.donationCamp = dB.getDonationCamp(user.placeID);
                 foreach (User x in dB.getAllUsers("DonationCamp"))
                 {
-                    if (x.DonationCampID == loggedUser.placeID)
+                    if (x.placeID == loggedUser.placeID)
                     {
                         list1.Add(x);
                     }
@@ -44,7 +44,7 @@ namespace BloodDonationManamentSystem
                 //loggedUser.hospital=dB.getHospital(loggedUser.placeID);
                 foreach (HospitalUser x in dB.getAllUsers("Hospital"))
                 {
-                    if (x.HospitalID == loggedUser.placeID)
+                    if (x.placeID == loggedUser.placeID)
                     {
                         list1.Add(x);
                     }
@@ -53,7 +53,7 @@ namespace BloodDonationManamentSystem
             else{
               list1=dB.getAllUsers("BloodBank");
             }
-            grdAccounts.ItemSource=list1;
+            grdAccounts.ItemsSource=list1;
         }
     }
 }

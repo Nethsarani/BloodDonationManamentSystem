@@ -32,7 +32,7 @@ namespace BloodDonationManamentSystem.Hospital_and_Event
                 loggedUser.donationCamp = dB.getDonationCamp(user.placeID);
                 foreach (Donation x in dB.getAllDonations())
                 {
-                    if (x.Place.ID == loggedUser.donationCamp.ID)
+                    if (x.collectionPoint.ID == loggedUser.donationCamp.ID)
                     {
                         list1.Add(x);
                     }
@@ -44,7 +44,7 @@ namespace BloodDonationManamentSystem.Hospital_and_Event
                 loggedUser.hospital = dB.getHospital(loggedUser.placeID);
                 foreach (Donation x in dB.getAllDonations())
                 {
-                    if (x.Place.ID == loggedUser.hospital.ID)
+                    if (x.collectionPoint.ID == loggedUser.hospital.ID)
                     {
                         list1.Add(x);
                     }
@@ -53,7 +53,7 @@ namespace BloodDonationManamentSystem.Hospital_and_Event
             else{
               list1=dB.getAllDonations();
             }
-            grdDonations.ItemSource=list1;
+            grdDonations.ItemsSource=list1;
         }
     }
 }
