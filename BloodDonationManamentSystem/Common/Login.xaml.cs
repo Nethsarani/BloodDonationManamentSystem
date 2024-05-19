@@ -73,9 +73,10 @@ namespace BloodDonationManamentSystem
             else if(this.path == "Camp")
             {
                 DonationCampUser user = (DonationCampUser) dB.Login(txtUsername.Text, txtPassword.Password, "DonationCampUsers");
-                user.donationCamp=dB.getDonationCamp(user.placeID);
+                
                 if (user != null)
                 {
+                  user.donationCamp=dB.getDonationCamp(user.placeID);
                     win.mainFrame.Visibility = Visibility.Collapsed;
                     win.contentFrame.Navigate(new HospitalDashboard(path, user));
                     win.navigationFrame.Navigate(new NavigationPanelHos(path, user));
