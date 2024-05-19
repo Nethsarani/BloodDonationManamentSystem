@@ -25,42 +25,32 @@ namespace BloodDonationManamentSystem.Hospital_and_Event
         public DonationPage(string path, User user)
         {
             InitializeComponent();
-            List<Appointment> list1 = new List<Appointment>();
-            List<Appointment> list2 = new List<Appointment>();
+            List<Donation> list1 = new List<Donation>();
             if (path == "Camp")
             {
                 DonationCampUser loggedUser = (DonationCampUser)user;
                 loggedUser.donationCamp = dB.getDonationCamp(user.placeID);
-                foreach (Appointment x in dB.getAllAppointments())
+                foreach (Donation x in dB.getAllDonations())
                 {
-                    if (x.Place.ID == loggedUser.donationCamp.ID && x.Status == "Pending")
+                    if (x.Place.ID == loggedUser.donationCamp.ID)
                     {
                         list1.Add(x);
                     }
                 }
-
-
             }
             else
             {
                 HospitalUser loggedUser = (HospitalUser)user;
                 loggedUser.hospital = dB.getHospital(loggedUser.placeID);
-                foreach (Appointment x in dB.getAllAppointments())
+                foreach (Donation x in dB.getAllDonations())
                 {
-                    if (x.Place.ID == loggedUser.hospital.ID && x.Status == "Pending")
+                    if (x.Place.ID == loggedUser.hospital.ID)
                     {
                         list1.Add(x);
                     }
                 }
-
             }
-            foreach (Appointment x in list1)
-            {
-                if (x.Description == "Registration")
-                {
-                    list2.Add(x);
-                }
-            }
+            grdDonors.ItemSource=list1;
         }
     }
 }
