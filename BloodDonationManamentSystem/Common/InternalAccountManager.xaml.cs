@@ -21,9 +21,38 @@ namespace BloodDonationManamentSystem
     /// </summary>
     public partial class InternalAccountManager : Page
     {
+      DB dB=new DB();
         public InternalAccountManager(string path, User user)
         {
             InitializeComponent();
+            List<Appointment> list1 = new List<Appointment>();
+            if (path=="Camp")
+            {
+                DonationCampUser loggedUser= (DonationCampUser)user;
+                //loggedUser.donationCamp = dB.getDonationCamp(user.placeID);
+                foreach (DonationCampUser x in dB.getAllUsers())
+                {
+                    if (x.DonationCampID == loggedUser.placeID)
+                    {
+                        list1.Add(x);
+                    }
+                }
+            }
+            else if(path=="Hospital")
+            {
+                HospitalUser loggedUser = (HospitalUser)user;
+                //loggedUser.hospital=dB.getHospital(loggedUser.placeID);
+                foreach (HospitalUser x in dB.getAllUsers())
+                {
+                    if (x.HospitalID == loggedUser.placeID)
+                    {
+                        list1.Add(x);
+                    }
+                } 
+            }
+            else{
+              list1=dB.getAllUsers();
+            }
         }
     }
 }
