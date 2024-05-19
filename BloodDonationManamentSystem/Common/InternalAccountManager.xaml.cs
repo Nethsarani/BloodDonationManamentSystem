@@ -25,12 +25,12 @@ namespace BloodDonationManamentSystem
         public InternalAccountManager(string path, User user)
         {
             InitializeComponent();
-            List<Appointment> list1 = new List<Appointment>();
+            List<User> list1 = new List<User>();
             if (path=="Camp")
             {
                 DonationCampUser loggedUser= (DonationCampUser)user;
                 //loggedUser.donationCamp = dB.getDonationCamp(user.placeID);
-                foreach (DonationCampUser x in dB.getAllUsers())
+                foreach (User x in dB.getAllUsers("DonationCamp"))
                 {
                     if (x.DonationCampID == loggedUser.placeID)
                     {
@@ -42,7 +42,7 @@ namespace BloodDonationManamentSystem
             {
                 HospitalUser loggedUser = (HospitalUser)user;
                 //loggedUser.hospital=dB.getHospital(loggedUser.placeID);
-                foreach (HospitalUser x in dB.getAllUsers())
+                foreach (HospitalUser x in dB.getAllUsers("Hospital"))
                 {
                     if (x.HospitalID == loggedUser.placeID)
                     {
@@ -51,8 +51,9 @@ namespace BloodDonationManamentSystem
                 } 
             }
             else{
-              list1=dB.getAllUsers();
+              list1=dB.getAllUsers("BloodBank");
             }
+            grdAccounts.ItemSource=list1;
         }
     }
 }
