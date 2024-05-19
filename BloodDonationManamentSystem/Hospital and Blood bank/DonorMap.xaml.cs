@@ -24,6 +24,18 @@ namespace BloodDonationManamentSystem
         public DonorMap(string path, User user)
         {
             InitializeComponent();
+            List<Appointment> list1 = new List<Appointment>();
+            if (path=="Camp")
+            {
+                DonationCampUser loggedUser= (DonationCampUser)user;
+                //loggedUser.donationCamp = dB.getDonationCamp(user.placeID);
+            }
+            else
+            {
+                HospitalUser loggedUser = (HospitalUser)user;
+                //loggedUser.hospital=dB.getHospital(loggedUser.placeID);
+            }
+            grdDonors.ItemSource=dB.getAllDonors();
         }
     }
 }
