@@ -10,8 +10,10 @@ namespace BloodDonationManamentSystem
     {
         public int ID { get; set; }
         public Donor Donor { get; set; }
+        public int donorId {get; set;}
         public int placeId { get; set; }
         public CollectionPoint collectionPoint { get; set; }
         public DateTime Date { get; set; }
+        public string Status {get; set;}
     }
 }
