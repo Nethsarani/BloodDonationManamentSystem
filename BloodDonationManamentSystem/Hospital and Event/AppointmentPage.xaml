@@ -9,15 +9,15 @@
       Title="AppointmentPage" Width="1000" Height="596">
 
     <Grid Width="1000" Height="600" Background="White">
-        <DataGrid x:Name="grdTable" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="48,87,48,10" AutoGenerateColumns="False">
+        <DataGrid x:Name="grdTable"  Margin="48,87,48,10" AutoGenerateColumns="False">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="ID"/>
-                <DataGridTextColumn Header="Donor ID"/>
-                <DataGridTextColumn Header="Donor Name"/>
-                <DataGridTextColumn Header="Date"/>
-                <DataGridTextColumn Header="Time"/>
-                <DataGridTextColumn Header="Type"/>
-                <DataGridTextColumn Header="Status"/>
+                <DataGridTextColumn Header="ID" Binding="{Binding ID}"/>
+                <DataGridTextColumn Header="Donor ID" Binding="{Binding Donor.ID}"/>
+                <DataGridTextColumn Header="Donor Name" Binding="{Binding Donor.Name}"/>
+                <DataGridTextColumn Header="Date" Binding="{Binding Date}"/>
+                <DataGridTextColumn Header="Time" Binding="{Binding Time}"/>
+                <DataGridTextColumn Header="Type" Binding="{Binding Type}"/>
+                <DataGridTextColumn Header="Status" Binding="{Binding Status}"/>
                 <DataGridTemplateColumn Header="Attend"/>
             </DataGrid.Columns>
         </DataGrid>
