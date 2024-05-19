@@ -11,10 +11,10 @@
     <Grid Background="White">
         <DataGrid x:Name="grdAccounts" Margin="10,129,10,10" AutoGenerateColumns="False">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="ID" Binding="{Binding ID}"/>
+                <DataGridTextColumn Header="ID" Binding="{Binding Id}"/>
                 <DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
-                <DataGridTextColumn Header="Occupation" Binding="{Binding Occupation}"/>
-                <DataGridTextColumn Header="Mobile No" Binding="{Binding MobileNo}"/>
+                <DataGridTextColumn Header="Occupation" Binding="{Binding Position}"/>
+                <DataGridTextColumn Header="Mobile No" Binding="{Binding ContactNo}"/>
                 <DataGridTextColumn Header="Email" Binding="{Binding Email}"/>
                 <DataGridCheckBoxColumn Header="Privilage" Binding="{Binding Privilages}"/>
                 <DataGridHyperlinkColumn Header="Edit">  </DataGridHyperlinkColumn>
