@@ -13,7 +13,7 @@
             
             
             <Rectangle HorizontalAlignment="Left" Height="284" Margin="34,130,0,0" Stroke="Black" VerticalAlignment="Top" Width="159"/>
-            <DataGrid x:Name="grdStock" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="34,186,18,27" AutoGenerateColumns="False">
+            <DataGrid x:Name="grdStock" Margin="34,186,18,27" AutoGenerateColumns="False">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Blood Type" Binding="{Binding BloodType}"/>
                     <DataGridTextColumn Header="Amount" Binding="{Binding BloodAmount}"/>
@@ -33,7 +33,11 @@
                 <DataGridTextColumn Header="Contact No" Binding="{Binding Donor.ContactNo}"/>
                 <DataGridTextColumn Header="Email" Binding="{Binding Donor.Email}"/>
                 <DataGridTemplateColumn Header="Approve" >
-                    
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="btnApprove" Content="Approve" Click="btnApprove_Click"></Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
                 
             </DataGrid.Columns>

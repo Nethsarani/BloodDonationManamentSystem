@@ -25,14 +25,20 @@ namespace BloodDonationManamentSystem
         DB dB = new DB();
         List<Appointment> list1 = new List<Appointment>();
         List<Appointment> list2 = new List<Appointment>();
+        string Path;
+        User User;
         public AppointmentPage(string path,User user)
         {
             InitializeComponent();
-            
-            if (path == "Camp")
+            refresh();
+        }
+
+        public void refresh()
+        {
+            if (Path == "Camp")
             {
-                DonationCampUser loggedUser = (DonationCampUser)user;
-                loggedUser.donationCamp = dB.getDonationCamp(user.placeID);
+                DonationCampUser loggedUser = (DonationCampUser)User;
+                loggedUser.donationCamp = dB.getDonationCamp(User.placeID);
                 foreach (Appointment x in dB.getAllAppointments())
                 {
                     if (x.Place.ID == loggedUser.donationCamp.ID)
@@ -41,9 +47,9 @@ namespace BloodDonationManamentSystem
                     }
                 }
             }
-            else if(path=="Hospital")
+            else if (Path == "Hospital")
             {
-                HospitalUser loggedUser = (HospitalUser)user;
+                HospitalUser loggedUser = (HospitalUser)User;
                 loggedUser.hospital = dB.getHospital(loggedUser.placeID);
                 foreach (Appointment x in dB.getAllAppointments())
                 {
@@ -54,14 +60,10 @@ namespace BloodDonationManamentSystem
                 }
 
             }
-            else{
-              list1=dB.getAllAppointments();
+            else
+            {
+                list1 = dB.getAllAppointments();
             }
-            refresh();
-        }
-
-        public void refresh()
-        {
             grdTable.ItemsSource = list1;
             cmbStatus.SelectedIndex = -1;
             cmbType.SelectedIndex = -1;
@@ -69,11 +71,24 @@ namespace BloodDonationManamentSystem
         }
         private void btnFilter_Click(object sender, RoutedEventArgs e)
         {
-            if(cmbType.SelectedIndex!=-1 && cmbStatus.SelectedIndex!=-1 && dtpDate.SelectedDate!=null)
+            grdTable.ItemsSource = list1;
+            list2 = new List<Appointment>();
+            string selectedType = "";
+            string selectedStatus = "";
+            if (cmbType.SelectedIndex != -1)
+            {
+                selectedType = ((ComboBoxItem)cmbType.SelectedItem).Content.ToString();
+            }
+            if(cmbStatus.SelectedIndex != -1)
+            {
+                selectedStatus = ((ComboBoxItem)cmbStatus.SelectedItem).Content.ToString();
+            }
+            
+            if (cmbType.SelectedIndex!=-1 && cmbStatus.SelectedIndex!=-1 && dtpDate.SelectedDate!=null)
             {
                 foreach(Appointment x in list1)
                 {
-                    if(x.Description==cmbType.SelectedItem.ToString() && x.Status==cmbStatus.SelectedItem.ToString() && x.Date.Date==dtpDate.SelectedDate)
+                    if(x.Description==selectedType && x.Status==selectedStatus && x.Date.Date==dtpDate.SelectedDate)
                     {
                         list2.Add(x);
                     }
@@ -83,7 +98,7 @@ namespace BloodDonationManamentSystem
             {
                 foreach (Appointment x in list1)
                 {
-                    if (x.Description == cmbType.SelectedItem.ToString() && x.Status == cmbStatus.SelectedItem.ToString())
+                    if (x.Description == selectedType && x.Status == selectedStatus)
                     {
                         list2.Add(x);
                     }
@@ -93,37 +108,37 @@ namespace BloodDonationManamentSystem
             {
                 foreach (Appointment x in list1)
                 {
-                    if (x.Description == cmbType.SelectedItem.ToString() && x.Date.Date == dtpDate.SelectedDate)
+                    if (x.Description == selectedType && x.Date.Date == dtpDate.SelectedDate)
                     {
                         list2.Add(x);
                     }
                 }
             }
-            else if (cmbStatus.SelectedIndex!=0 && dtpDate.SelectedDate!=null) 
+            else if (cmbStatus.SelectedIndex!=-1 && dtpDate.SelectedDate!=null) 
             {
                 foreach (Appointment x in list1)
                 {
-                    if (x.Status == cmbStatus.SelectedItem.ToString() && x.Date.Date == dtpDate.SelectedDate)
+                    if (x.Status == selectedStatus && x.Date.Date == dtpDate.SelectedDate)
                     {
                         list2.Add(x);
                     }
                 }
             }
-            else if (cmbType.SelectedIndex != 0)
+            else if (cmbType.SelectedIndex != -1)
             {
                 foreach (Appointment x in list1)
                 {
-                    if (x.Description == cmbType.SelectedItem.ToString())
+                    if (x.Description == selectedType)
                     {
                         list2.Add(x);
                     }
                 }
             }
-            else if(cmbStatus.SelectedIndex != 0)
+            else if(cmbStatus.SelectedIndex != -1)
             {
                 foreach (Appointment x in list1)
                 {
-                    if (x.Status == cmbStatus.SelectedItem.ToString())
+                    if (x.Status == selectedStatus)
                     {
                         list2.Add(x);
                     }
@@ -144,6 +159,17 @@ namespace BloodDonationManamentSystem
                 list2 = list1;
             }
             grdTable.ItemsSource = list2;
+        }
+
+        private void btnReset_Click(object sender, RoutedEventArgs e)
+        {
+            refresh();
+        }
+
+        private void btnAttend_Click(object sender, RoutedEventArgs e)
+        {
+            Appointment appointment = (sender as Button).DataContext as Appointment;
+            dB.approveAppointment(appointment);
         }
     }
 }

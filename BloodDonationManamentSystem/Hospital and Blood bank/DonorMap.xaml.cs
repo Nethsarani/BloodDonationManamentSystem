@@ -51,9 +51,18 @@ namespace BloodDonationManamentSystem
 
         private void btnFind_Click(object sender, RoutedEventArgs e)
         {
+            grdDonors.ItemsSource=list1;
+            list2=new List<Donor>();
+            string type="";
+            if (cmbType.SelectedIndex!=-1)
+            {
+                ComboBoxItem selected = cmbType.SelectedItem as ComboBoxItem;
+                type = selected.Content.ToString();
+            }
+            
             foreach (Donor donor in list1)
             {
-                if (donor.BloodType == cmbType.SelectedItem.ToString())
+                if (donor.BloodType == type)
                 {
                     list2.Add(donor);
                 }
@@ -64,6 +73,12 @@ namespace BloodDonationManamentSystem
         private void btnReset_Click(object sender, RoutedEventArgs e)
         {
             refresh();
+        }
+
+        private void btnApprove_Click(object sender, RoutedEventArgs e)
+        {
+            Donor appointment = (sender as Button).DataContext as Donor;
+            dB.approveDonor(appointment);
         }
     }
 }

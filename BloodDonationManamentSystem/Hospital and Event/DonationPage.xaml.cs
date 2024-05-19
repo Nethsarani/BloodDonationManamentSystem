@@ -1,6 +1,7 @@
 ﻿using BloodDonationManamentSystem.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,14 +25,22 @@ namespace BloodDonationManamentSystem.Hospital_and_Event
         DB dB=new DB();
         List<Donation> list1 = new List<Donation>();
         List<Donation> list2 = new List<Donation>();
+        string Path;
+        User User;
         public DonationPage(string path, User user)
         {
             InitializeComponent();
-            
-            if (path == "Camp")
+            Path = path;
+            User = user;
+            refresh();
+        }
+
+        public void refresh()
+        {
+            if (Path == "Camp")
             {
-                DonationCampUser loggedUser = (DonationCampUser)user;
-                loggedUser.donationCamp = dB.getDonationCamp(user.placeID);
+                DonationCampUser loggedUser = (DonationCampUser)User;
+                loggedUser.donationCamp = dB.getDonationCamp(User.placeID);
                 foreach (Donation x in dB.getAllDonations())
                 {
                     if (x.collectionPoint.ID == loggedUser.donationCamp.ID)
@@ -40,9 +49,9 @@ namespace BloodDonationManamentSystem.Hospital_and_Event
                     }
                 }
             }
-            else if(path=="Hospital")
+            else if (Path == "Hospital")
             {
-                HospitalUser loggedUser = (HospitalUser)user;
+                HospitalUser loggedUser = (HospitalUser)User;
                 loggedUser.hospital = dB.getHospital(loggedUser.placeID);
                 foreach (Donation x in dB.getAllDonations())
                 {
@@ -52,14 +61,10 @@ namespace BloodDonationManamentSystem.Hospital_and_Event
                     }
                 }
             }
-            else{
-              list1=dB.getAllDonations();
+            else
+            {
+                list1 = dB.getAllDonations();
             }
-            refresh();
-        }
-
-        public void refresh()
-        {
             grdDonations.ItemsSource = list1;
             cmbType.SelectedIndex = -1;
             dtpDate.SelectedDate = null;
@@ -67,11 +72,19 @@ namespace BloodDonationManamentSystem.Hospital_and_Event
 
         private void btnFilter_Click(object sender, RoutedEventArgs e)
         {
+            grdDonations.ItemsSource = list1;
+            list2 = new List<Donation>();
+            string selected = "";
+            if (cmbType.SelectedIndex != -1)
+            {
+                selected = ((ComboBoxItem)cmbType.SelectedItem).Content.ToString();
+            }
+            
             if (cmbType.SelectedIndex != -1 && dtpDate.SelectedDate != null)
             {
                 foreach (Donation x in list1)
                 {
-                    if (x.Donor.BloodType == cmbType.SelectedItem.ToString() && x.Date==dtpDate.SelectedDate)
+                    if (x.Donor.BloodType == selected && x.Date==dtpDate.SelectedDate)
                     {
                         list2.Add(x);
                     }
@@ -81,7 +94,7 @@ namespace BloodDonationManamentSystem.Hospital_and_Event
             {
                 foreach (Donation x in list1)
                 {
-                    if (x.Donor.BloodType == cmbType.SelectedItem.ToString())
+                    if (x.Donor.BloodType == selected)
                     {
                         list2.Add(x);
                     }

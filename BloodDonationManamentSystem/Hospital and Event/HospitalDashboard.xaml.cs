@@ -85,5 +85,11 @@ namespace BloodDonationManamentSystem
             win = (MainWindow)Window.GetWindow(this);
         }
 
+
+        private void btnApprove_Click(object sender, RoutedEventArgs e)
+        {
+            Appointment appointment=(sender as Button).DataContext as Appointment;
+            dB.approveAppointment(appointment);
+        }
     }
 }

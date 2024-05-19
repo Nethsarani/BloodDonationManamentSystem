@@ -944,6 +944,36 @@ namespace BloodDonationManamentSystem
             return x;
         }
 
+        public void approveAppointment(Appointment appointment)
+        {
+            DonationCamp x = new DonationCamp();
+            try
+            {
+                if (con.State == ConnectionState.Closed) { if (con.State == ConnectionState.Closed) { con.Open(); } }
+                command = new SqlCommand("UPDATE AppointmentTable SET Status='Active' WHERE ID=@id;", con);
+                SqlParameter sqlParam1 = command.Parameters.AddWithValue("@id", appointment.Id);
+                sqlParam1.DbType = DbType.Int32;
+                command.ExecuteNonQuery();
+                con.Close();
+            }
+            catch { }
+        }
+
+        public void approveDonor(Donor appointment)
+        {
+            DonationCamp x = new DonationCamp();
+            try
+            {
+                if (con.State == ConnectionState.Closed) { if (con.State == ConnectionState.Closed) { con.Open(); } }
+                command = new SqlCommand("UPDATE DonorTable SET Status='Active' WHERE ID=@id;", con);
+                SqlParameter sqlParam1 = command.Parameters.AddWithValue("@id", appointment.ID);
+                sqlParam1.DbType = DbType.Int32;
+                command.ExecuteNonQuery();
+                con.Close();
+            }
+            catch { }
+        }
+
         static T xmlToObject<T>(string xmlString)
         {
 

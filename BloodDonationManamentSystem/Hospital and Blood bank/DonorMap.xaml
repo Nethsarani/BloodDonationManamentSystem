@@ -10,7 +10,7 @@
 
     <Grid Width="1000" Height="600" Background="White">
         <ComboBox x:Name="cmbType" HorizontalAlignment="Left" Margin="758,73,0,0" VerticalAlignment="Top" Width="120">
-            <ComboBoxItem Content="A"/>
+            <ComboBoxItem Content="A" />
             <ComboBoxItem Content="O"/>
             <ComboBoxItem Content="O+"/>
             <ComboBoxItem Content="O-"/>
@@ -28,6 +28,13 @@
                 <DataGridTextColumn Header="Email" Binding="{Binding Email}"/>
                 <DataGridTextColumn Header="Blood Type" Binding="{Binding BloodType}"/>
                 <DataGridTextColumn Header="Status" Binding="{Binding Status}"/>
+                <DataGridTemplateColumn Header="Approve">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="btnApprove" Click="btnApprove_Click" Content="Approve"></Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
         <Label Content="Donors" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" FontSize="36"/>

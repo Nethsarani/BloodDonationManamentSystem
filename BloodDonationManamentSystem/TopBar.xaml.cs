@@ -38,6 +38,7 @@ namespace BloodDonationManamentSystem
         {
             win = (MainWindow)Window.GetWindow(this);
             win.mainFrame.Navigate(new Home());
+            win.mainFrame.Visibility = Visibility.Visible;
             win.contentFrame.Navigate(null);
             win.topFrame.Navigate(null);
             win.navigationFrame.Navigate(null);

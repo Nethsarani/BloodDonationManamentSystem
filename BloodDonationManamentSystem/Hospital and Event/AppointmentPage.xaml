@@ -16,9 +16,15 @@
                 <DataGridTextColumn Header="Donor Name" Binding="{Binding Donor.Name}"/>
                 <DataGridTextColumn Header="Date" Binding="{Binding Date.Date}"/>
                 <DataGridTextColumn Header="Time" Binding="{Binding Time.TimeOfDay}"/>
-                <DataGridTextColumn Header="Type" Binding="{Binding Donor.BloodType}"/>
+                <DataGridTextColumn Header="Type" Binding="{Binding Description}"/>
                 <DataGridTextColumn Header="Status" Binding="{Binding Status}"/>
-                <DataGridTemplateColumn Header="Attend"/>
+                <DataGridTemplateColumn Header="Attend">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="btnAttend" Click="btnAttend_Click" Content="Attend"></Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
         <Label Content="Appointments" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="36" Margin="0,-5,0,0"/>
@@ -33,7 +39,7 @@
             <ComboBoxItem Content="Rejected"/>
         </ComboBox>
         <Button x:Name="btnFilter" Content="Filter" HorizontalAlignment="Left" Margin="838,58,0,0" VerticalAlignment="Top" Width="50" Click="btnFilter_Click"/>
-        <Button x:Name="btnReset" Content="Reset" HorizontalAlignment="Left" Margin="902,58,0,0" VerticalAlignment="Top" Width="50"/>
+        <Button x:Name="btnReset" Content="Reset" HorizontalAlignment="Left" Margin="902,58,0,0" VerticalAlignment="Top" Width="50" Click="btnReset_Click"/>
 
     </Grid>
 </Page>
