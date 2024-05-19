@@ -25,7 +25,7 @@ namespace BloodDonationManamentSystem.Hospital_and_Blood_bank
         public Blood_Stock(string path, User user)
         {
             InitializeComponent();
-            grdStock.ItemSource=dB.getTotalStock();
+            grdStock.ItemsSource=dB.getAllStock();
         }
     }
 }

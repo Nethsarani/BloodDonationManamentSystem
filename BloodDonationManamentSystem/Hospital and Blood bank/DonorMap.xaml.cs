@@ -21,6 +21,7 @@ namespace BloodDonationManamentSystem
     /// </summary>
     public partial class DonorMap : Page
     {
+        DB dB=new DB();
         public DonorMap(string path, User user)
         {
             InitializeComponent();
@@ -35,7 +36,7 @@ namespace BloodDonationManamentSystem
                 HospitalUser loggedUser = (HospitalUser)user;
                 //loggedUser.hospital=dB.getHospital(loggedUser.placeID);
             }
-            grdDonors.ItemSource=dB.getAllDonors();
+            grdDonors.ItemsSource=dB.getAllDonors();
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using BloodDonationManamentSystem.Models;
+﻿using BloodDonationManamentSystem.Hospital_and_Event;
+using BloodDonationManamentSystem.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,11 +26,15 @@ namespace BloodDonationManamentSystem
     {
        MainWindow win;
         DB dB = new DB();
+        string Path;
+        User User;
         public HospitalDashboard(String path, Models.User user)
         {
             InitializeComponent();
             List<Appointment> list1 = new List<Appointment>();
             List<Appointment> list2 = new List<Appointment>();
+            Path = path;
+            User = user;
             if (path=="Camp")
             {
                 subGridHos.Visibility = Visibility.Collapsed;
@@ -83,7 +88,7 @@ namespace BloodDonationManamentSystem
         private void btnFind_Click(object sender, RoutedEventArgs e)
         {
           winLoad();
-          win.contentFrame.Navigate(new DonationPage(win.NavigationFrame.path, win.NavigationFrame.user));
+          win.contentFrame.Navigate(new DonationPage(Path, User));
 
         }
     }
