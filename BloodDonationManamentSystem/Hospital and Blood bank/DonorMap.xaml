@@ -23,7 +23,7 @@
                 <DataGridTextColumn Header="Gender" Binding="{Binding Gender}"/>
                 <DataGridTextColumn Header="NIC" Binding="{Binding NIC}"/>
                 <DataGridTextColumn Header="Date of Birth" Binding="{Binding DOB}"/>
-                <DataGridHyperlinkColumn Header="Address" Binding="{Binding Location.Address}"/>
+                <DataGridTextColumn Header="Address" Binding="{Binding Location.Address}"/>
                 <DataGridTextColumn Header="Contact No" Binding="{Binding ContactNo}"/>
                 <DataGridTextColumn Header="Email" Binding="{Binding Email}"/>
                 <DataGridTextColumn Header="Blood Type" Binding="{Binding BloodType}"/>

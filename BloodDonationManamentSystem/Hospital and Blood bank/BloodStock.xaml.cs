@@ -28,7 +28,7 @@ namespace BloodDonationManamentSystem.Hospital_and_Blood_bank
         public Blood_Stock(string path, User user)
         {
             InitializeComponent();
-            
+            refresh();
         }
 
         public void refresh()

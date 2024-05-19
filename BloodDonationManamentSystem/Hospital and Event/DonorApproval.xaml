@@ -10,7 +10,7 @@
 
     <Grid Background="White">
         <Label Content="Donor Approval" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" FontSize="36"/>
-        <TextBox HorizontalAlignment="Left" Margin="221,92,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="250" FontSize="24"/>
+        <TextBox x:Name="txtName" HorizontalAlignment="Left" Margin="221,92,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="250" FontSize="24" TextChanged="txtName_TextChanged"/>
         <Label Content="Name" HorizontalAlignment="Left" Margin="47,88,0,0" VerticalAlignment="Top" FontSize="24" Padding="0,5,5,5"/>
         <Label Content="Contact No" HorizontalAlignment="Left" Margin="39,303,0,0" VerticalAlignment="Top" FontSize="24"/>
         <Label Content="Email" HorizontalAlignment="Left" Margin="39,354,0,0" VerticalAlignment="Top" FontSize="24"/>
@@ -18,22 +18,22 @@
         <Label Content="District" HorizontalAlignment="Left" Margin="39,454,0,0" VerticalAlignment="Top" FontSize="24"/>
         <Label Content="City" HorizontalAlignment="Left" Margin="39,504,0,0" VerticalAlignment="Top" FontSize="24"/>
         <Label Content="Select location" HorizontalAlignment="Left" Margin="39,545,0,0" VerticalAlignment="Top" FontSize="24"/>
-        <TextBox HorizontalAlignment="Left" Margin="221,307,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="250" FontSize="24"/>
-        <TextBox HorizontalAlignment="Left" Margin="221,358,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="250" FontSize="24"/>
-        <TextBox HorizontalAlignment="Left" Margin="221,397,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="250" FontSize="24"/>
-        <TextBox HorizontalAlignment="Left" Margin="221,508,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="250" FontSize="24"/>
-        <ComboBox HorizontalAlignment="Left" Margin="221,458,0,0" VerticalAlignment="Top" Width="250" Height="34"/>
+        <TextBox x:Name="txtContactNo" HorizontalAlignment="Left" Margin="221,307,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="250" FontSize="24" TextChanged="txtContactNo_TextChanged"/>
+        <TextBox x:Name="txtEmail" HorizontalAlignment="Left" Margin="221,358,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="250" FontSize="24" TextChanged="txtEmail_TextChanged"/>
+        <TextBox x:Name="txtAddress" HorizontalAlignment="Left" Margin="221,397,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="250" FontSize="24" TextChanged="txtAddress_TextChanged"/>
+        <ComboBox x:Name="cmbCity" HorizontalAlignment="Left" Margin="221,508,0,0" Text="TextBox" VerticalAlignment="Top" Width="250" FontSize="24" SelectionChanged="cmbCity_SelectionChanged"/>
+        <ComboBox x:Name="cmbDistrict" HorizontalAlignment="Left" Margin="221,458,0,0" VerticalAlignment="Top" Width="250" Height="34" SelectionChanged="cmbDistrict_SelectionChanged"/>
         <Label Content="Gender" HorizontalAlignment="Left" Margin="39,135,0,0" VerticalAlignment="Top" FontSize="24"/>
-        <ComboBox HorizontalAlignment="Left" Margin="221,139,0,0" VerticalAlignment="Top" Width="250" Height="34"/>
+        <ComboBox x:Name="cmbGender" HorizontalAlignment="Left" Margin="221,139,0,0" VerticalAlignment="Top" Width="250" Height="34" SelectionChanged="cmbGender_SelectionChanged"/>
         <Label Content="Date of Birth" HorizontalAlignment="Left" Margin="39,183,0,0" VerticalAlignment="Top" FontSize="24"/>
-        <DatePicker HorizontalAlignment="Left" Margin="221,187,0,0" VerticalAlignment="Top" Height="34" Width="250"/>
-        <TextBox HorizontalAlignment="Left" Margin="717,92,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="250" FontSize="24"/>
+        <DatePicker x:Name="dtpDOB" HorizontalAlignment="Left" Margin="221,187,0,0" VerticalAlignment="Top" Height="34" Width="250"/>
+        <TextBox x:Name="txtWeight" HorizontalAlignment="Left" Margin="717,92,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="250" FontSize="24" TextChanged="txtWeight_TextChanged"/>
         <Label Content="Weight" HorizontalAlignment="Left" Margin="543,88,0,0" VerticalAlignment="Top" FontSize="24" Padding="0,5,5,5"/>
         <Label Content="Blood Type" HorizontalAlignment="Left" Margin="536,135,0,0" VerticalAlignment="Top" FontSize="24"/>
-        <ComboBox HorizontalAlignment="Left" Margin="717,139,0,0" VerticalAlignment="Top" Width="250" Height="34"/>
-        <TextBox HorizontalAlignment="Left" Margin="717,188,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="250" FontSize="24"/>
+        <ComboBox x:Name="cmbType" HorizontalAlignment="Left" Margin="717,139,0,0" VerticalAlignment="Top" Width="250" Height="34" SelectionChanged="cmbType_SelectionChanged"/>
+        <TextBox x:Name="txtHemo" HorizontalAlignment="Left" Margin="717,188,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="250" FontSize="24" TextChanged="txtHemo_TextChanged"/>
         <Label Content="Hemoglobin" HorizontalAlignment="Left" Margin="543,184,0,0" VerticalAlignment="Top" FontSize="24" Padding="0,5,5,5"/>
-        <CheckBox Content="Sexual History" HorizontalAlignment="Left" Margin="543,406,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FlowDirection="RightToLeft" Padding="122,0,0,0" Height="16" Grid.IsSharedSizeScope="True" UseLayoutRounding="False" BorderThickness="1,1,1,1" RenderTransformOrigin="0.5,0.5">
+        <CheckBox x:Name="chkSexHealth" Content="Sexual History" HorizontalAlignment="Left" Margin="543,406,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FlowDirection="RightToLeft" Padding="122,0,0,0" Height="16" Grid.IsSharedSizeScope="True" UseLayoutRounding="False" BorderThickness="1,1,1,1" RenderTransformOrigin="0.5,0.5" Checked="chkSexHealth_Checked">
             <CheckBox.LayoutTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleX="2" ScaleY="2"/>
@@ -51,9 +51,9 @@
                 </TransformGroup>
             </CheckBox.RenderTransform>
         </CheckBox>
-        <TextBox HorizontalAlignment="Left" Margin="221,236,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="250" FontSize="24"/>
+        <TextBox x:Name="txtNIC" HorizontalAlignment="Left" Margin="221,236,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="250" FontSize="24" TextChanged="txtNIC_TextChanged"/>
         <Label Content="NIC" HorizontalAlignment="Left" Margin="47,232,0,0" VerticalAlignment="Top" FontSize="24" Padding="0,5,5,5"/>
-        <CheckBox Content="Skin Condition" HorizontalAlignment="Left" Margin="543,442,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FlowDirection="RightToLeft" Padding="119,0,0,0" Height="16" Grid.IsSharedSizeScope="True" UseLayoutRounding="False" BorderThickness="1,1,1,1" RenderTransformOrigin="0.5,0.5">
+        <CheckBox x:Name="chkSkin" Content="Skin Condition" HorizontalAlignment="Left" Margin="543,442,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FlowDirection="RightToLeft" Padding="119,0,0,0" Height="16" Grid.IsSharedSizeScope="True" UseLayoutRounding="False" BorderThickness="1,1,1,1" RenderTransformOrigin="0.5,0.5" Checked="chkSkin_Checked">
             <CheckBox.LayoutTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleX="2" ScaleY="2"/>
@@ -71,7 +71,7 @@
                 </TransformGroup>
             </CheckBox.RenderTransform>
         </CheckBox>
-        <CheckBox Content="Genetical Diseases" HorizontalAlignment="Left" Margin="543,218,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FlowDirection="RightToLeft" Padding="40,0,0,0" Height="33" Grid.IsSharedSizeScope="True" UseLayoutRounding="False" BorderThickness="1,1,1,1" RenderTransformOrigin="0.5,0.5">
+        <CheckBox x:Name="chkGen" Content="Genetical Diseases" HorizontalAlignment="Left" Margin="543,218,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FlowDirection="RightToLeft" Padding="40,0,0,0" Height="33" Grid.IsSharedSizeScope="True" UseLayoutRounding="False" BorderThickness="1,1,1,1" RenderTransformOrigin="0.5,0.5" Checked="chkGen_Checked">
             <CheckBox.LayoutTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleX="2" ScaleY="2"/>
@@ -90,8 +90,8 @@
             </CheckBox.RenderTransform>
         </CheckBox>
         <Label Content="Description" HorizontalAlignment="Left" Margin="543,272,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <TextBox HorizontalAlignment="Left" Margin="745,270,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="222" FontSize="24"/>
-        <CheckBox Content="Other Diseases" HorizontalAlignment="Left" Margin="543,294,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FlowDirection="RightToLeft" Padding="40,0,0,0" Height="33" Grid.IsSharedSizeScope="True" UseLayoutRounding="False" BorderThickness="1,1,1,1" RenderTransformOrigin="0.5,0.5">
+        <TextBox x:Name="txtGen" HorizontalAlignment="Left" Margin="745,270,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="222" FontSize="24"/>
+        <CheckBox x:Name="chkOther" Content="Other Diseases" HorizontalAlignment="Left" Margin="543,294,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FlowDirection="RightToLeft" Padding="40,0,0,0" Height="33" Grid.IsSharedSizeScope="True" UseLayoutRounding="False" BorderThickness="1,1,1,1" RenderTransformOrigin="0.5,0.5" Checked="chkOther_Checked">
             <CheckBox.LayoutTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleX="2" ScaleY="2"/>
@@ -110,8 +110,8 @@
             </CheckBox.RenderTransform>
         </CheckBox>
         <Label Content="Description" HorizontalAlignment="Left" Margin="543,348,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <TextBox HorizontalAlignment="Left" Margin="745,346,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="222" FontSize="24"/>
-        <CheckBox Content="Surgery History" HorizontalAlignment="Left" Margin="543,374,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FlowDirection="RightToLeft" Padding="115,0,0,0" Height="16" Grid.IsSharedSizeScope="True" UseLayoutRounding="False" BorderThickness="1,1,1,1" RenderTransformOrigin="0.5,0.5">
+        <TextBox x:Name="txtOtherDis" HorizontalAlignment="Left" Margin="745,346,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="222" FontSize="24"/>
+        <CheckBox x:Name="chkSurgHeallth" Content="Surgery History" HorizontalAlignment="Left" Margin="543,374,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FlowDirection="RightToLeft" Padding="115,0,0,0" Height="16" Grid.IsSharedSizeScope="True" UseLayoutRounding="False" BorderThickness="1,1,1,1" RenderTransformOrigin="0.5,0.5" Checked="chkSurgHeallth_Checked">
             <CheckBox.LayoutTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleX="2" ScaleY="2"/>
@@ -129,9 +129,9 @@
                 </TransformGroup>
             </CheckBox.RenderTransform>
         </CheckBox>
-        <TextBox HorizontalAlignment="Left" Margin="717,491,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="250" FontSize="24"/>
+        <TextBox x:Name="txtOther" HorizontalAlignment="Left" Margin="717,491,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="250" FontSize="24"/>
         <Label Content="Other details" HorizontalAlignment="Left" Margin="543,487,0,0" VerticalAlignment="Top" FontSize="24" Padding="0,5,5,5"/>
-        <CheckBox Content="Suitable to donate blood" HorizontalAlignment="Left" Margin="543,518,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FlowDirection="RightToLeft" Padding="65,0,0,0" Height="33" Grid.IsSharedSizeScope="True" UseLayoutRounding="False" BorderThickness="1,1,1,1" RenderTransformOrigin="0.5,0.5">
+        <CheckBox x:Name="chkSuitable" Content="Suitable to donate blood" HorizontalAlignment="Left" Margin="543,518,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FlowDirection="RightToLeft" Padding="65,0,0,0" Height="33" Grid.IsSharedSizeScope="True" UseLayoutRounding="False" BorderThickness="1,1,1,1" RenderTransformOrigin="0.5,0.5" Checked="chkSuitable_Checked">
             <CheckBox.LayoutTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleX="2" ScaleY="2"/>
@@ -149,7 +149,7 @@
                 </TransformGroup>
             </CheckBox.RenderTransform>
         </CheckBox>
-        <Button Content="Approve" HorizontalAlignment="Left" Margin="906,571,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="btnApprove" Content="Approve" HorizontalAlignment="Left" Margin="906,571,0,0" VerticalAlignment="Top" Click="btnApprove_Click"/>
 
     </Grid>
 </Page>

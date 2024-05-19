@@ -959,15 +959,37 @@ namespace BloodDonationManamentSystem
             catch { }
         }
 
-        public void approveDonor(Donor appointment)
+        public void approveDonor(Donor obj)
         {
             DonationCamp x = new DonationCamp();
             try
             {
                 if (con.State == ConnectionState.Closed) { if (con.State == ConnectionState.Closed) { con.Open(); } }
-                command = new SqlCommand("UPDATE DonorTable SET Status='Active' WHERE ID=@id;", con);
-                SqlParameter sqlParam1 = command.Parameters.AddWithValue("@id", appointment.ID);
-                sqlParam1.DbType = DbType.Int32;
+                command = new SqlCommand("UPDATE DonorTable SET Name=@name, Gender=@gender, NIC=@nic, Location=@location, DOB=@dob, ContactNo=@contact, Email=@email, BloodType=@type, HealthCondition=@health Status='Active' WHERE ID=@id;", con);
+                SqlParameter sqlParam13 = command.Parameters.AddWithValue("@id", obj.ID);
+                sqlParam13.DbType = DbType.Int32;
+                SqlParameter sqlParam1 = command.Parameters.AddWithValue("@name", obj.Name);
+                sqlParam1.DbType = DbType.String;
+                SqlParameter sqlParam2 = command.Parameters.AddWithValue("@gender", obj.Gender);
+                sqlParam2.DbType = DbType.String;
+                SqlParameter sqlParam3 = command.Parameters.AddWithValue("@nic", obj.NIC);
+                sqlParam3.DbType = DbType.String;
+                SqlParameter sqlParam4 = command.Parameters.AddWithValue("@location", objToXml(obj.Location));
+                sqlParam4.DbType = DbType.Xml;
+                SqlParameter sqlParam5 = command.Parameters.AddWithValue("@dob", obj.DOB);
+                sqlParam5.DbType = DbType.DateTime;
+                SqlParameter sqlParam6 = command.Parameters.AddWithValue("@contact", obj.ContactNo);
+                sqlParam6.DbType = DbType.String;
+                SqlParameter sqlParam7 = command.Parameters.AddWithValue("@email", obj.Email);
+                sqlParam7.DbType = DbType.String;
+                SqlParameter sqlParam8 = command.Parameters.AddWithValue("@type", obj.BloodType);
+                sqlParam8.DbType = DbType.String;
+                SqlParameter sqlParam9 = command.Parameters.AddWithValue("@health", objToXml(obj.health));
+                sqlParam9.DbType = DbType.Xml;
+                SqlParameter sqlParam10 = command.Parameters.AddWithValue("@username", obj.Username);
+                sqlParam10.DbType = DbType.String;
+                SqlParameter sqlParam11 = command.Parameters.AddWithValue("@password", obj.Password);
+                sqlParam11.DbType = DbType.String;
                 command.ExecuteNonQuery();
                 con.Close();
             }

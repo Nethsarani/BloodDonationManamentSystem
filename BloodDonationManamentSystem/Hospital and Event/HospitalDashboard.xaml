@@ -29,7 +29,7 @@
                 <DataGridTextColumn Header="Gender"  Binding="{Binding Donor.Gender}"/>
                 <DataGridTextColumn Header="NIC" Binding="{Binding Donor.NIC}"/>
                 <DataGridTextColumn Header="Date of Birth" Binding="{Binding Donor.NIC}"/>
-                <DataGridHyperlinkColumn Header="Address" Binding="{Binding Donor.Location.Address}"/>
+                <DataGridTextColumn Header="Address" Binding="{Binding Donor.Location.Address}"/>
                 <DataGridTextColumn Header="Contact No" Binding="{Binding Donor.ContactNo}"/>
                 <DataGridTextColumn Header="Email" Binding="{Binding Donor.Email}"/>
                 <DataGridTemplateColumn Header="Approve" >
@@ -54,7 +54,6 @@
                 <DataGridTextColumn Header="Time" Binding="{Binding Time.TimeOfDay}"/>
                 <DataGridTextColumn Header="Type" Binding="{Binding Description}"/>
                 <DataGridTextColumn Header="Status" Binding="{Binding Status}"/>
-                <DataGridTemplateColumn Header="Attend"/>
             </DataGrid.Columns>
         </DataGrid>
         <Label x:Name="lblDonTitle" Content="Pending Appointments" HorizontalAlignment="Left" Margin="506,21,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>

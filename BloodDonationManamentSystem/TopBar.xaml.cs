@@ -28,11 +28,7 @@ namespace BloodDonationManamentSystem
             lblUser.Content = "Logged in as: " + user.Name; 
         }
 
-        private void btnEdit_Click(object sender, RoutedEventArgs e)
-        {
-            win = (MainWindow)Window.GetWindow(this);
-            win.contentFrame.Navigate(new DonorApproval());
-        }
+        
 
         private void btnLogout_Click(object sender, RoutedEventArgs e)
         {

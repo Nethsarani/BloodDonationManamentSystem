@@ -1,6 +1,7 @@
 ﻿using BloodDonationManamentSystem.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,6 +25,9 @@ namespace BloodDonationManamentSystem
         DB dB=new DB();
         List<Donor> list1 = new List<Donor>();
         List<Donor> list2 = new List<Donor>();
+        MainWindow win;
+        string Path;
+        User User;
         public DonorMap(string path, User user)
         {
             InitializeComponent();
@@ -39,7 +43,10 @@ namespace BloodDonationManamentSystem
                 //loggedUser.hospital=dB.getHospital(loggedUser.placeID);
             }
             refresh();
-                
+            win = (MainWindow)Window.GetWindow(this);
+            Path= path;
+            User = user;
+
         }
 
         public void refresh()
@@ -77,8 +84,8 @@ namespace BloodDonationManamentSystem
 
         private void btnApprove_Click(object sender, RoutedEventArgs e)
         {
-            Donor appointment = (sender as Button).DataContext as Donor;
-            dB.approveDonor(appointment);
+            Donor don = (sender as Button).DataContext as Donor;
+            win.contentFrame.Navigate(new DonorApproval(don,Path,User));
         }
     }
 }
