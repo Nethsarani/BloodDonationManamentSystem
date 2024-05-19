@@ -460,7 +460,100 @@ namespace BloodDonationManamentSystem
             }
             return x;
         }
-
+        
+        public List<Donation> getAllDonations()
+        {
+            if(con.State == ConnectionState.Closed){con.Open();}
+            command = new SqlCommand("Select * from DonationTable;", con);
+            SqlDataReader reader = command.ExecuteReader();
+            List<Donation> x = new List<Donation>();
+            while (reader.Read())
+            {
+                Donation appoint = new Donation();
+                appoint.Id = reader.GetInt32(0);
+                appoint.donorId =reader.GetInt32(1);
+                appoint.placeId = reader.GetInt32(2);
+                appoint.Date = reader.GetDateTime(3);
+                appoint.Status = reader.GetString(6);
+                x.Add(appoint);
+            }
+            con.Close();
+            foreach(Donation appoint in x)
+            {
+                appoint.Donor = getDonor(appoint.donorId);
+                if (appoint.placeId % 2 == 0)
+                {
+                    appoint.collectionPoint = getDonationCamp(appoint.placeId);
+                }
+                else
+                {
+                    appoint.collectionPoint = getHospital(appoint.placeId);
+                }
+            }
+            return x;
+        }
+        
+        public List<Donor> getAllDonors()
+        {
+            if(con.State == ConnectionState.Closed){con.Open();}
+            command = new SqlCommand("Select * from DonorTable;", con);
+            SqlDataReader reader = command.ExecuteReader();
+            List<Donor> y = new List<Donor>();
+            while (reader.Read())
+            {
+                Donor x = new Donor();
+                x.ID = reader.GetInt32(0);
+                x.Name = reader.GetString(1);
+                x.Gender = reader.GetString(2);
+                x.NIC=reader.GetString(3);
+                x.Location = xmlToObject<Location>(reader.GetString(4));
+                x.DOB = reader.GetDateTime(5);
+                x.ContactNo = reader.GetString(6);
+                x.Email = reader.GetString(7);
+                x.BloodType = reader.GetString(8);
+                x.health = xmlToObject<HealthCondition>(reader.GetString(9));
+                x.Username = reader.GetString(10);
+                x.Password = reader.GetString(11);
+                x.Status = reader.GetString(12);
+                y.Add(x);
+            }
+            con.Close();
+            return y;
+        }
+        
+        public List<Donor> getAllUsers(string type)
+        {
+            if(con.State == ConnectionState.Closed){con.Open();}
+            command = new SqlCommand("Select * from "+type+"UsersTable;", con);
+            SqlDataReader reader = command.ExecuteReader();
+            List<User> y = new List<User>();
+            while (reader.Read())
+            {
+                User x = new User();
+                x.Id = reader.GetInt32(0);
+                x.Name = reader.GetString(2);
+                x.NIC=reader.GetString(3);
+                x.Position = reader.GetString(4);
+                x.ContactNo = reader.GetString(5);
+                x.Email = reader.GetString(6);
+                x.Username = reader.GetString(7);
+                x.Password = reader.GetString(8);
+                x.Privilages = xmlToObject<Privilages>(reader.GetString(9));
+                if(type=="Hospital")
+                {
+                  x.placeId = reader.GetInt32(1);
+                }
+                else if (type=="DonationCamp")
+                {
+                  x.placeId=reader.GetInt32(1);
+                }
+                else{
+                  x.placeId=0;
+                }
+                y.Add(x);
+            }
+            con.Close();
+            return y;
 
         public List<BloodStock> getTotalStock()
         {
