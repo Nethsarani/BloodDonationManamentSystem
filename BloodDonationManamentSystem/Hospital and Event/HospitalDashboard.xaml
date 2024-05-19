@@ -31,9 +31,9 @@
                 <DataGridTextColumn Header="Gender"  Binding="{Binding Donor.Gender}"/>
                 <DataGridTextColumn Header="NIC" Binding="{Binding Donor.NIC}"/>
                 <DataGridTextColumn Header="Date of Birth" Binding="{Binding Donor.NIC}"/>
-                <DataGridHyperlinkColumn Header="Address" Binding="{Binding XPath=Donor.Address}"/>
-                <DataGridTextColumn Header="Contact No" Binding="{Binding XPath=Donor.ContactNo}"/>
-                <DataGridTextColumn Header="Email" Binding="{Binding XPath=Donor.Email}"/>
+                <DataGridHyperlinkColumn Header="Address" Binding="{Binding Donor.Location}"/>
+                <DataGridTextColumn Header="Contact No" Binding="{Binding Donor.ContactNo}"/>
+                <DataGridTextColumn Header="Email" Binding="{Binding Donor.Email}"/>
                 <DataGridTemplateColumn Header="Approve" >
                     
                 </DataGridTemplateColumn>
