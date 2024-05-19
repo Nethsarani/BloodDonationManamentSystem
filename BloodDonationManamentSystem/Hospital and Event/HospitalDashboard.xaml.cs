@@ -23,7 +23,7 @@ namespace BloodDonationManamentSystem
     
     public partial class HospitalDashboard : Page
     {
-       
+       MainWindow win;
         DB dB = new DB();
         public HospitalDashboard(String path, Models.User user)
         {
@@ -74,9 +74,16 @@ namespace BloodDonationManamentSystem
         {
 
         }
+        
+        private void winLoad()
+        {
+            win = (MainWindow)Window.GetWindow(this);
+        }
 
         private void btnFind_Click(object sender, RoutedEventArgs e)
         {
+          winLoad();
+          win.contentFrame.Navigate(new DonationPage(win.NavigationFrame.path, win.NavigationFrame.user));
 
         }
     }
