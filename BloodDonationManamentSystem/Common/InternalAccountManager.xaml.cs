@@ -42,7 +42,7 @@ namespace BloodDonationManamentSystem
             {
                 HospitalUser loggedUser = (HospitalUser)user;
                 //loggedUser.hospital=dB.getHospital(loggedUser.placeID);
-                foreach (HospitalUser x in dB.getAllUsers("Hospital"))
+                foreach (User x in dB.getAllUsers("Hospital"))
                 {
                     if (x.placeID == loggedUser.placeID)
                     {
