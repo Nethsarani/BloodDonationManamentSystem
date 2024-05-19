@@ -73,8 +73,8 @@ namespace BloodDonationManamentSystem
                 dB.insertToDatabase(hospital, "Hospital");
 
                 HospitalUser user = new HospitalUser();
-                MessageBox.Show(dB.IDCheck("Hospital", hospital.Username, "Username").ToString());
-                MessageBox.Show(dB.getHospital(dB.IDCheck("Hospital", hospital.Username, "Username")).ID.ToString());
+                System.Windows.MessageBox.Show(dB.IDCheck("Hospital", hospital.Username, "Username").ToString());
+                System.Windows.MessageBox.Show(dB.getHospital(dB.IDCheck("Hospital", hospital.Username, "Username")).ID.ToString());
                 user.hospital= dB.getHospital(dB.IDCheck("Hospital",  hospital.Username, "Username"));
                 user.Name = txtName.Text;
                 user.Email = txtEmail.Text;
