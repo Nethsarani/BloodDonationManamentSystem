@@ -9,8 +9,13 @@
       Title="DonorMap">
 
     <Grid Width="1000" Height="600" Background="White">
-        <ComboBox x:Name="cmbType" HorizontalAlignment="Left" Margin="782,73,0,0" VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="btnFind" Content="Search" HorizontalAlignment="Left" Margin="943,73,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="cmbType" HorizontalAlignment="Left" Margin="758,73,0,0" VerticalAlignment="Top" Width="120">
+            <ComboBoxItem Content="A"/>
+            <ComboBoxItem Content="O"/>
+            <ComboBoxItem Content="O+"/>
+            <ComboBoxItem Content="O-"/>
+        </ComboBox>
+        <Button x:Name="btnFind" Content="Search" HorizontalAlignment="Left" Margin="899,73,0,0" VerticalAlignment="Top" Click="btnFind_Click"/>
         <DataGrid x:Name="grdDonors" Margin="10,398,10,10" AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID" Binding="{Binding ID}"/>
@@ -27,6 +32,7 @@
         </DataGrid>
         <Label Content="Donors" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" FontSize="36"/>
         <Grid Margin="10,104,10,224" Background="#FFE9CDCD"/>
+        <Button x:Name="btnReset" Content="Reset" HorizontalAlignment="Left" Margin="947,73,0,0" VerticalAlignment="Top" Click="btnReset_Click"/>
 
     </Grid>
 </Page>

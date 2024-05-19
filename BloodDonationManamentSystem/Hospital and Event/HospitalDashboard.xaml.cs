@@ -85,11 +85,5 @@ namespace BloodDonationManamentSystem
             win = (MainWindow)Window.GetWindow(this);
         }
 
-        private void btnFind_Click(object sender, RoutedEventArgs e)
-        {
-          winLoad();
-          win.contentFrame.Navigate(new DonationPage(Path, User));
-
-        }
     }
 }

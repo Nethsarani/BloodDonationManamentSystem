@@ -3,6 +3,7 @@ using BloodDonationManamentSystem.Hospital_and_Event;
 using BloodDonationManamentSystem.Models;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -52,7 +53,15 @@ namespace BloodDonationManamentSystem
         private void btnHome_Click(object sender, RoutedEventArgs e)
         {
             win = (MainWindow)Window.GetWindow(this);
-            //win.contentFrame.Navigate(new HospitalDashboard(path));
+            if(path=="Camp" || path=="Hospital")
+            {
+                win.contentFrame.Navigate(new HospitalDashboard(path, loggedUser));
+            }
+            else
+            {
+                win.contentFrame.Navigate(new bankDashboard(loggedUser));
+            }
+            
         }
 
         private void btnDonors_Click(object sender, RoutedEventArgs e)

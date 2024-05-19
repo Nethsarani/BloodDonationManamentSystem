@@ -45,7 +45,7 @@ namespace BloodDonationManamentSystem
                     sqlParam8.DbType = DbType.String;
                     SqlParameter sqlParam9 = command.Parameters.AddWithValue("@password", obj.Password);
                     sqlParam9.DbType = DbType.String;
-                    SqlParameter sqlParam10 = command.Parameters.AddWithValue("@status", "Pending");
+                    SqlParameter sqlParam10 = command.Parameters.AddWithValue("@status", obj.Status);
                     sqlParam10.DbType = DbType.String;
                     SqlParameter sqlParam11 = command.Parameters.AddWithValue("@email", obj.Email);
                     sqlParam11.DbType = DbType.String;
@@ -80,7 +80,7 @@ namespace BloodDonationManamentSystem
                     sqlParam8.DbType = DbType.String;
                     SqlParameter sqlParam9 = command.Parameters.AddWithValue("@password", obj.Password);
                     sqlParam9.DbType = DbType.String;
-                    SqlParameter sqlParam10 = command.Parameters.AddWithValue("@status", "Pending");
+                    SqlParameter sqlParam10 = command.Parameters.AddWithValue("@status", obj.Status);
                     sqlParam10.DbType = DbType.String;
                 }
                 catch
@@ -138,7 +138,7 @@ namespace BloodDonationManamentSystem
                     sqlParam2.DbType = DbType.Int32;
                     SqlParameter sqlParam3 = command.Parameters.AddWithValue("@date", obj.Date);
                     sqlParam3.DbType = DbType.Date;
-                    SqlParameter sqlParam4 = command.Parameters.AddWithValue("@status", "Pending");
+                    SqlParameter sqlParam4 = command.Parameters.AddWithValue("@status", obj.Status);
                     sqlParam4.DbType = DbType.String;
                 }
                 catch
@@ -163,7 +163,7 @@ namespace BloodDonationManamentSystem
                     sqlParam4.DbType = DbType.Time;
                     SqlParameter sqlParam5 = command.Parameters.AddWithValue("@desc", obj.Description);
                     sqlParam5.DbType = DbType.String;
-                    SqlParameter sqlParam6 = command.Parameters.AddWithValue("@status", "Pending");
+                    SqlParameter sqlParam6 = command.Parameters.AddWithValue("@status", obj.Status);
                     sqlParam6.DbType = DbType.String;
                 }
                 catch
@@ -856,7 +856,7 @@ namespace BloodDonationManamentSystem
                     x.Email = reader.GetString(5);
                     x.isTesting = reader.GetBoolean(6);
                     x.isCollecting = reader.GetBoolean(7);
-                    x.OpenTimes = xmlToObject<List<TimeSpan>>(reader.GetString(8));
+                    x.OpenTimes = xmlToObject<List<TimeRange>>(reader.GetString(8));
                     x.Username = reader.GetString(9);
                     x.Password = reader.GetString(10);
                     x.Status = reader.GetString(11);

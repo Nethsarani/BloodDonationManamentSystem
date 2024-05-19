@@ -22,21 +22,48 @@ namespace BloodDonationManamentSystem
     public partial class DonorMap : Page
     {
         DB dB=new DB();
+        List<Donor> list1 = new List<Donor>();
+        List<Donor> list2 = new List<Donor>();
         public DonorMap(string path, User user)
         {
             InitializeComponent();
-            List<Appointment> list1 = new List<Appointment>();
+            
             if (path=="Camp")
             {
                 DonationCampUser loggedUser= (DonationCampUser)user;
                 //loggedUser.donationCamp = dB.getDonationCamp(user.placeID);
             }
-            else
+            else if (path=="Hospital")
             {
                 HospitalUser loggedUser = (HospitalUser)user;
                 //loggedUser.hospital=dB.getHospital(loggedUser.placeID);
             }
-            grdDonors.ItemsSource=dB.getAllDonors();
+            refresh();
+                
+        }
+
+        public void refresh()
+        {
+            list1 = dB.getAllDonors();
+            grdDonors.ItemsSource = list1;
+            cmbType.SelectedIndex = -1;
+        }
+
+        private void btnFind_Click(object sender, RoutedEventArgs e)
+        {
+            foreach (Donor donor in list1)
+            {
+                if (donor.BloodType == cmbType.SelectedItem.ToString())
+                {
+                    list2.Add(donor);
+                }
+            }
+            grdDonors.ItemsSource= list2;
+        }
+
+        private void btnReset_Click(object sender, RoutedEventArgs e)
+        {
+            refresh();
         }
     }
 }

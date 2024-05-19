@@ -22,10 +22,12 @@ namespace BloodDonationManamentSystem.Hospital_and_Event
     public partial class DonationPage : Page
     {
         DB dB=new DB();
+        List<Donation> list1 = new List<Donation>();
+        List<Donation> list2 = new List<Donation>();
         public DonationPage(string path, User user)
         {
             InitializeComponent();
-            List<Donation> list1 = new List<Donation>();
+            
             if (path == "Camp")
             {
                 DonationCampUser loggedUser = (DonationCampUser)user;
@@ -53,7 +55,58 @@ namespace BloodDonationManamentSystem.Hospital_and_Event
             else{
               list1=dB.getAllDonations();
             }
-            grdDonations.ItemsSource=list1;
+            refresh();
+        }
+
+        public void refresh()
+        {
+            grdDonations.ItemsSource = list1;
+            cmbType.SelectedIndex = -1;
+            dtpDate.SelectedDate = null;
+        }
+
+        private void btnFilter_Click(object sender, RoutedEventArgs e)
+        {
+            if (cmbType.SelectedIndex != -1 && dtpDate.SelectedDate != null)
+            {
+                foreach (Donation x in list1)
+                {
+                    if (x.Donor.BloodType == cmbType.SelectedItem.ToString() && x.Date==dtpDate.SelectedDate)
+                    {
+                        list2.Add(x);
+                    }
+                }
+            }
+            else if(cmbType.SelectedIndex!=-1)
+            {
+                foreach (Donation x in list1)
+                {
+                    if (x.Donor.BloodType == cmbType.SelectedItem.ToString())
+                    {
+                        list2.Add(x);
+                    }
+                }
+            }
+            else if(dtpDate.SelectedDate!=null)
+            {
+                foreach (Donation x in list1)
+                {
+                    if (x.Date == dtpDate.SelectedDate)
+                    {
+                        list2.Add(x);
+                    }
+                }
+            }
+            else
+            {
+                list2 = list1;
+            }   
+            grdDonations.ItemsSource = list2;
+        }
+
+        private void btnReset_Click(object sender, RoutedEventArgs e)
+        {
+            refresh();
         }
     }
 }

@@ -22,11 +22,18 @@
             </DataGrid.Columns>
         </DataGrid>
         <Label Content="Appointments" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="36" Margin="0,-5,0,0"/>
-        <DatePicker HorizontalAlignment="Left" Margin="711,54,0,0" VerticalAlignment="Top"/>
-        <ComboBox HorizontalAlignment="Left" Margin="423,57,0,0" VerticalAlignment="Top" Width="120"/>
-        <ComboBox HorizontalAlignment="Left" Margin="570,56,0,0" VerticalAlignment="Top" Width="120"/>
-        <Button Content="Filter" HorizontalAlignment="Left" Margin="838,58,0,0" VerticalAlignment="Top" Width="50"/>
-        <Button Content="Reset" HorizontalAlignment="Left" Margin="902,58,0,0" VerticalAlignment="Top" Width="50"/>
+        <DatePicker x:Name="dtpDate" HorizontalAlignment="Left" Margin="711,54,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="cmbType" HorizontalAlignment="Left" Margin="423,57,0,0" VerticalAlignment="Top" Width="120">
+            <ComboBoxItem Content="Registration"/>
+            <ComboBoxItem Content="Donation"/>
+        </ComboBox>
+        <ComboBox x:Name="cmbStatus" HorizontalAlignment="Left" Margin="570,56,0,0" VerticalAlignment="Top" Width="120">
+            <ComboBoxItem Content="Pending"/>
+            <ComboBoxItem Content="Active"/>
+            <ComboBoxItem Content="Rejected"/>
+        </ComboBox>
+        <Button x:Name="btnFilter" Content="Filter" HorizontalAlignment="Left" Margin="838,58,0,0" VerticalAlignment="Top" Width="50" Click="btnFilter_Click"/>
+        <Button x:Name="btnReset" Content="Reset" HorizontalAlignment="Left" Margin="902,58,0,0" VerticalAlignment="Top" Width="50"/>
 
     </Grid>
 </Page>

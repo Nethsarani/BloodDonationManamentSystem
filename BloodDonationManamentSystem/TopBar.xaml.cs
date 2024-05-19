@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BloodDonationManamentSystem.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,15 +22,25 @@ namespace BloodDonationManamentSystem
     public partial class TopBar : Page
     {
         MainWindow win;
-        public TopBar()
+        public TopBar(User user)
         {
             InitializeComponent();
+            lblUser.Content = "Logged in as: " + user.Name; 
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void btnEdit_Click(object sender, RoutedEventArgs e)
         {
             win = (MainWindow)Window.GetWindow(this);
             win.contentFrame.Navigate(new DonorApproval());
+        }
+
+        private void btnLogout_Click(object sender, RoutedEventArgs e)
+        {
+            win = (MainWindow)Window.GetWindow(this);
+            win.mainFrame.Navigate(new Home());
+            win.contentFrame.Navigate(null);
+            win.topFrame.Navigate(null);
+            win.navigationFrame.Navigate(null);
         }
     }
 }

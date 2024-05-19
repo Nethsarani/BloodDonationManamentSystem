@@ -23,10 +23,12 @@ namespace BloodDonationManamentSystem
     public partial class AppointmentPage : Page
     {
         DB dB = new DB();
+        List<Appointment> list1 = new List<Appointment>();
+        List<Appointment> list2 = new List<Appointment>();
         public AppointmentPage(string path,User user)
         {
             InitializeComponent();
-            List<Appointment> list1 = new List<Appointment>();
+            
             if (path == "Camp")
             {
                 DonationCampUser loggedUser = (DonationCampUser)user;
@@ -55,7 +57,93 @@ namespace BloodDonationManamentSystem
             else{
               list1=dB.getAllAppointments();
             }
+            refresh();
+        }
+
+        public void refresh()
+        {
             grdTable.ItemsSource = list1;
+            cmbStatus.SelectedIndex = -1;
+            cmbType.SelectedIndex = -1;
+            dtpDate.SelectedDate = null;
+        }
+        private void btnFilter_Click(object sender, RoutedEventArgs e)
+        {
+            if(cmbType.SelectedIndex!=-1 && cmbStatus.SelectedIndex!=-1 && dtpDate.SelectedDate!=null)
+            {
+                foreach(Appointment x in list1)
+                {
+                    if(x.Description==cmbType.SelectedItem.ToString() && x.Status==cmbStatus.SelectedItem.ToString() && x.Date.Date==dtpDate.SelectedDate)
+                    {
+                        list2.Add(x);
+                    }
+                }
+            }
+            else if (cmbType.SelectedIndex!=-1 && cmbStatus.SelectedIndex!=-1)
+            {
+                foreach (Appointment x in list1)
+                {
+                    if (x.Description == cmbType.SelectedItem.ToString() && x.Status == cmbStatus.SelectedItem.ToString())
+                    {
+                        list2.Add(x);
+                    }
+                }
+            }
+            else if (cmbType.SelectedIndex!=-1 && dtpDate.SelectedDate!=null)
+            {
+                foreach (Appointment x in list1)
+                {
+                    if (x.Description == cmbType.SelectedItem.ToString() && x.Date.Date == dtpDate.SelectedDate)
+                    {
+                        list2.Add(x);
+                    }
+                }
+            }
+            else if (cmbStatus.SelectedIndex!=0 && dtpDate.SelectedDate!=null) 
+            {
+                foreach (Appointment x in list1)
+                {
+                    if (x.Status == cmbStatus.SelectedItem.ToString() && x.Date.Date == dtpDate.SelectedDate)
+                    {
+                        list2.Add(x);
+                    }
+                }
+            }
+            else if (cmbType.SelectedIndex != 0)
+            {
+                foreach (Appointment x in list1)
+                {
+                    if (x.Description == cmbType.SelectedItem.ToString())
+                    {
+                        list2.Add(x);
+                    }
+                }
+            }
+            else if(cmbStatus.SelectedIndex != 0)
+            {
+                foreach (Appointment x in list1)
+                {
+                    if (x.Status == cmbStatus.SelectedItem.ToString())
+                    {
+                        list2.Add(x);
+                    }
+                }
+            }
+            else if(dtpDate.SelectedDate!=null)
+            {
+                foreach (Appointment x in list1)
+                {
+                    if (x.Date.Date == dtpDate.SelectedDate)
+                    {
+                        list2.Add(x);
+                    }
+                }
+            }
+            else
+            {
+                list2 = list1;
+            }
+            grdTable.ItemsSource = list2;
         }
     }
 }

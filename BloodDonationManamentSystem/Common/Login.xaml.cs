@@ -60,10 +60,18 @@ namespace BloodDonationManamentSystem
                 if(user!=null)
                 {
                     user.hospital = dB.getHospital(user.placeID);
-                    win.mainFrame.Visibility = Visibility.Collapsed;
-                    win.contentFrame.Navigate(new HospitalDashboard(path, user));
-                    win.navigationFrame.Navigate(new NavigationPanelHos(path, user));
-                    win.topFrame.Navigate(new TopBar());
+                    if(user.hospital.Status == "Active")
+                    {
+                        win.mainFrame.Visibility = Visibility.Collapsed;
+                        win.contentFrame.Navigate(new HospitalDashboard(path, user));
+                        win.navigationFrame.Navigate(new NavigationPanelHos(path, user));
+                        win.topFrame.Navigate(new TopBar(user));
+                    }
+                    else
+                    {
+                        lblError.Visibility = Visibility.Visible;
+                    }
+                    
                 }
                 else
                 {
@@ -77,10 +85,18 @@ namespace BloodDonationManamentSystem
                 if (user != null)
                 {
                   user.donationCamp=dB.getDonationCamp(user.placeID);
-                    win.mainFrame.Visibility = Visibility.Collapsed;
-                    win.contentFrame.Navigate(new HospitalDashboard(path, user));
-                    win.navigationFrame.Navigate(new NavigationPanelHos(path, user));
-                    win.topFrame.Navigate(new TopBar());
+                    if (user.donationCamp.Status == "Active")
+                    {
+                        win.mainFrame.Visibility = Visibility.Collapsed;
+                        win.contentFrame.Navigate(new HospitalDashboard(path, user));
+                        win.navigationFrame.Navigate(new NavigationPanelHos(path, user));
+                        win.topFrame.Navigate(new TopBar(user));
+                    }
+                    else
+                    {
+                        lblError.Visibility= Visibility.Visible;
+                    }
+                    
                 }
                 else { lblError.Visibility = Visibility.Visible; }
                     
@@ -93,7 +109,7 @@ namespace BloodDonationManamentSystem
                     win.mainFrame.Visibility = Visibility.Collapsed;
                     win.contentFrame.Navigate(new bankDashboard(user));
                     win.navigationFrame.Navigate(new NavigationPanelHos(path, user));
-                    win.topFrame.Navigate(new TopBar());
+                    win.topFrame.Navigate(new TopBar(user));
                 }
                 else { lblError.Visibility = Visibility.Visible; }
                     

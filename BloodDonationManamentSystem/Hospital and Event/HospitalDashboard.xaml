@@ -10,10 +10,8 @@
 
     <Grid x:Name="mainGrid" Width="1000" Height="600" Background="White">
         <Grid x:Name="subGridHos" Margin="0,165,789,19">
-            <Rectangle HorizontalAlignment="Left" Height="110" Margin="31,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="165"/>
-            <ComboBox x:Name="cmbType" HorizontalAlignment="Left" Margin="55,38,0,0" VerticalAlignment="Top" Width="120"/>
-            <Button x:Name="btnFind" Content="Search" HorizontalAlignment="Left" Margin="135,74,0,0" VerticalAlignment="Top" Click="btnFind_Click"/>
-            <Label Content="Find a Donor" HorizontalAlignment="Left" Margin="61,2,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
+            
+            
             <Rectangle HorizontalAlignment="Left" Height="284" Margin="34,130,0,0" Stroke="Black" VerticalAlignment="Top" Width="159"/>
             <DataGrid x:Name="grdStock" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="34,186,18,27" AutoGenerateColumns="False">
                 <DataGrid.Columns>
