@@ -50,7 +50,7 @@ namespace BloodDonationManamentSystem.Hospital_and_Event
                     }
                 }
             }
-            grdDonors.ItemSource=list1;
+            grdDonations.ItemSource=list1;
         }
     }
 }
