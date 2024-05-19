@@ -21,9 +21,11 @@ namespace BloodDonationManamentSystem.Hospital_and_Blood_bank
     /// </summary>
     public partial class Blood_Stock : Page
     {
+      DB dB=new DB();
         public Blood_Stock(string path, User user)
         {
             InitializeComponent();
+            grdStock.ItemSource=dB.getTotalStock();
         }
     }
 }
