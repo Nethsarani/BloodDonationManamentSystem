@@ -20,9 +20,9 @@
             <TabItem Header="Blood Bank"/>
         </TabControl>
         <Label Content="All Accounts" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" FontSize="36"/>
-        <DataGrid d:ItemsSource="{d:SampleData ItemCount=5}" Margin="10,157,10,10" AutoGenerateColumns="False">
+        <DataGrid x:Name="grdAccounts" Margin="10,157,10,10" AutoGenerateColumns="False">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="ID"/>
+                <DataGridTextColumn Header="ID" Binding="{Binding ID}"/>
                 <DataGridTextColumn Header="Name"/>
                 <DataGridTextColumn Header="Gender"/>
                 <DataGridTextColumn Header="NIC"/>

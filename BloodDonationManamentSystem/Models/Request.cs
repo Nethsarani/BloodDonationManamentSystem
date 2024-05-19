@@ -14,5 +14,6 @@ namespace BloodDonationManamentSystem.Models
         public DateTime Date { get; set; }
         public string BloodType { get; set; }
         public decimal BloodAmount { get; set; }
+        public string Status { get; set; }
     }
 }

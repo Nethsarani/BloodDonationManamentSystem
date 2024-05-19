@@ -13,19 +13,19 @@
         <Label Content="Email" HorizontalAlignment="Left" Margin="38,255,0,0" VerticalAlignment="Top" FontSize="24"/>
         <Label Content="Username" HorizontalAlignment="Left" Margin="38,352,0,0" VerticalAlignment="Top" FontSize="24"/>
         <Label Content="Password" HorizontalAlignment="Left" Margin="38,394,0,0" VerticalAlignment="Top" FontSize="24"/>
-        <TextBox HorizontalAlignment="Left" Margin="272,208,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="250" FontSize="24"/>
-        <TextBox HorizontalAlignment="Left" Margin="272,259,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="250" FontSize="24"/>
-        <TextBox HorizontalAlignment="Left" Margin="272,356,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="250" FontSize="24"/>
-        <PasswordBox HorizontalAlignment="Left" Margin="272,398,0,0" VerticalAlignment="Top" Width="250" FontSize="24"/>
-        <PasswordBox HorizontalAlignment="Left" Margin="272,441,0,0" VerticalAlignment="Top" Width="250" FontSize="24"/>
+        <TextBox x:Name="txtContact" HorizontalAlignment="Left" Margin="272,208,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="250" FontSize="24"/>
+        <TextBox x:Name="txtEmail" HorizontalAlignment="Left" Margin="272,259,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="250" FontSize="24"/>
+        <TextBox x:Name="txtUsername" HorizontalAlignment="Left" Margin="272,356,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="250" FontSize="24"/>
+        <PasswordBox x:Name="txtPassword" HorizontalAlignment="Left" Margin="272,398,0,0" VerticalAlignment="Top" Width="250" FontSize="24"/>
+        <PasswordBox x:Name="txtRePass" HorizontalAlignment="Left" Margin="272,441,0,0" VerticalAlignment="Top" Width="250" FontSize="24"/>
         <Label Content="Retype password" HorizontalAlignment="Left" Margin="38,437,0,0" VerticalAlignment="Top" FontSize="24"/>
-        <TextBox HorizontalAlignment="Left" Margin="272,87,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="250" FontSize="24"/>
+        <TextBox x:Name="txtName" HorizontalAlignment="Left" Margin="272,87,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="250" FontSize="24"/>
         <Label Content="Name" HorizontalAlignment="Left" Margin="38,83,0,0" VerticalAlignment="Top" FontSize="24" Padding="5,5,5,5"/>
-        <TextBox HorizontalAlignment="Left" Margin="272,129,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="250" FontSize="24"/>
+        <TextBox x:Name="txtID" HorizontalAlignment="Left" Margin="272,129,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="250" FontSize="24"/>
         <Label Content="ID" HorizontalAlignment="Left" Margin="38,125,0,0" VerticalAlignment="Top" FontSize="24" Padding="5,5,5,5"/>
         <Label Content="Position" HorizontalAlignment="Left" Margin="38,162,0,0" VerticalAlignment="Top" FontSize="24" Padding="5,5,5,5"/>
         <Label Content="Privilages" HorizontalAlignment="Left" Margin="618,83,0,0" VerticalAlignment="Top" FontSize="24"/>
-        <CheckBox Content="Donor details" HorizontalAlignment="Left" Margin="618,125,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FlowDirection="RightToLeft" Padding="60,0,0,0" Height="16" Grid.IsSharedSizeScope="True" UseLayoutRounding="False" BorderThickness="1,1,1,1" RenderTransformOrigin="0.5,0.5">
+        <CheckBox x:Name="chkPriv1" Content="Donor details" HorizontalAlignment="Left" Margin="618,125,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FlowDirection="RightToLeft" Padding="60,0,0,0" Height="16" Grid.IsSharedSizeScope="True" UseLayoutRounding="False" BorderThickness="1,1,1,1" RenderTransformOrigin="0.5,0.5">
             <CheckBox.LayoutTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleX="2" ScaleY="2"/>
@@ -43,7 +43,7 @@
                 </TransformGroup>
             </CheckBox.RenderTransform>
         </CheckBox>
-        <CheckBox Content="Donor details" HorizontalAlignment="Left" Margin="618,157,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FlowDirection="RightToLeft" Padding="60,0,0,0" Height="16" Grid.IsSharedSizeScope="True" UseLayoutRounding="False" BorderThickness="1,1,1,1" RenderTransformOrigin="0.5,0.5">
+        <CheckBox x:Name="chkPriv2" Content="Donor details" HorizontalAlignment="Left" Margin="618,157,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FlowDirection="RightToLeft" Padding="60,0,0,0" Height="16" Grid.IsSharedSizeScope="True" UseLayoutRounding="False" BorderThickness="1,1,1,1" RenderTransformOrigin="0.5,0.5">
             <CheckBox.LayoutTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleX="2" ScaleY="2"/>
@@ -61,7 +61,7 @@
                 </TransformGroup>
             </CheckBox.RenderTransform>
         </CheckBox>
-        <CheckBox Content="Donor details" HorizontalAlignment="Left" Margin="618,189,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FlowDirection="RightToLeft" Padding="60,0,0,0" Height="16" Grid.IsSharedSizeScope="True" UseLayoutRounding="False" BorderThickness="1,1,1,1" RenderTransformOrigin="0.5,0.5">
+        <CheckBox x:Name="chkPriv3" Content="Donor details" HorizontalAlignment="Left" Margin="618,189,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FlowDirection="RightToLeft" Padding="60,0,0,0" Height="16" Grid.IsSharedSizeScope="True" UseLayoutRounding="False" BorderThickness="1,1,1,1" RenderTransformOrigin="0.5,0.5">
             <CheckBox.LayoutTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleX="2" ScaleY="2"/>
@@ -79,7 +79,7 @@
                 </TransformGroup>
             </CheckBox.RenderTransform>
         </CheckBox>
-        <CheckBox Content="Donor details" HorizontalAlignment="Left" Margin="618,221,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FlowDirection="RightToLeft" Padding="60,0,0,0" Height="16" Grid.IsSharedSizeScope="True" UseLayoutRounding="False" BorderThickness="1,1,1,1" RenderTransformOrigin="0.5,0.5">
+        <CheckBox x:Name="chkPriv4" Content="Donor details" HorizontalAlignment="Left" Margin="618,221,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FlowDirection="RightToLeft" Padding="60,0,0,0" Height="16" Grid.IsSharedSizeScope="True" UseLayoutRounding="False" BorderThickness="1,1,1,1" RenderTransformOrigin="0.5,0.5">
             <CheckBox.LayoutTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleX="2" ScaleY="2"/>
@@ -97,7 +97,7 @@
                 </TransformGroup>
             </CheckBox.RenderTransform>
         </CheckBox>
-        <CheckBox Content="Donor details" HorizontalAlignment="Left" Margin="618,253,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FlowDirection="RightToLeft" Padding="60,0,0,0" Height="16" Grid.IsSharedSizeScope="True" UseLayoutRounding="False" BorderThickness="1,1,1,1" RenderTransformOrigin="0.5,0.5">
+        <CheckBox x:Name="chkPriv5" Content="Donor details" HorizontalAlignment="Left" Margin="618,253,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FlowDirection="RightToLeft" Padding="60,0,0,0" Height="16" Grid.IsSharedSizeScope="True" UseLayoutRounding="False" BorderThickness="1,1,1,1" RenderTransformOrigin="0.5,0.5">
             <CheckBox.LayoutTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleX="2" ScaleY="2"/>
@@ -115,7 +115,7 @@
                 </TransformGroup>
             </CheckBox.RenderTransform>
         </CheckBox>
-        <CheckBox Content="Donor details" HorizontalAlignment="Left" Margin="618,285,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FlowDirection="RightToLeft" Padding="60,0,0,0" Height="16" Grid.IsSharedSizeScope="True" UseLayoutRounding="False" BorderThickness="1,1,1,1" RenderTransformOrigin="0.5,0.5">
+        <CheckBox x:Name="chkPriv6" Content="Donor details" HorizontalAlignment="Left" Margin="618,285,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FlowDirection="RightToLeft" Padding="60,0,0,0" Height="16" Grid.IsSharedSizeScope="True" UseLayoutRounding="False" BorderThickness="1,1,1,1" RenderTransformOrigin="0.5,0.5">
             <CheckBox.LayoutTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleX="2" ScaleY="2"/>
@@ -133,7 +133,7 @@
                 </TransformGroup>
             </CheckBox.RenderTransform>
         </CheckBox>
-        <CheckBox Content="Donor details" HorizontalAlignment="Left" Margin="618,317,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FlowDirection="RightToLeft" Padding="60,0,0,0" Height="16" Grid.IsSharedSizeScope="True" UseLayoutRounding="False" BorderThickness="1,1,1,1" RenderTransformOrigin="0.5,0.5">
+        <CheckBox x:Name="chkPriv7" Content="Donor details" HorizontalAlignment="Left" Margin="618,317,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FlowDirection="RightToLeft" Padding="60,0,0,0" Height="16" Grid.IsSharedSizeScope="True" UseLayoutRounding="False" BorderThickness="1,1,1,1" RenderTransformOrigin="0.5,0.5">
             <CheckBox.LayoutTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleX="2" ScaleY="2"/>
@@ -151,7 +151,7 @@
                 </TransformGroup>
             </CheckBox.RenderTransform>
         </CheckBox>
-        <CheckBox Content="Donor details" HorizontalAlignment="Left" Margin="618,349,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FlowDirection="RightToLeft" Padding="60,0,0,0" Height="16" Grid.IsSharedSizeScope="True" UseLayoutRounding="False" BorderThickness="1,1,1,1" RenderTransformOrigin="0.5,0.5">
+        <CheckBox x:Name="chkPriv8" Content="Donor details" HorizontalAlignment="Left" Margin="618,349,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FlowDirection="RightToLeft" Padding="60,0,0,0" Height="16" Grid.IsSharedSizeScope="True" UseLayoutRounding="False" BorderThickness="1,1,1,1" RenderTransformOrigin="0.5,0.5">
             <CheckBox.LayoutTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleX="2" ScaleY="2"/>
@@ -169,8 +169,9 @@
                 </TransformGroup>
             </CheckBox.RenderTransform>
         </CheckBox>
-        <ComboBox HorizontalAlignment="Left" Margin="272,169,0,0" VerticalAlignment="Top" Width="250" Height="34"/>
+        <ComboBox x:Name="txtPosiition" HorizontalAlignment="Left" Margin="272,169,0,0" VerticalAlignment="Top" Width="250" Height="34"/>
         <Label Content="Create New Account" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" FontSize="36"/>
+        <Button Content="Approve" HorizontalAlignment="Left" Margin="934,570,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.51,0.709"/>
 
     </Grid>
 </Page>

@@ -771,8 +771,6 @@ namespace BloodDonationManamentSystem
             {
                 if (con.State == ConnectionState.Closed) { con.Open(); }
                 command = new SqlCommand("Select * from BloodStockTable;", con);
-                SqlParameter sqlParam1 = command.Parameters.AddWithValue("@today", DateTime.Today);
-                sqlParam1.DbType = DbType.DateTime;
                 SqlDataReader reader = command.ExecuteReader();
 
                 while (reader.Read())
@@ -794,6 +792,106 @@ namespace BloodDonationManamentSystem
             }
             
             return x;
+        }
+
+        public List<Request> getAllRequests()
+        {
+            List<Request> x = new List<Request>();
+            try
+            {
+                if (con.State == ConnectionState.Closed) { con.Open(); }
+                command = new SqlCommand("Select * from RequestTable;", con);
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    Request stk = new Request();
+                    stk.Id = reader.GetInt32(0);
+                    stk.HosId = reader.GetInt32(1);
+                    stk.Date = reader.GetDateTime(2);
+                    stk.BloodType = reader.GetString(3);
+                    stk.BloodAmount = reader.GetDecimal(4);
+                    stk.Status = reader.GetString(5);
+                    x.Add(stk);
+                }
+                con.Close();
+            }
+            catch
+            {
+
+            }
+
+            return x;
+        }
+
+        public List<DonationCamp> getAllDonationCamps()
+        {
+            List<DonationCamp> y = new List<DonationCamp>();
+            try
+            {
+                if (con.State == ConnectionState.Closed) { if (con.State == ConnectionState.Closed) { con.Open(); } }
+
+                command = new SqlCommand("Select * from DonationCampTable;", con);
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    DonationCamp x = new DonationCamp();
+                    x.ID = reader.GetInt32(0);
+                    x.Name = reader.GetString(1);
+                    x.Date = reader.GetDateTime(2);
+                    x.StartTime = reader.GetTimeSpan(3).ToString();
+                    x.EndTime = reader.GetTimeSpan(4).ToString();
+                    x.ContactNo = reader.GetString(5);
+                    x.Email = reader.GetString(6);
+                    x.Location = xmlToObject<Location>(reader.GetString(7));
+                    x.Username = reader.GetString(8);
+                    x.Password = reader.GetString(9);
+                    x.Status = reader.GetString(10);
+                    y.Add(x);
+                }
+                con.Close();
+            }
+            catch { }
+
+            return y;
+        }
+
+        public List<Hospital> getAllHospitals()
+        {
+            List<Hospital> y = new List<Hospital>();
+            try
+            {
+                if (con.State == ConnectionState.Closed) { con.Open(); }
+                command = new SqlCommand("Select * from HospitalTable;", con);
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    Hospital x = new Hospital();
+                    x.ID = reader.GetInt32(0);
+                    x.Name = reader.GetString(1);
+                    x.RegNo = reader.GetString(2);
+                    x.Location = xmlToObject<Location>(reader.GetString(3));
+                    x.ContactNo = reader.GetString(4);
+                    x.Email = reader.GetString(5);
+                    x.isTesting = reader.GetBoolean(6);
+                    x.isCollecting = reader.GetBoolean(7);
+                    x.OpenTimes = xmlToObject<List<TimeRange>>(reader.GetString(8));
+                    x.Username = reader.GetString(9);
+                    x.Password = reader.GetString(10);
+                    x.Status = reader.GetString(11);
+                    y.Add(x);
+
+                }
+                con.Close();
+            }
+            catch
+            {
+
+            }
+
+            return y;
         }
 
 

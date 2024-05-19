@@ -21,12 +21,22 @@ namespace BloodDonationManamentSystem
     /// </summary>
     public partial class bankDashboard : Page
     {
+        DB dB=new DB();
         public bankDashboard(User user)
         {
             InitializeComponent();
+            grdRequest.ItemsSource = dB.getAllRequests();
+            grdPenHos.ItemsSource = dB.getAllHospitals();
+            grdPenCamp.ItemsSource= dB.getAllDonationCamps();
+            grdStock.ItemsSource=dB.getTotalStock();
         }
 
         private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void btnApprove_Click(object sender, RoutedEventArgs e)
         {
 
         }
