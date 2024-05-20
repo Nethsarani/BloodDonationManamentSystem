@@ -21,7 +21,12 @@
             </DataGrid.Columns>
         </DataGrid>
         <Label Content="Blood Stock" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="36" Margin="0,-5,0,0"/>
-        <ComboBox x:Name="cmbType" HorizontalAlignment="Left" Margin="423,57,0,0" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="cmbType" HorizontalAlignment="Left" Margin="423,57,0,0" VerticalAlignment="Top" Width="120">
+          <ComboBoxItem Content="A"/>
+            <ComboBoxItem Content="O"/>
+            <ComboBoxItem Content="O+"/>
+            <ComboBoxItem Content="O-"/>
+          </ComboBox>
         <ComboBox x:Name="cmbDistrict" HorizontalAlignment="Left" Margin="570,56,0,0" VerticalAlignment="Top" Width="120"/>
         <Button x:Name="btnFilter" Content="Filter" Click="btnFilter_Click" HorizontalAlignment="Left" Margin="837,58,0,0" VerticalAlignment="Top" Width="53"/>
         <Button x:Name="btnReset" Content="Reset" Click="btnReset_Click" HorizontalAlignment="Left" Margin="902,58,0,0" VerticalAlignment="Top" Width="50"/>
