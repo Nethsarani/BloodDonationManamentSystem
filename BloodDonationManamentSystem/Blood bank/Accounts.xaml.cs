@@ -46,24 +46,20 @@ namespace BloodDonationManamentSystem
             
         }
 
-        private void tabDonors_ContextMenuOpening(object sender, ContextMenuEventArgs e)
+        private void tabHospitals_ContextMenuOpening(object sender, ContextMenuEventArgs e)
         {
             
             a.Header = "ID";
             a.Binding = new Binding("ID");
 
-
             b.Header = "Name";
             b.Binding = new Binding("Name");
-
 
             c.Header = "Address";
             c.Binding = new Binding("Location.Address");
 
-
             d.Header = "Contact No";
             d.Binding = new Binding("ContactNo");
-
 
             f.Header = "Email";
             f.Binding = new Binding("Email");
@@ -93,25 +89,23 @@ namespace BloodDonationManamentSystem
             grdAccounts.Columns.Add(f);
             grdAccounts.Columns.Add(k);
             grdAccounts.Columns.Add(g);
-            
+          
             grdAccounts.ItemsSource= dB.getAllHospitals();
-
-
-            a.Header = "ID";
+        }
+        
+        private void tabDonationCamps_ContextMenuOpening(object sender, ContextMenuEventArgs e)
+        {
+          a.Header = "ID";
             a.Binding = new Binding("ID");
-
 
             b.Header = "Name";
             b.Binding = new Binding("Name");
 
-
             c.Header = "Address";
             c.Binding = new Binding("Location.Address");
 
-
             d.Header = "Contact No";
             d.Binding = new Binding("ContactNo");
-
 
             f.Header = "Email";
             f.Binding = new Binding("Email");
@@ -119,15 +113,28 @@ namespace BloodDonationManamentSystem
             g.Header = "Status";
             g.Binding = new Binding("Status");
 
+            h.Header = "Date";
+            h.Binding = new Binding("Date");
+
+            i.Header = "Start Time";
+            i.Binding = new Binding("StartTime");
+
+            j.Header = "End Time";
+            j.Binding = new Binding("EndTime");
+
             grdAccounts.Columns.Add(a);
             grdAccounts.Columns.Add(b);
             grdAccounts.Columns.Add(c);
+            grdAccounts.Columns.Add(h);
+            grdAccounts.Columns.Add(i);
+            grdAccounts.Columns.Add(j);
             grdAccounts.Columns.Add(d);
             grdAccounts.Columns.Add(f);
             grdAccounts.Columns.Add(g);
 
-            grdAccounts.ItemsSource = dB.getAllHospitals();
+            grdAccounts.ItemsSource = dB.getAllDonationCamps();
 
         }
+        
     }
 }
