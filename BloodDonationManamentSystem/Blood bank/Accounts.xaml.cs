@@ -176,7 +176,7 @@ namespace BloodDonationManamentSystem
             grdAccounts.Columns.Add(f);
             grdAccounts.Columns.Add(h);
             
-            grdAccounts.ItemsSource = dB.getAllHospitalUsers();
+            grdAccounts.ItemsSource = dB.getAllHospitals();
         }
         
         private void tabCampUsers_ContextMenuOpening(object sender, ContextMenuEventArgs e)
