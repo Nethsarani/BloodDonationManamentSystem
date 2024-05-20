@@ -176,7 +176,7 @@ namespace BloodDonationManamentSystem
             grdAccounts.Columns.Add(f);
             grdAccounts.Columns.Add(h);
             
-            grdAccounts.ItemsSource = dB.getAllHospitals();
+            grdAccounts.ItemsSource = dB.getAllUsers("Hospital");
         }
         
         private void tabCampUsers_ContextMenuOpening(object sender, ContextMenuEventArgs e)
@@ -219,7 +219,7 @@ namespace BloodDonationManamentSystem
             grdAccounts.Columns.Add(f);
             grdAccounts.Columns.Add(h);
             
-            grdAccounts.ItemsSource = dB.getAllCampUsers();
+            grdAccounts.ItemsSource = dB.getAllUsers("DonationCamp");
         }
         
     }
