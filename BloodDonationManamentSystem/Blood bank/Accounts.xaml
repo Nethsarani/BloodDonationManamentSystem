@@ -9,34 +9,14 @@
       Title="Accounts">
 
     <Grid Background="White">
-      <RadioButton x:Name="btnHospital" Content="Hospital" Checked="btnHospital_Checked"/>
-        <RadioButton x:Name="btnHospitalUser" Content="Hospital Users" Checked="btnHospitalUser_Checked"/>
-        <RadioButton x:Name="btnCamp" Content="Donation Camp" Checked="btnCamp_Checked"/>
-        <RadioButton x:Name="btnCampUser" Content="Donation Camp Users" Checked="btnCampUser_Checked_1"/>
-        <TabControl Margin="10,134,10,10">
-            <TabItem x:Name="tabHospitals" Header="Hospitals">
-                <Grid Background="#FFE5E5E5"/>
-            </TabItem>
-             <TabItem x:Name="tabHospitalUsers" Header="Hospital Users">
-                <Grid Background="#FFE5E5E5"/>
-            </TabItem>
-            <TabItem x:Name="tabCamps" Header="Donation Camps"/>
-             <TabItem x:Name="tabCampUsers" Header="Donation Camp Users">
-                <Grid Background="#FFE5E5E5"/>
-            </TabItem>
-        </TabControl>
+        <RadioButton x:Name="btnHospital" Content="Hospital" Checked="btnHospital_Checked" Width="100" Height="30" Margin="20,125,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="20" VerticalContentAlignment="Center"/>
+        <RadioButton x:Name="btnHospitalUser" Content="Hospital Users" Checked="btnHospitalUser_Checked" FontSize="20" Margin="142,125,0,0" Width="200" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" VerticalContentAlignment="Center"/>
+        <RadioButton x:Name="btnCamp" Content="Donation Camp" Checked="btnCamp_Checked" FontSize="20" Margin="317,125,0,0" Width="100" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" VerticalContentAlignment="Center"/>
+        <RadioButton x:Name="btnCampUser" Content="Donation Camp Users" Checked="btnCampUser_Checked" FontSize="20" Margin="446,125,0,0" Width="300" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" VerticalContentAlignment="Center"/>
+        
         <Label Content="All Accounts" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" FontSize="36"/>
         <DataGrid x:Name="grdAccounts" Margin="10,157,10,10" AutoGenerateColumns="False">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="ID" Binding="{Binding ID}"/>
-                <DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
-                <DataGridTextColumn Header="Gender" Binding="{Binding Gender}"/>
-                <DataGridTextColumn Header="NIC" Binding="{Binding NIC}"/>
-                <DataGridTextColumn Header="Date of Birth" Binding="{Binding DOB}"/>
-                <DataGridHyperlinkColumn Header="Address" Binding="{Binding Location.Address}"/>
-                <DataGridTextColumn Header="Contact No" Binding="{Binding ContactNo}"/>
-                <DataGridTextColumn Header="Email" Binding="{Binding Email}"/>
-                <DataGridTextColumn Header="Blood Type" Binding="{Binding BloodType}"/>
             </DataGrid.Columns>
         </DataGrid>
 

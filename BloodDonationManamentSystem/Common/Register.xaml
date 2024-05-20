@@ -9,7 +9,7 @@
       d:DesignHeight="700" d:DesignWidth="1280"
       Title="Register">
 
-    <Grid Background="White">
+    <Grid>
         <Grid x:Name="EventGrid" Margin="48,225,748,15" Width="484" Height="460">
             <Label Content="Date" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="24" Margin="0,4,0,0"/>
             <xctk:TimePicker x:Name="pckSTime" IsOpen="False" TimeInterval="00:30:00" Height="33" Width="250" Margin="0,-270,-210,0"></xctk:TimePicker>
@@ -93,14 +93,14 @@
                     </TransformGroup>
                 </CheckBox.RenderTransform>
             </CheckBox>
-            <Label Content="Open Times" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="24" Margin="1,143,0,0"/>
-            <Label Content="Monday" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="24" Margin="0,184,0,0"/>
-            <Label Content="Tuesday" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="24" Margin="0,232,0,0"/>
-            <Label Content="Wednesday" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="24" Margin="0,265,0,0"/>
-            <Label Content="Thursday" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="24" Margin="0,297,0,0"/>
-            <Label Content="Friday" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="24" Margin="0,342,0,0"/>
-            <Label Content="Saturday" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="24" Margin="0,384,0,0"/>
-            <Label x:Name="HosGrid" Content="Sunday" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="24" Margin="0,418,0,0"/>
+            <Label Content="Open Times" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="24" Margin="1,143,0,0" Foreground="White"/>
+            <Label Content="Monday" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="24" Margin="0,184,0,0" Foreground="White"/>
+            <Label Content="Tuesday" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="24" Margin="0,232,0,0" Foreground="White"/>
+            <Label Content="Wednesday" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="24" Margin="0,265,0,0" Foreground="White"/>
+            <Label Content="Thursday" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="24" Margin="0,297,0,0" Foreground="White"/>
+            <Label Content="Friday" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="24" Margin="0,342,0,0" Background="{x:Null}" Foreground="White"/>
+            <Label Content="Saturday" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="24" Margin="0,384,0,0" Foreground="White"/>
+            <Label x:Name="HosGrid" Content="Sunday" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="24" Margin="0,418,0,0" Foreground="White"/>
             <xctk:TimePicker x:Name="txtO11" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" FontSize="24" Margin="234,188,0,0"/>
             <xctk:TimePicker x:Name="txtO12" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" FontSize="24" Margin="384,188,0,0"/>
             <xctk:TimePicker x:Name="txtO21" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" FontSize="24" Margin="234,236,0,0"/>
@@ -121,7 +121,7 @@
 
         </Grid>
 
-        <Button x:Name="btnReg" HorizontalAlignment="Left" Margin="1142,655,0,10" FontSize="24" Width="100" Click="btnReg_Click" Content="Register" Height="35"/>
+        <Button x:Name="btnReg" HorizontalAlignment="Left" Margin="1120,635,0,30" FontSize="24" Width="100" Click="btnReg_Click" Content="Register" Height="35"/>
         <Button x:Name="btnLocation" HorizontalAlignment="Left" Margin="1038,363,0,302" FontSize="24" Width="100" Content="Select" Height="35"/>
         <Label x:Name="lblLocation" Content="Location" HorizontalAlignment="Left" Margin="888,368,0,0" VerticalAlignment="Top" Height="33" Width="124"/>
 

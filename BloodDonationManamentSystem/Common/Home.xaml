@@ -8,8 +8,8 @@
       d:DesignHeight="700" d:DesignWidth="1280"
       Title="Home">
 
-    <Grid Background="White">
-        <Image/>
+    <Grid>
+        <!--<Image/>-->
         <Button x:Name="btnHospital" Content="Hospital" HorizontalAlignment="Left" Margin="250,325,0,0" VerticalAlignment="Top" Height="100" Width="350" FontSize="48" Click="btnHospital_Click"/>
         <Button x:Name="btnCamp" Content="Donation Camp" Margin="691,325,239,0" VerticalAlignment="Top" Height="100" FontSize="48" Click="btnCamp_Click" Width="350"/>
         <Button x:Name="btnBank" Content="Blood Bank" HorizontalAlignment="Center" Margin="0,475,0,0" VerticalAlignment="Top" Height="100" Width="350" FontSize="48" Click="btnBank_Click"/>

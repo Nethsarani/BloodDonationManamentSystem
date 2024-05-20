@@ -8,13 +8,9 @@
       d:DesignHeight="700" d:DesignWidth="280"
       Title="NavigationPanelHos">
 
-    <Grid Background="White">
-        <ListView x:Name="lst">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn/>
-                </GridView>
-            </ListView.View>
+    <Grid>
+        <ListView x:Name="lst" Background="{x:Null}">
+            
             <Button x:Name="btnHome" Content="Home" Width="250" Height="30" Click="btnHome_Click"/>
             <Button x:Name="btnDonors" Content="Donors" Width="250" Height="30" Click="btnDonors_Click"/>
             <Button x:Name="btnAccounts" Content="All Accounts" Width="250" Height="30" Click="btnAccounts_Click"/>

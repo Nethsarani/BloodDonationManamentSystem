@@ -8,7 +8,7 @@
       d:DesignHeight="600" d:DesignWidth="1000"
       Title="HospitalDashboard">
 
-    <Grid x:Name="mainGrid" Width="1000" Height="600" Background="White">
+    <Grid x:Name="mainGrid" Width="1000" Height="600">
         <Grid x:Name="subGridHos" Margin="0,165,789,19">
             
             

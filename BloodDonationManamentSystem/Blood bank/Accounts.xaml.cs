@@ -36,13 +36,14 @@ namespace BloodDonationManamentSystem
         public Accounts(string path, User user)
         {
             InitializeComponent();
-            
+            btnHospital.IsChecked = true;
             
             
         }
 
         private void btnHospital_Checked(object sender, RoutedEventArgs e)
         {
+            grdAccounts.Columns.Clear();
           a.Header = "ID";
             a.Binding = new Binding("ID");
 
@@ -90,7 +91,8 @@ namespace BloodDonationManamentSystem
 
         private void btnHospitalUser_Checked(object sender, RoutedEventArgs e)
         {
-          a.Header = "ID";
+            grdAccounts.Columns.Clear();
+            a.Header = "ID";
             a.Binding = new Binding("Id");
             
             i.Header = "Hospital ID";
@@ -103,7 +105,7 @@ namespace BloodDonationManamentSystem
             b.Binding = new Binding("Name");
 
             c.Header = "NIC";
-            c.Binding = new Binding("Location.Address");
+            c.Binding = new Binding("NIC");
 
             g.Header = "Position";
             g.Binding = new Binding("Position");
@@ -134,7 +136,8 @@ namespace BloodDonationManamentSystem
 
         private void btnCampUser_Checked(object sender, RoutedEventArgs e)
         {
-          a.Header = "ID";
+            grdAccounts.Columns.Clear();
+            a.Header = "ID";
             a.Binding = new Binding("Id");
             
             i.Header = "Donation Camp ID";
@@ -147,7 +150,7 @@ namespace BloodDonationManamentSystem
             b.Binding = new Binding("Name");
 
             c.Header = "NIC";
-            c.Binding = new Binding("Location.Address");
+            c.Binding = new Binding("NIC");
 
             g.Header = "Position";
             g.Binding = new Binding("Position");
@@ -179,7 +182,8 @@ namespace BloodDonationManamentSystem
        
         private void btnCamp_Checked(object sender, RoutedEventArgs e)
         {
-          a.Header = "ID";
+            grdAccounts.Columns.Clear();
+            a.Header = "ID";
             a.Binding = new Binding("ID");
 
             b.Header = "Name";

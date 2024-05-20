@@ -7,10 +7,37 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="720" Width="1280">
     <Canvas x:Name="mainGrid" Width="1280" Height="700">
-        <Frame x:Name="mainFrame" Content="Frame" Height="700" Panel.ZIndex="1" Navigated="mainFrame_Navigated" Width="1280" NavigationUIVisibility="Hidden"/>
-        <Frame x:Name="navigationFrame" Content="Frame" Width="280" Height="700" NavigationUIVisibility="Hidden"/>
-        <Frame x:Name="contentFrame" Content="Frame" Width="1000" Margin="280,100,0,0" Height="600" NavigationUIVisibility="Hidden"/>
-        <Frame x:Name="topFrame" Content="Frame" Width="1000" Height="100" Canvas.Left="280" HorizontalAlignment="Center" VerticalAlignment="Top" NavigationUIVisibility="Hidden"/>
+        <Frame x:Name="mainFrame" Content="Frame" Height="700" Panel.ZIndex="1" Navigated="mainFrame_Navigated" Width="1280" NavigationUIVisibility="Hidden">
+            <Frame.Background>
+                <ImageBrush ImageSource="/Picture1.jpg"/>
+            </Frame.Background>
+        </Frame>
+        <Frame x:Name="navigationFrame" Content="Frame" Width="280" Height="600" NavigationUIVisibility="Hidden" HorizontalAlignment="Center" Canvas.Top="100" VerticalAlignment="Top">
+            <Frame.Background>
+                <ImageBrush ImageSource="/Picture2.jpg"/>
+            </Frame.Background>
+        </Frame>
+        <Frame x:Name="contentFrame" Content="Frame" Width="1000" Margin="280,100,0,0" Height="600" NavigationUIVisibility="Hidden">
+            <Frame.Background>
+                <ImageBrush ImageSource="/Picture1.jpg"/>
+            </Frame.Background>
+        </Frame>
+        <Frame x:Name="topFrame" Content="Frame" Width="1280" Height="100" HorizontalAlignment="Left" VerticalAlignment="Center" NavigationUIVisibility="Hidden">
+            <Frame.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <LinearGradientBrush.RelativeTransform>
+                        <TransformGroup>
+                            <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                            <SkewTransform CenterX="0.5" CenterY="0.5"/>
+                            <RotateTransform Angle="-135" CenterX="0.5" CenterY="0.5"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </LinearGradientBrush.RelativeTransform>
+                    <GradientStop Color="#FFF37D4C"/>
+                    <GradientStop Color="#FFC49F90" Offset="1"/>
+                </LinearGradientBrush>
+            </Frame.Background>
+        </Frame>
 
     </Canvas>
 </Window>
