@@ -59,7 +59,7 @@
                 <DataGridTemplateColumn Header="Fulfill">
                   <DataGridTemplateColumn.CellTemplate>
                     <DataTemplate>
-                      <Button x:Name="btnFulfill" Content="Fulfill" Click=""></Button>
+                      <Button x:Name="btnFulfill" Content="Fulfill" Click="btnFulfill_Click"></Button>
                     </DataTemplate>
                   </DataGridTemplateColumn.CellTemplate>
                   </DataGridTemplateColumn>

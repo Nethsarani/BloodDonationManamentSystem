@@ -22,34 +22,112 @@ namespace BloodDonationManamentSystem
     public partial class Accounts : Page
     {
       DB dB= new DB();
+        DataGridTextColumn a = new DataGridTextColumn();
+        DataGridTextColumn b = new DataGridTextColumn();
+        DataGridTextColumn c = new DataGridTextColumn();
+        DataGridTextColumn d = new DataGridTextColumn();
+        DataGridTextColumn f = new DataGridTextColumn();
+        DataGridTextColumn  g= new DataGridTextColumn();
+        DataGridTextColumn h = new DataGridTextColumn();
+        DataGridTextColumn i = new DataGridTextColumn();
+        DataGridTextColumn j = new DataGridTextColumn();
+        DataGridTextColumn k = new DataGridTextColumn();
+        
         public Accounts(string path, User user)
         {
             InitializeComponent();
-            dB.getAllHospitals();
+            
             dB.getAllDonationCamps();
-            dB.getAllDonors();
             dB.getAllUsers("Hospital");
             dB.getAllUsers("DonationCamp");
-            dB.getAllUsers("BloodBank");
-            grdAccounts.ItemsSource=;
+            //grdAccounts.ItemsSource=;
             
-            DataGridTextColumn a= new DataGridTextColumn();
-            a.Header="ID";
-            a.Binding="{Binding ID}"
-            DataGridTextColumn a= new DataGridTextColumn();
-            a.Header="ID";
-            a.Binding="{Binding ID}"
-            DataGridTextColumn a= new DataGridTextColumn();
-            a.Header="ID";
-            a.Binding="{Binding ID}"
-            DataGridTextColumn a= new DataGridTextColumn();
-            a.Header="ID";
-            a.Binding="{Binding ID}"
-            DataGridTextColumn a= new DataGridTextColumn();
-            a.Header="ID";
-            a.Binding="{Binding ID}"
             
-            grdAccounts.Columns.AddRange(a,b);
+            
+        }
+
+        private void tabDonors_ContextMenuOpening(object sender, ContextMenuEventArgs e)
+        {
+            
+            a.Header = "ID";
+            a.Binding = new Binding("ID");
+
+
+            b.Header = "Name";
+            b.Binding = new Binding("Name");
+
+
+            c.Header = "Address";
+            c.Binding = new Binding("Location.Address");
+
+
+            d.Header = "Contact No";
+            d.Binding = new Binding("ContactNo");
+
+
+            f.Header = "Email";
+            f.Binding = new Binding("Email");
+
+            g.Header = "Status";
+            g.Binding = new Binding("Status");
+
+            h.Header = "Reg No";
+            h.Binding = new Binding("RegNo");
+
+            i.Header = "Collecting";
+            i.Binding = new Binding("isCollecting");
+
+            j.Header = "Testing";
+            j.Binding = new Binding("isTesting");
+
+            k.Header = "Open Times";
+            k.Binding = new Binding("OpenTimes");
+
+            grdAccounts.Columns.Add(a);
+            grdAccounts.Columns.Add(b);
+            grdAccounts.Columns.Add(h);
+            grdAccounts.Columns.Add(c);
+            grdAccounts.Columns.Add(i);
+            grdAccounts.Columns.Add(j);
+            grdAccounts.Columns.Add(d);
+            grdAccounts.Columns.Add(f);
+            grdAccounts.Columns.Add(k);
+            grdAccounts.Columns.Add(g);
+            
+            grdAccounts.ItemsSource= dB.getAllHospitals();
+
+
+            a.Header = "ID";
+            a.Binding = new Binding("ID");
+
+
+            b.Header = "Name";
+            b.Binding = new Binding("Name");
+
+
+            c.Header = "Address";
+            c.Binding = new Binding("Location.Address");
+
+
+            d.Header = "Contact No";
+            d.Binding = new Binding("ContactNo");
+
+
+            f.Header = "Email";
+            f.Binding = new Binding("Email");
+
+            g.Header = "Status";
+            g.Binding = new Binding("Status");
+
+            grdAccounts.Columns.Add(a);
+            grdAccounts.Columns.Add(b);
+            grdAccounts.Columns.Add(c);
+            grdAccounts.Columns.Add(d);
+            grdAccounts.Columns.Add(f);
+            grdAccounts.Columns.Add(g);
+
+            grdAccounts.ItemsSource = dB.getAllHospitals();
+
         }
     }
 }

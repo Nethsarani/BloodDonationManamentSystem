@@ -10,7 +10,7 @@
 
     <Grid Background="White">
         <TabControl Margin="10,134,10,10">
-            <TabItem x:Name="tabDonors" Header="Donors">
+            <TabItem x:Name="tabDonors" Header="Donors" ContextMenuOpening="tabDonors_ContextMenuOpening">
                 <Grid Background="#FFE5E5E5"/>
             </TabItem>
             <TabItem x:Name="tabHospitals" Header="Hospitals">
