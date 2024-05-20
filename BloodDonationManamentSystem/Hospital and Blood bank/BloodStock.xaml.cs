@@ -58,7 +58,7 @@ namespace BloodDonationManamentSystem.Hospital_and_Blood_bank
             }
             if (cmbDistrict.SelectedIndex != -1)
             {
-                selectedDistrict = ((ComboBoxItem)cmbDistrict.SelectedItem).Content.ToString();
+                selectedDistrict = cmbDistrict.Text;
             }
             if (cmbType.SelectedIndex != -1 && cmbDistrict.SelectedIndex!=-1)
             {
