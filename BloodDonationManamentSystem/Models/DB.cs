@@ -815,6 +815,10 @@ namespace BloodDonationManamentSystem
                     x.Add(stk);
                 }
                 con.Close();
+                foreach(Request a in x)
+                {
+                  a.Hospital=getHospital(a.HosId);
+                }
             }
             catch
             {
