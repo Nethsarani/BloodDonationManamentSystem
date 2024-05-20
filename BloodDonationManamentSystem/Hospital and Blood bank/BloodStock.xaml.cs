@@ -28,6 +28,7 @@ namespace BloodDonationManamentSystem.Hospital_and_Blood_bank
         public Blood_Stock(string path, User user)
         {
             InitializeComponent();
+            cmbDistrict.ItemsSource=dB.getDistrict();
             refresh();
         }
 
@@ -35,6 +36,7 @@ namespace BloodDonationManamentSystem.Hospital_and_Blood_bank
         {
             list1=dB.getAllStock();
             grdStock.ItemsSource = list1;
+            
             cmbType.SelectedIndex = -1;
             cmbDistrict.SelectedIndex = -1;
         }
