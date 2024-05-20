@@ -1044,12 +1044,39 @@ namespace BloodDonationManamentSystem
 
         public void approveAppointment(Appointment appointment)
         {
-            DonationCamp x = new DonationCamp();
             try
             {
                 if (con.State == ConnectionState.Closed) { if (con.State == ConnectionState.Closed) { con.Open(); } }
                 command = new SqlCommand("UPDATE AppointmentTable SET Status='Active' WHERE ID=@id;", con);
                 SqlParameter sqlParam1 = command.Parameters.AddWithValue("@id", appointment.Id);
+                sqlParam1.DbType = DbType.Int32;
+                command.ExecuteNonQuery();
+                con.Close();
+            }
+            catch { }
+        }
+        
+        public void approveDonationCamp(DonationCamp camp)
+        {
+            try
+            {
+                if (con.State == ConnectionState.Closed) { if (con.State == ConnectionState.Closed) { con.Open(); } }
+                command = new SqlCommand("UPDATE DonationCampTable SET Status='Active' WHERE ID=@id;", con);
+                SqlParameter sqlParam1 = command.Parameters.AddWithValue("@id", camp.ID);
+                sqlParam1.DbType = DbType.Int32;
+                command.ExecuteNonQuery();
+                con.Close();
+            }
+            catch { }
+        }
+        
+        public void approveHospital(Hospital hos)
+        {
+            try
+            {
+                if (con.State == ConnectionState.Closed) { if (con.State == ConnectionState.Closed) { con.Open(); } }
+                command = new SqlCommand("UPDATE HospitalTable SET Status='Active' WHERE ID=@id;", con);
+                SqlParameter sqlParam1 = command.Parameters.AddWithValue("@id", hos.ID);
                 sqlParam1.DbType = DbType.Int32;
                 command.ExecuteNonQuery();
                 con.Close();
