@@ -48,7 +48,7 @@
         <Rectangle HorizontalAlignment="Left" Height="125" Margin="34,16,0,0" Stroke="Black" VerticalAlignment="Top" Width="929"/>
         <DataGrid x:Name="grdRequest" Margin="34,54,37,459" FrozenColumnCount="0" CanUserAddRows="False" CanUserDeleteRows="False" AutoGenerateColumns="False">
             <DataGrid.Columns>
-                <DataGridTextColumn HeaderStringFormat="" Header="ID" Binding="{Binding ID}"/>
+                <DataGridTextColumn HeaderStringFormat="" Header="ID" Binding="{Binding Id}"/>
                 <DataGridTextColumn Header="Hospital ID" Binding="{Binding Hospital.ID}"/>
                 <DataGridTextColumn Header="Hospital Name" Binding="{Binding Hospital.Name}"/>
                 <DataGridTextColumn Header="Location" Binding="{Binding Hospital.Location.Address}"/>
