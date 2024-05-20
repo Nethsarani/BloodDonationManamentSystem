@@ -136,5 +136,91 @@ namespace BloodDonationManamentSystem
 
         }
         
+        private void tabHospitalUsers_ContextMenuOpening(object sender, ContextMenuEventArgs e)
+        {
+            a.Header = "ID";
+            a.Binding = new Binding("Id");
+            
+            i.Header = "Hospital ID";
+            i.Binding = new Binding("placeID");
+
+            j.Header = "Hospital Name";
+            j.Binding = new Binding("hospital.Name");
+            
+            b.Header = "Name";
+            b.Binding = new Binding("Name");
+
+            c.Header = "NIC";
+            c.Binding = new Binding("Location.Address");
+
+            g.Header = "Position";
+            g.Binding = new Binding("Position");
+
+            d.Header = "Contact No";
+            d.Binding = new Binding("ContactNo");
+
+            f.Header = "Email";
+            f.Binding = new Binding("Email");
+
+            h.Header = "Privilages";
+            h.Binding = new Binding("Privilages");
+
+            
+            grdAccounts.Columns.Add(a);
+            grdAccounts.Columns.Add(i);
+            grdAccounts.Columns.Add(j);
+            grdAccounts.Columns.Add(b);
+            grdAccounts.Columns.Add(c);
+            grdAccounts.Columns.Add(g);
+            grdAccounts.Columns.Add(d);
+            grdAccounts.Columns.Add(f);
+            grdAccounts.Columns.Add(h);
+            
+            grdAccounts.ItemsSource = dB.getAllHospitalUsers();
+        }
+        
+        private void tabCampUsers_ContextMenuOpening(object sender, ContextMenuEventArgs e)
+        {
+            a.Header = "ID";
+            a.Binding = new Binding("Id");
+            
+            i.Header = "Donation Camp ID";
+            i.Binding = new Binding("placeID");
+
+            j.Header = "Donation Camp Name";
+            j.Binding = new Binding("donationCamp.Name");
+            
+            b.Header = "Name";
+            b.Binding = new Binding("Name");
+
+            c.Header = "NIC";
+            c.Binding = new Binding("Location.Address");
+
+            g.Header = "Position";
+            g.Binding = new Binding("Position");
+
+            d.Header = "Contact No";
+            d.Binding = new Binding("ContactNo");
+
+            f.Header = "Email";
+            f.Binding = new Binding("Email");
+
+            h.Header = "Privilages";
+            h.Binding = new Binding("Privilages");
+
+            
+            grdAccounts.Columns.Add(a);
+            grdAccounts.Columns.Add(i);
+            grdAccounts.Columns.Add(j);
+            grdAccounts.Columns.Add(b);
+            grdAccounts.Columns.Add(c);
+            grdAccounts.Columns.Add(g);
+            grdAccounts.Columns.Add(d);
+            grdAccounts.Columns.Add(f);
+            grdAccounts.Columns.Add(h);
+            
+            grdAccounts.ItemsSource = dB.getAllCampUsers();
+        }
+        
     }
 }
