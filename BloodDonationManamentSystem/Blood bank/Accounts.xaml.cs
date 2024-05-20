@@ -37,19 +37,13 @@ namespace BloodDonationManamentSystem
         {
             InitializeComponent();
             
-            dB.getAllDonationCamps();
-            dB.getAllUsers("Hospital");
-            dB.getAllUsers("DonationCamp");
-            //grdAccounts.ItemsSource=;
-            
             
             
         }
 
-        private void tabHospitals_ContextMenuOpening(object sender, ContextMenuEventArgs e)
+        private void btnHospital_Checked(object sender, RoutedEventArgs e)
         {
-            
-            a.Header = "ID";
+          a.Header = "ID";
             a.Binding = new Binding("ID");
 
             b.Header = "Name";
@@ -91,9 +85,99 @@ namespace BloodDonationManamentSystem
             grdAccounts.Columns.Add(g);
           
             grdAccounts.ItemsSource= dB.getAllHospitals();
+
         }
-        
-        private void tabDonationCamps_ContextMenuOpening(object sender, ContextMenuEventArgs e)
+
+        private void btnHospitalUser_Checked(object sender, RoutedEventArgs e)
+        {
+          a.Header = "ID";
+            a.Binding = new Binding("Id");
+            
+            i.Header = "Hospital ID";
+            i.Binding = new Binding("placeID");
+
+            j.Header = "Hospital Name";
+            j.Binding = new Binding("hospital.Name");
+            
+            b.Header = "Name";
+            b.Binding = new Binding("Name");
+
+            c.Header = "NIC";
+            c.Binding = new Binding("Location.Address");
+
+            g.Header = "Position";
+            g.Binding = new Binding("Position");
+
+            d.Header = "Contact No";
+            d.Binding = new Binding("ContactNo");
+
+            f.Header = "Email";
+            f.Binding = new Binding("Email");
+
+            h.Header = "Privilages";
+            h.Binding = new Binding("Privilages");
+
+            
+            grdAccounts.Columns.Add(a);
+            grdAccounts.Columns.Add(i);
+            grdAccounts.Columns.Add(j);
+            grdAccounts.Columns.Add(b);
+            grdAccounts.Columns.Add(c);
+            grdAccounts.Columns.Add(g);
+            grdAccounts.Columns.Add(d);
+            grdAccounts.Columns.Add(f);
+            grdAccounts.Columns.Add(h);
+            
+            grdAccounts.ItemsSource = dB.getAllUsers("Hospital");
+
+        }
+
+        private void btnCampUser_Checked(object sender, RoutedEventArgs e)
+        {
+          a.Header = "ID";
+            a.Binding = new Binding("Id");
+            
+            i.Header = "Donation Camp ID";
+            i.Binding = new Binding("placeID");
+
+            j.Header = "Donation Camp Name";
+            j.Binding = new Binding("donationCamp.Name");
+            
+            b.Header = "Name";
+            b.Binding = new Binding("Name");
+
+            c.Header = "NIC";
+            c.Binding = new Binding("Location.Address");
+
+            g.Header = "Position";
+            g.Binding = new Binding("Position");
+
+            d.Header = "Contact No";
+            d.Binding = new Binding("ContactNo");
+
+            f.Header = "Email";
+            f.Binding = new Binding("Email");
+
+            h.Header = "Privilages";
+            h.Binding = new Binding("Privilages");
+
+            
+            grdAccounts.Columns.Add(a);
+            grdAccounts.Columns.Add(i);
+            grdAccounts.Columns.Add(j);
+            grdAccounts.Columns.Add(b);
+            grdAccounts.Columns.Add(c);
+            grdAccounts.Columns.Add(g);
+            grdAccounts.Columns.Add(d);
+            grdAccounts.Columns.Add(f);
+            grdAccounts.Columns.Add(h);
+            
+            grdAccounts.ItemsSource = dB.getAllUsers("DonationCamp");
+
+        }
+
+       
+        private void btnCamp_Checked(object sender, RoutedEventArgs e)
         {
           a.Header = "ID";
             a.Binding = new Binding("ID");
@@ -134,112 +218,6 @@ namespace BloodDonationManamentSystem
 
             grdAccounts.ItemsSource = dB.getAllDonationCamps();
 
-        }
-        
-        private void tabHospitalUsers_ContextMenuOpening(object sender, ContextMenuEventArgs e)
-        {
-            a.Header = "ID";
-            a.Binding = new Binding("Id");
-            
-            i.Header = "Hospital ID";
-            i.Binding = new Binding("placeID");
-
-            j.Header = "Hospital Name";
-            j.Binding = new Binding("hospital.Name");
-            
-            b.Header = "Name";
-            b.Binding = new Binding("Name");
-
-            c.Header = "NIC";
-            c.Binding = new Binding("Location.Address");
-
-            g.Header = "Position";
-            g.Binding = new Binding("Position");
-
-            d.Header = "Contact No";
-            d.Binding = new Binding("ContactNo");
-
-            f.Header = "Email";
-            f.Binding = new Binding("Email");
-
-            h.Header = "Privilages";
-            h.Binding = new Binding("Privilages");
-
-            
-            grdAccounts.Columns.Add(a);
-            grdAccounts.Columns.Add(i);
-            grdAccounts.Columns.Add(j);
-            grdAccounts.Columns.Add(b);
-            grdAccounts.Columns.Add(c);
-            grdAccounts.Columns.Add(g);
-            grdAccounts.Columns.Add(d);
-            grdAccounts.Columns.Add(f);
-            grdAccounts.Columns.Add(h);
-            
-            grdAccounts.ItemsSource = dB.getAllUsers("Hospital");
-        }
-        
-        private void tabCampUsers_ContextMenuOpening(object sender, ContextMenuEventArgs e)
-        {
-            a.Header = "ID";
-            a.Binding = new Binding("Id");
-            
-            i.Header = "Donation Camp ID";
-            i.Binding = new Binding("placeID");
-
-            j.Header = "Donation Camp Name";
-            j.Binding = new Binding("donationCamp.Name");
-            
-            b.Header = "Name";
-            b.Binding = new Binding("Name");
-
-            c.Header = "NIC";
-            c.Binding = new Binding("Location.Address");
-
-            g.Header = "Position";
-            g.Binding = new Binding("Position");
-
-            d.Header = "Contact No";
-            d.Binding = new Binding("ContactNo");
-
-            f.Header = "Email";
-            f.Binding = new Binding("Email");
-
-            h.Header = "Privilages";
-            h.Binding = new Binding("Privilages");
-
-            
-            grdAccounts.Columns.Add(a);
-            grdAccounts.Columns.Add(i);
-            grdAccounts.Columns.Add(j);
-            grdAccounts.Columns.Add(b);
-            grdAccounts.Columns.Add(c);
-            grdAccounts.Columns.Add(g);
-            grdAccounts.Columns.Add(d);
-            grdAccounts.Columns.Add(f);
-            grdAccounts.Columns.Add(h);
-            
-            grdAccounts.ItemsSource = dB.getAllUsers("DonationCamp");
-        }
-
-        private void btnHospital_Checked(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void btnHospitalUser_Checked(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void btnCampUser_Checked(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-       
-        private void btnCamp_Checked(object sender, RoutedEventArgs e)
-        {
 
         }
     }
