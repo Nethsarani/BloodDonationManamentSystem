@@ -221,6 +221,26 @@ namespace BloodDonationManamentSystem
             
             grdAccounts.ItemsSource = dB.getAllUsers("DonationCamp");
         }
-        
+
+        private void btnHospital_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnHospitalUser_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnCampUser_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+       
+        private void btnCamp_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

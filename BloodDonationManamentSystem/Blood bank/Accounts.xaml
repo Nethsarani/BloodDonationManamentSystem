@@ -9,10 +9,10 @@
       Title="Accounts">
 
     <Grid Background="White">
-      <RadioButton x:Name="btnHospital" Content="Hospital" Checked="tabHospitals_ContextMenuOpening"></RadioButton>
-      <RadioButton x:Name="btnHospitalUser" Content="Hospital Users" Checked="tabDonationCamps_ContextMenuOpening"></RadioButton>
-      <RadioButton x:Name="btnCamp" Content="Donation Camp" Checked="tabHospitalUsers_ContextMenuOpening"></RadioButton>
-      <RadioButton x:Name="btnCampUser" Content="Donation Camp Users" Checked="tabCampUsers_ContextMenuOpening"></RadioButton>
+      <RadioButton x:Name="btnHospital" Content="Hospital" Checked="btnHospital_Checked"/>
+        <RadioButton x:Name="btnHospitalUser" Content="Hospital Users" Checked="btnHospitalUser_Checked"/>
+        <RadioButton x:Name="btnCamp" Content="Donation Camp" Checked="btnCamp_Checked"/>
+        <RadioButton x:Name="btnCampUser" Content="Donation Camp Users" Checked="btnCampUser_Checked_1"/>
         <TabControl Margin="10,134,10,10">
             <TabItem x:Name="tabHospitals" Header="Hospitals">
                 <Grid Background="#FFE5E5E5"/>
