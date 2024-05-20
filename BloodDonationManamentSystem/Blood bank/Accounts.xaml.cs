@@ -21,9 +21,35 @@ namespace BloodDonationManamentSystem
     /// </summary>
     public partial class Accounts : Page
     {
+      DB dB= new DB();
         public Accounts(string path, User user)
         {
             InitializeComponent();
+            dB.getAllHospitals();
+            dB.getAllDonationCamps();
+            dB.getAllDonors();
+            dB.getAllUsers("Hospital");
+            dB.getAllUsers("DonationCamp");
+            dB.getAllUsers("BloodBank");
+            grdAccounts.ItemsSource=;
+            
+            DataGridTextColumn a= new DataGridTextColumn();
+            a.Header="ID";
+            a.Binding="{Binding ID}"
+            DataGridTextColumn a= new DataGridTextColumn();
+            a.Header="ID";
+            a.Binding="{Binding ID}"
+            DataGridTextColumn a= new DataGridTextColumn();
+            a.Header="ID";
+            a.Binding="{Binding ID}"
+            DataGridTextColumn a= new DataGridTextColumn();
+            a.Header="ID";
+            a.Binding="{Binding ID}"
+            DataGridTextColumn a= new DataGridTextColumn();
+            a.Header="ID";
+            a.Binding="{Binding ID}"
+            
+            grdAccounts.Columns.AddRange(a,b);
         }
     }
 }
