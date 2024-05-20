@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Xml.Linq;
 
 namespace BloodDonationManamentSystem
 {
@@ -22,6 +23,9 @@ namespace BloodDonationManamentSystem
     /// </summary>
     public partial class DonorMap : Page
     {
+        String ur1 = AppDomain.CurrentDomain.BaseDirectory;
+        String ur2;
+        String sURL = AppDomain.CurrentDomain.BaseDirectory + "html/map.html";
         DB dB=new DB();
         List<Donor> list1 = new List<Donor>();
         List<Donor> list2 = new List<Donor>();
@@ -31,7 +35,9 @@ namespace BloodDonationManamentSystem
         public DonorMap(string path, User user)
         {
             InitializeComponent();
-            
+            ur1 = ur1.Remove(ur1.Length - 10);
+            ur2=ur1+ "html/map.html";
+            //MessageBox.Show(ur2);
             if (path=="Camp")
             {
                 DonationCampUser loggedUser= (DonationCampUser)user;
@@ -46,6 +52,10 @@ namespace BloodDonationManamentSystem
             win = (MainWindow)Window.GetWindow(this);
             Path= path;
             User = user;
+            
+            Uri uri = new Uri(ur2);
+            webBrowser1.Navigate(uri);
+            Map();
 
         }
 
@@ -87,5 +97,60 @@ namespace BloodDonationManamentSystem
             Donor don = (sender as Button).DataContext as Donor;
             win.contentFrame.Navigate(new DonorApproval(don,Path,User));
         }
+
+        
+        private void Directions()
+        {
+            if (File.Exists(ur1 + "html\\map_route.html"))
+            {
+                StreamReader objReader = new StreamReader(ur1 + "html\\map_route.html");
+                string line = "";
+                line = objReader.ReadToEnd();
+                objReader.Close();
+                line = line.Replace("[origin]", coordinates);
+                line = line.Replace("[destination]", "25.520581, -103.50607");
+                StreamWriter page = File.CreateText(ur1 + "html\\map1.html");
+                page.Write(line);
+                page.Close();
+                Uri uri = new Uri(ur1 + "html\\map1.html");
+                webBrowser1.Navigate(uri);
+                //datos.Width = 140;
+            }
+        }
+
+        string locName;
+        string direct;
+        string coordinates= ((MainWindow)Application.Current.MainWindow).coordinates.Content.ToString();
+
+        private void Map()
+        {
+            Uri uri = new Uri(ur2);
+            webBrowser1.Navigate(uri);
+        }
+        private void setupObjectForScripting(object sender, RoutedEventArgs e)
+        {
+            ((WebBrowser)sender).ObjectForScripting = new HtmlInteropInternalTestClass();
+        }
+        private void Marker()
+        {
+            webBrowser1.InvokeScript("addMarker", new Object[] { 25.520581, -103.40607, locName, "client1.png", direct });
+        }
+
+        private void grdDonors_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
+
+    // Object used for communication from JS -> WPF
+    [System.Runtime.InteropServices.ComVisibleAttribute(true)]
+    public class HtmlInteropInternalTestClass
+    {
+        public void endDragMarkerCS(Decimal Lat, Decimal Lng)
+        {
+            ((MainWindow)Application.Current.MainWindow).coordinates.Content = Math.Round(Lat, 5) + "," + Math.Round(Lng, 5);
+        }
+    }
+
+
 }

@@ -16,7 +16,7 @@
             <ComboBoxItem Content="O-"/>
         </ComboBox>
         <Button x:Name="btnFind" Content="Search" HorizontalAlignment="Left" Margin="899,73,0,0" VerticalAlignment="Top" Click="btnFind_Click"/>
-        <DataGrid x:Name="grdDonors" Margin="10,398,10,10" AutoGenerateColumns="False">
+        <DataGrid x:Name="grdDonors" Margin="10,398,10,10" AutoGenerateColumns="False" SelectionChanged="grdDonors_SelectionChanged">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID" Binding="{Binding ID}"/>
                 <DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
@@ -38,7 +38,9 @@
             </DataGrid.Columns>
         </DataGrid>
         <Label Content="Donors" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" FontSize="36"/>
-        <Grid Margin="10,104,10,224" Background="#FFE9CDCD"/>
+        <Grid Margin="10,104,10,224" Background="#FFE9CDCD">
+            <WebBrowser Loaded="setupObjectForScripting" Name="webBrowser1" />
+        </Grid>
         <Button x:Name="btnReset" Content="Reset" HorizontalAlignment="Left" Margin="947,73,0,0" VerticalAlignment="Top" Click="btnReset_Click"/>
 
     </Grid>

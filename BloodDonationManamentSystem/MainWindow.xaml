@@ -7,6 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="720" Width="1280">
     <Canvas x:Name="mainGrid" Width="1280" Height="700">
+        <Label x:Name="coordinates" Content="25.520581, -103.50607" Visibility="Hidden"></Label>
         <Frame x:Name="mainFrame" Content="Frame" Height="700" Panel.ZIndex="1" Navigated="mainFrame_Navigated" Width="1280" NavigationUIVisibility="Hidden">
             <Frame.Background>
                 <ImageBrush ImageSource="/Picture1.jpg"/>
