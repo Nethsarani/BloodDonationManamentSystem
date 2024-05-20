@@ -38,7 +38,7 @@ namespace BloodDonationManamentSystem
         private void btnApprove_Click(object sender, RoutedEventArgs e)
         {
           DonationCamp camp=(sender as Button).DataContext as DonationCamp;
-          dB.approveDonationCamps(camp);
+            dB.approveDonationCamp(camp);
           refresh();
         }
         

@@ -811,7 +811,7 @@ namespace BloodDonationManamentSystem
                     stk.Date = reader.GetDateTime(2);
                     stk.BloodType = reader.GetString(3);
                     stk.BloodAmount = reader.GetDecimal(4);
-                    stk.Status = reader.GetString(5);
+                   // stk.Status = reader.GetString(5);//
                     x.Add(stk);
                 }
                 con.Close();
