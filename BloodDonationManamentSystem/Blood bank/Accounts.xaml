@@ -13,11 +13,11 @@
             <TabItem x:Name="tabHospitals" Header="Hospitals">
                 <Grid Background="#FFE5E5E5"/>
             </TabItem>
-             <TabItem x:Name="tabHospitalUsers" Header="Hospitals">
+             <TabItem x:Name="tabHospitalUsers" Header="Hospital Users">
                 <Grid Background="#FFE5E5E5"/>
             </TabItem>
             <TabItem x:Name="tabCamps" Header="Donation Camps"/>
-             <TabItem x:Name="tabCampUsers" Header="Hospitals">
+             <TabItem x:Name="tabCampUsers" Header="Donation Camp Users">
                 <Grid Background="#FFE5E5E5"/>
             </TabItem>
         </TabControl>
